@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">BlackersPro</string>
+    <string name="adduseritaccess">Add/Update details of Information Technology Student .Only accesed by Principal/Admin/Hod and Faculty of Inforamtion Technology</string>
+    <string name="addusercseaccess">Add/Update details of Computer Sciernce and Engnering Student .Only accesed by Principal/Admin/Hod and Faculty of Computer Sciernce and Engnering</string>
+    <string name="adduserelecsaccess">Add/Update details of Electronics Student. Only accesed by Principal/Admin/Hod and Faculty of Electronics</string>
+    <string name="addusermechautoaccess">Add/Update details of Mechanical Automobiles Student. Only accesed by Principal/Admin/Hod and Faculty of Mechanical Automobiles</string>
+    <string name="addusercivilaccess">Add/Update details of Civil Student. Only accesed by Principal/Admin/Hod and Faculty of Civil</string>
+    <string name="addusermechproaccess">Add/Update details of Mechanical Production Student .Only accesed by Principal/Admin/Hod and Faculty of Mechanical Production</string>
+    <string name="information_technolgy">Information Technolgy</string>
+    <string name="csebranch">Computer Sciernce and Engnering</string>
+    <string name="elecsbranch">Electronics</string>
+    <string name="mechautobranch">Mechanical Automobiles</string>
+    <string name="civilbranch">Civil</string>
+    <string name="mechprobranch">Mechanical Production</string>
+
+</resources>

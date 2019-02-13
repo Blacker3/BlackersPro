@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "123628018470",
+    "firebase_url": "https://blackerspro.firebaseio.com",
+    "project_id": "blackerspro",
+    "storage_bucket": "blackerspro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123628018470:android:e049716bd694de09",
+        "android_client_info": {
+          "package_name": "com.example.neeraj.blackerspro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "123628018470-m8bj8fi63l8lrjf40hb3bj0msiqv8558.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.neeraj.blackerspro",
+            "certificate_hash": "03e8bff7b4c0adce386a82f0da1b5d44d4e38ace"
+          }
+        },
+        {
+          "client_id": "123628018470-dp8e5f8s2s64pg2417a0o3ghel106gl2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiwUVnrWxHitNxUCrKl_EKob-shN_V7eU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "123628018470-dp8e5f8s2s64pg2417a0o3ghel106gl2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

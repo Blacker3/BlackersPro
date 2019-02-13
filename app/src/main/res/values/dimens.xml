@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="drawable_padding">5dp</dimen>
+    <dimen name="card_view_height">220dp</dimen>
+
+    <dimen name="card_view_width">160dp</dimen>
+    <dimen name="card_second_text">10sp</dimen>
+    <dimen name="card_view_elevation">20dp</dimen>
+</resources>

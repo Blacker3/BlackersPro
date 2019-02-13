@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/texttap"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="40dp"
+                    android:id="@+id/profileProgressbar"
+                    android:visibility="gone"
+                    style="@style/Widget.AppCompat.ProgressBar"
+                    android:elevation="@dimen/card_view_elevation" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tap on camera to choose profile picture"
+                    android:textAlignment="center"
+                    android:id="@+id/texttap"
+
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/hod_profile_image_IV"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerInParent="true"
+                    android:paddingTop="3dp"
+                    android:layout_below="@+id/texttap"
+                    android:src="@drawable/ic_add_a_photo" />
+
+                <Button
+                    android:id="@+id/uploadBT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/hod_profile_image_IV"
+                    android:layout_marginStart="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="#fcfcfc"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:text="Upload"
+                    android:textAllCaps="false" />
+
+
+            </RelativeLayout>>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/fnameET"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:hint="First name "
+                        android:inputType="text" />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    >
+
+                    <EditText
+                        android:id="@+id/lnameET"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:hint="Last name "
+                        android:inputType="text" />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+
+                <Spinner
+                    android:id="@+id/facultySP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+
+                >
+
+                <EditText
+                    android:id="@+id/dateET"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:digits="0123456789"
+                    android:hint="Date Of Birth(dd/mm/yy) double tap to open" />
+
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal">
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1">
+
+                    <EditText
+                        android:id="@+id/mobileET"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:hint="Mobile Number"
+                        android:inputType="number" />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+
+                >
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    >
+
+                    <EditText
+                        android:id="@+id/emailET"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:hint="Email Address"
+                        android:inputType="textEmailAddress" />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <RadioGroup
+                android:id="@+id/genderRG"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:text="Gender:"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+                <RadioButton
+                    android:id="@+id/maleRB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Male" />
+
+
+                <RadioButton
+                    android:id="@+id/femaleRB"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Female" />
+
+
+            </RadioGroup>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <Button
+                    android:id="@+id/addhodBT"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="17dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:text="Add Hod"
+                    android:layout_centerInParent="true"
+                    android:textColor="#fcfcfc" />
+
+
+                <ProgressBar
+                    android:id="@+id/progressbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/card_view_elevation"
+                    android:visibility="gone"
+                    android:layout_centerInParent="true" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>
