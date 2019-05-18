@@ -18,10 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:background="#333"
+            android:background="@color/colorAccent"
             android:padding="12dp"
             android:text="Message from the Desk of Principal"
-            android:textColor="#2ee9d4"
+            android:textColor="@color/backgroundcolor"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -61,15 +61,14 @@
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-
     android:orientation="vertical">
-            <ImageView
-                android:layout_width="130dp"
-                android:layout_height="130dp"
-                android:src="@mipmap/principal"
-                android:scaleType="fitXY"
-                android:background="#ddd"
-                />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/hod_profile_image_IV"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
+        android:paddingTop="3dp"
+        android:layout_gravity="center"
+        android:src="@drawable/principal" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -77,7 +76,7 @@
                     android:layout_marginTop="4dp"
                     android:textStyle="bold"
                     android:textSize="18dp"
-                    android:textColor="#111"
+                    android:textColor="@color/black_overlay"
                     android:layout_gravity="center"
                     />
 

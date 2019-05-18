@@ -1,54 +1,29 @@
-package com.example.neeraj.blackerspro.addusers;
+package com.example.neeraj.blackerspro.timelineWork.messagesWroking;
 
-public class GetHodInfo {
-    private String name;
-    private String email;
-    private String dob;
-    private String phone;
-    private String branch;
-    private String profileimageurl;
-    private String gender;
+public class Messages {
+    String msg;
+    String time;
+    String username;
 
-    public GetHodInfo() {
+    public Messages() {
 // firestore needed a empty constructor
     }
 
-    public GetHodInfo(String name, String email, String dob, String phone, String branch, String profileimageurl, String gender) {
-        this.name = name;
-        this.email = email;
-        this.dob = dob;
-        this.phone = phone;
-        this.branch = branch;
-        this.profileimageurl = profileimageurl;
-        this.gender = gender;
+    public Messages(String msg, String time, String username) {
+        this.msg = msg;
+        this.time = time;
+        this.username = username;
     }
 
-
-    public String getName() {
-        return name;
+    public String getMsg() {
+        return msg;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTime() {
+        return time;
     }
 
-    public String getDob() {
-        return dob;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getBranch() {
-        return branch;
-    }
-
-    public String getProfileimageurl() {
-        return profileimageurl;
-    }
-
-    public String getGender() {
-        return gender;
+    public String getUsername() {
+        return username;
     }
 }

@@ -6,23 +6,23 @@ public class GetHodInfo {
     private String dob;
     private String phone;
     private String branch;
-   private String profileimageurl;
-   private String gender;
+    private String profileimageurl;
+    private String gender;
 
-public GetHodInfo ()
-{
+    public GetHodInfo() {
+// firestore needed a empty constructor
+    }
 
-}
-
-    public GetHodInfo(String name, String email, String dob, String phone, String branch,String profileimageurl,String gender) {
+    public GetHodInfo(String name, String email, String dob, String phone, String branch, String profileimageurl, String gender) {
         this.name = name;
         this.email = email;
         this.dob = dob;
         this.phone = phone;
         this.branch = branch;
         this.profileimageurl = profileimageurl;
-        this.gender=gender;
+        this.gender = gender;
     }
+
 
     public String getName() {
         return name;
@@ -43,11 +43,12 @@ public GetHodInfo ()
     public String getBranch() {
         return branch;
     }
-    public String getProfileimageurl(){
-    return profileimageurl;
+
+    public String getProfileimageurl() {
+        return profileimageurl;
     }
-    public String getGender()
-    {
+
+    public String getGender() {
         return gender;
     }
 }

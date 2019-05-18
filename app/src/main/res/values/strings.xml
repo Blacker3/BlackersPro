@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BlackersPro</string>
+    <string name="app_name">Gpd Diary</string>
     <string name="adduseritaccess">Add/Update details of Information Technology Student .Only accesed by Principal/Admin/Hod and Faculty of Inforamtion Technology</string>
     <string name="addusercseaccess">Add/Update details of Computer Sciernce and Engnering Student .Only accesed by Principal/Admin/Hod and Faculty of Computer Sciernce and Engnering</string>
     <string name="adduserelecsaccess">Add/Update details of Electronics Student. Only accesed by Principal/Admin/Hod and Faculty of Electronics</string>
@@ -12,5 +12,35 @@
     <string name="mechautobranch">Mechanical Automobiles</string>
     <string name="civilbranch">Civil</string>
     <string name="mechprobranch">Mechanical Production</string>
+    <string name="title_activity_home_navigation_drawer">home_navigation_drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="verficationEmail">Verfication mail is sent to your email account please verify your email by clicking the link given!</string>
+    <string name="title_activity_navigation">navigationActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="welcome">Welcome to Government Polytechnic Dehradun</string>
+    <string name="info">The Government Polytechnic Dehradun was established in 1982. GPD is recognized by the UBTER and approved by the Government of India. Government Polytechnic Dehradun offers quality education to the students from North India.</string>
+    <string name="achivement">As ranked by Competition Success Review- October 2009, Government Polytechnic Dehradun ranked amongst top Best Polytechnic Colleges of North India.
+    Goverment polytehnic dehradun offers you many engineering and pharmacy diploma courses.This is one  of the best place to read and build your dreams true.In Insitute there is a enviorment which encourge you to read.
+    Goverment polytechnic dehradun have one of the best facilities.
+    </string>
+    <string name="principal">It gives me immense pleasure in welcoming you all to a Government Polytechnic, Dehradun.
+        It is an institute where discipline and punctuality with conducive environment provide quality education development in frontier areas of engineering and technology.
+       </string>
+    <string name="princi">We, the faculty, staff and administration at GPD work for producing technologically superior and ethically strong engineers for the country and the world with a purpose to serve the society and mankind. With strong team work we would achieve technological excellence in a highly competitive environment around us. With this I invite you to visit Government Polytechnic Pithuwala to experience the difference.</string>
+    <string name="hostel">Our collage hostel consist of three floors and each floor have more than 8 rooms .There are many plants and trees are planted which looks very beautifull.</string>
+    <string name="hostel1">The hostel is seprated for girls and boys .The facilities for students are there like neat and clean bathrooms, electricity,water and meal etc. The timing of meal is fixed for all students. It is very important that hostel enviornment is suitable for students through which they can easily servive there. It takes some rules for those students who live in hostel and they must follow them.They were free to walk inside the hostel campus under a certain time of period. The teachers are also lived there for examin the students because it is the responsibility of teachers to take care of them. There are full security for students no one can go and come without permission.The students can easily live there without any fair.</string>
+    <string name="campus">Our campus consist of different things which make an suitable enviornment for all staff and students. All facilities are there for teachers and students for there betterment.</string>
+    <string name="campus1">Our campus surrounded by trees ,flowers and plants which make it more attractive and beautifull.The big grounds are there for students where they play different types of sports on sports day.The neat-clean and huge classrooms, library,labs,washrooms are there . The E-learning labs are also there for students where they learn with different collage\'s students at a same time through technology and learn different things. There is also an workshop here for students where they learn how manufactured different things by cutting , welding, electric welding, hammering etc. Apart from the studies there was an hall where all the cultural activities are held . There are all facilities avaliable for students according to their interest. Through which they can easily increase there ability not only in studies but also in academics.</string>
+    <string name="library">The library facility are avaliable for students from where they issue books according to their needs. There are all types of books are avaliable for students.</string>
+    <string name="library1">For issuing the book from library they must follow some rules like they must have their library card wirth them. The students also went library for studies because the enviornment is suitable for them. All the work are manage by the teacher whom is alloted for managing the all data of issuing books,demanding for new books, renewing books etc. through which the data is managable. It is the duty of students that they should return the books to the library teacher according to certain time of period. The library day is alloted for each branch like monday is for civil branch , tuesday is for mechanical , wednesday is for electronics,thuresday is for CS/IT etc. Through which all students are able to issue books and the records are maintained.The library is very important for students because buying books for all subject is not able to all .Through library all students are able to issue books and gain knowleadge at any subjects.</string>
+    <string name="sports">Sports are the part of an institution where the students shows their ability aside from studies. It is necessary that they should be good in academic activites also.</string>
+    <string name="sports1">Sports day are held every year in our collage .In that day manystudents takes parts in different types of sports and show their ability and the winners are awarded by Chief guest and principal sir by gaving them trophies and certificates . All type of indoor and outdoor games are played in that day. Apart from sports cultural activities are also held in that day like Dance compitions, Singing Compitions , Rangoli making , Banner making etc. Different collages students are went in our collage that day for representing their collages. There collage are denoted or represented by their flags . It shows the abilities of students apart from studies.</string>
+
 
 </resources>

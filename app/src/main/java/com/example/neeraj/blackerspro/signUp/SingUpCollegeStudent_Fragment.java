@@ -1,4 +1,4 @@
-package com.example.neeraj.blackerspro.singUp;
+package com.example.neeraj.blackerspro.signUp;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -149,8 +149,8 @@ public class SingUpCollegeStudent_Fragment extends Fragment {
 
     protected void getEditText() {
 
-        fname = fnameET.getText().toString().trim();
-        lname = lnameET.getText().toString().trim();
+        fname = fnameET.getText().toString().toUpperCase().trim();
+        lname = lnameET.getText().toString().toUpperCase().trim();
         roll_number = roll_numberET.getText().toString().trim();
         mobile = mobileET.getText().toString().trim();
         alter_mobile = alter_mobileET.getText().toString().trim();

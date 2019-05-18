@@ -1,5 +1,6 @@
 package com.example.neeraj.blackerspro.addusers;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -26,6 +27,7 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 public class AddHodMainActivity extends AppCompatActivity {
+    private Context context = AddHodMainActivity.this;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference head_of_departments_ref = db.collection("User Details").document("Head Of Departments Documents").collection("Head Of Departments");
     private AddHodAdapter addHodAdapter;
@@ -36,23 +38,31 @@ public class AddHodMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Add Hods");
         setContentView(R.layout.showhod);
         FloatingActionButton floatBT = findViewById(R.id.floatBT);
         firebaseStorage = FirebaseStorage.getInstance();
         progressbarRV = findViewById(R.id.progressbarRV);
+
+        // Add hod floating action button
         floatBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(AddHodMainActivity.this, AddHodDetailsActivity.class));
+                startActivity(new Intent(context, AddHodDetailsActivity.class));
             }
         });
+
         setUpRecyclerView();
+
+        //Interface of Add hod adapter
         addHodAdapter.setOnItemClickListner(new AddHodAdapter.onItemclickListener() {
             @Override
             public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
-                Toast.makeText(AddHodMainActivity.this, documentSnapshot.getReference() + "   " + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, position + "Item Clicked ", Toast.LENGTH_SHORT).show();
             }
+
+            //Delete iterface  predefined method
 
             @Override
             public void onPopMenuDelete(int position) {
@@ -63,28 +73,30 @@ public class AddHodMainActivity extends AppCompatActivity {
                 storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Toast.makeText(AddHodMainActivity.this, " Image and data Deleted!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, " Image and data Deleted!", Toast.LENGTH_SHORT).show();
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(AddHodMainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
             }
 
+
+            //Update iterface  predefined method
             @Override
             public void onPopMenuUpdate(DocumentSnapshot documentSnapshot, int position) {
 
-                Intent intent = new Intent(AddHodMainActivity.this, MainActivity.class);
+                Intent intent = new Intent(context, UpdateHodDetails.class);
                 getHodInfo = addHodAdapter.getItem(position);
+                String url = getHodInfo.getProfileimageurl();
+                StorageReference storageReference = firebaseStorage.getReferenceFromUrl(url);
 
-                //  intent.putExtra("document snapshot ",documentSnapshot.getId());
-                Toast.makeText(AddHodMainActivity.this, documentSnapshot.getReference().getFirestore().toString()
-                        , Toast.LENGTH_SHORT).show();
-                documentSnapshot.getReference().getFirestore().toString();
+                String collectioRef = documentSnapshot.getReference().getPath();
+                intent.putExtra("document snapshot", collectioRef);
                 startActivity(intent);
 
             }
@@ -92,6 +104,8 @@ public class AddHodMainActivity extends AppCompatActivity {
 
 
     }
+
+    //Setting recyceler view
 
     private void setUpRecyclerView() {
 
@@ -104,6 +118,8 @@ public class AddHodMainActivity extends AppCompatActivity {
         show_hod_RV.setLayoutManager(new LinearLayoutManager(this));
         show_hod_RV.setAdapter(addHodAdapter);
 
+
+
     }
 
 
@@ -111,7 +127,7 @@ public class AddHodMainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         addHodAdapter.startListening();
-        progressbarRV.setVisibility(View.INVISIBLE);
+        progressbarRV.setVisibility(View.GONE);
     }
 
 
@@ -119,7 +135,8 @@ public class AddHodMainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         addHodAdapter.stopListening();
-        progressbarRV.setVisibility(View.INVISIBLE);
+        progressbarRV.setVisibility(View.GONE);
+
 
     }
 

@@ -14,6 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#ececec"
             android:orientation="vertical">
 
             <LinearLayout
@@ -30,7 +31,6 @@
                     android:layout_height="@dimen/card_view_height"
                     android:layout_margin="10dp"
                     android:clickable="true"
-                    app:cardElevation="@dimen/card_view_elevation"
                     android:background="@color/cardbackgroundcolor"
                     android:foreground="?android:attr/selectableItemBackground">
 
@@ -44,9 +44,8 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:layout_marginTop="10dp"
-                            android:background="@drawable/circularbg"
                             android:padding="10dp"
-                            android:src="@drawable/attendance" />
+                            android:src="@drawable/it" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -83,7 +82,6 @@
                     android:layout_width="@dimen/card_view_width"
                     android:layout_height="@dimen/card_view_height"
                     android:layout_margin="10dp"
-                    app:cardElevation="@dimen/card_view_elevation"
                     android:background="@color/cardbackgroundcolor"
 
                     android:clickable="true"
@@ -99,10 +97,9 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:layout_marginTop="10dp"
-                            android:background="@drawable/circularbg"
                             android:padding="10dp"
 
-                            android:src="@drawable/copy" />
+                            android:src="@drawable/cse" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -153,7 +150,6 @@
                     android:clickable="true"
                     android:background="@color/cardbackgroundcolor"
 
-                    app:cardElevation="@dimen/card_view_elevation"
 
                     android:foreground="?android:attr/selectableItemBackground">
 
@@ -167,10 +163,9 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:layout_marginTop="10dp"
-                            android:background="@drawable/circularbg"
                             android:padding="10dp"
 
-                            android:src="@drawable/copy" />
+                            android:src="@drawable/electronics" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -209,7 +204,6 @@
                     android:layout_height="@dimen/card_view_height"
                     android:layout_margin="10dp"
                     android:clickable="true"
-                    app:cardElevation="@dimen/card_view_elevation"
                     android:background="@color/cardbackgroundcolor"
 
                     android:foreground="?android:attr/selectableItemBackground">
@@ -224,10 +218,8 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:layout_marginTop="10dp"
-                            android:background="@drawable/circularbg"
                             android:padding="10dp"
-
-                            android:src="@drawable/copy" />
+                            android:src="@drawable/automobile" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -276,7 +268,6 @@
                     android:clickable="true"
                     android:background="@color/cardbackgroundcolor"
 
-                    app:cardElevation="@dimen/card_view_elevation"
                     android:foreground="?android:attr/selectableItemBackground">
 
                     <LinearLayout
@@ -289,9 +280,8 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:layout_marginTop="10dp"
-                            android:background="@drawable/circularbg"
                             android:padding="10dp"
-                            android:src="@drawable/attendance" />
+                            android:src="@drawable/civill" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -329,7 +319,6 @@
                     android:layout_height="@dimen/card_view_height"
                     android:layout_margin="10dp"
                     android:clickable="true"
-                    app:cardElevation="@dimen/card_view_elevation"
                     android:background="@color/cardbackgroundcolor"
 
                     android:foreground="?android:attr/selectableItemBackground">
@@ -344,10 +333,9 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:layout_marginTop="10dp"
-                            android:background="@drawable/circularbg"
                             android:padding="10dp"
 
-                            android:src="@drawable/copy" />
+                            android:src="@drawable/production" />
 
                         <TextView
                             android:layout_width="wrap_content"

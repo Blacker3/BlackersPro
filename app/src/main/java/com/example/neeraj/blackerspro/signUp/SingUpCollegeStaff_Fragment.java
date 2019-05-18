@@ -1,4 +1,4 @@
-package com.example.neeraj.blackerspro.singUp;
+package com.example.neeraj.blackerspro.signUp;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -21,13 +21,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.neeraj.blackerspro.R;
+import com.example.neeraj.blackerspro.addusers.AddHodMainActivity;
 import com.example.neeraj.blackerspro.addusers.GetHodInfo;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.CollectionReference;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -41,13 +48,14 @@ public class SingUpCollegeStaff_Fragment extends Fragment {
     private ProgressBar progressbar;
     private String name, fname, lname, mobile, alter_mobile, email, password, confirm_password, date, usertype, address;
     private String databaseCollection = "", branch = "";
-    private String fire_name, fire_email, fire_date;
+    private String fire_name, fire_email, fire_date, fire_mobile;
     private String userregAR[] = {"select your user type ", "Principal", "Information Technolgy hod", "Computer Science and Engnering hod", "Electronics hod", "Mechanical Automobiles hod", "Civil hod", "Mechanical Production hod", "Lecturer", "College Staff"};
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private int spinnerCount = 0;
     private HashMap<String, String> hashMap = new HashMap<>();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private DocumentReference userDetails_document_ref;
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private GetHodInfo getHodInfo = new GetHodInfo();
 
     public SingUpCollegeStaff_Fragment() {
@@ -88,6 +96,7 @@ public class SingUpCollegeStaff_Fragment extends Fragment {
     }
 
     //user type slection using spinner
+
     private void userSelection() {
 
 
@@ -163,8 +172,8 @@ public class SingUpCollegeStaff_Fragment extends Fragment {
 
     protected void getEditText() {
 
-        fname = fnameET.getText().toString().trim();
-        lname = lnameET.getText().toString().trim();
+        fname = fnameET.getText().toString().toUpperCase().trim();
+        lname = lnameET.getText().toString().toUpperCase().trim();
         mobile = mobileET.getText().toString().trim();
         alter_mobile = alter_mobileET.getText().toString().trim();
         email = emailET.getText().toString().trim();
@@ -172,7 +181,7 @@ public class SingUpCollegeStaff_Fragment extends Fragment {
         password = passwordET.getText().toString().trim();
         confirm_password = confirm_passwordET.getText().toString().trim();
         date = dateET.getText().toString().trim();
-        name = fname + lname.toUpperCase();
+        name = fname + " " + lname;
     }
 
 
@@ -289,6 +298,8 @@ public class SingUpCollegeStaff_Fragment extends Fragment {
             return;
         }
 
+        firestoreData();
+
 
     }
 
@@ -307,8 +318,12 @@ public class SingUpCollegeStaff_Fragment extends Fragment {
 
     //Getting data from database
     private void firestoreData() {
+
+
         // Head of departments details submitting
-        if (usertype.equals(userregAR[2])) {
+
+
+        if (usertype != null && usertype.equals(userregAR[2]) || usertype.equals(userregAR[3]) || usertype.equals(userregAR[4]) || usertype.equals(userregAR[5]) || usertype.equals(userregAR[6]) || usertype.equals(userregAR[7])) {
             databaseCollection = "Head Of Departments";
             userDetails_document_ref = db.document("User Details" + "/" + databaseCollection + " Documents" + "/" + databaseCollection + "/" + usertype);
             userDetails_document_ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -320,12 +335,47 @@ public class SingUpCollegeStaff_Fragment extends Fragment {
                     fire_name = getHodInfo.getName();
                     fire_date = getHodInfo.getDob();
                     fire_email = getHodInfo.getEmail();
+                    fire_mobile = getHodInfo.getPhone();
+
                     getEditText();
-                    validateFields();
-                    if (name.equals(fire_name) && date.equals(fire_date) && email.equals(fire_email)) {
+
+                    if (name.equalsIgnoreCase(fire_name) && date.equals(fire_date) && email.equals(fire_email) && mobile.equals(fire_mobile)) {
+
+                        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    hashMap.put("address",address);
+                                    hashMap.put("alter_mobile_number",alter_mobile);
+                                    userDetails_document_ref.set(hashMap, SetOptions.merge());
+                                    Toast.makeText(getContext(), "Registered succesfully", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getContext(), Login.class);
+                                    startActivity(intent);
+
+
+                                } else {
+                                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                                        Toast.makeText(getContext(), "You are already registered", Toast.LENGTH_SHORT).show();
+
+                                    } else {
+                                        Toast.makeText(getContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
                         Toast.makeText(getContext(), "Submited succesfully", Toast.LENGTH_SHORT).show();
+
+                        OnvisiblityBtn();
+
                     } else {
-                        Toast.makeText(getContext(), "We  don,t find such details in our database for more info please contact to Principal/Admin", Toast.LENGTH_LONG).show();
+                        OnvisiblityBtn();
+                        Toast.makeText(getContext(), "We  don,t find such details in our database for more info please contact to Principal/Admin.", Toast.LENGTH_LONG).show();
                     }
 
                 }
@@ -337,6 +387,73 @@ public class SingUpCollegeStaff_Fragment extends Fragment {
             });
         }
 
+        // Lecture and college staff
+
+      else  if (usertype != null &&usertype.equals(userregAR[8])|| usertype.equals(userregAR[9])) {
+            databaseCollection = "College Staff";
+            userDetails_document_ref = db.document("User Details" + "/" + databaseCollection + " Documents" + "/" + databaseCollection + "/" + usertype);
+            userDetails_document_ref.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                    getHodInfo = documentSnapshot.toObject(GetHodInfo.class);
+
+                    fire_name = getHodInfo.getName();
+                    fire_date = getHodInfo.getDob();
+                    fire_email = getHodInfo.getEmail();
+                    fire_mobile = getHodInfo.getPhone();
+
+                    getEditText();
+
+                    if (name.equalsIgnoreCase(fire_name) && date.equals(fire_date) && email.equals(fire_email) && mobile.equals(fire_mobile)) {
+
+                        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    hashMap.put("address",address);
+                                    hashMap.put("alter_mobile_number",alter_mobile);
+                                    userDetails_document_ref.set(hashMap, SetOptions.merge());
+                                    Toast.makeText(getContext(), "Registered succesfully", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getContext(), Login.class);
+                                    startActivity(intent);
+
+
+                                } else {
+                                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                                        Toast.makeText(getContext(), "You are already registered", Toast.LENGTH_SHORT).show();
+
+                                    } else {
+                                        Toast.makeText(getContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        Toast.makeText(getContext(), "Submited succesfully", Toast.LENGTH_SHORT).show();
+
+                        OnvisiblityBtn();
+
+                    } else {
+                        OnvisiblityBtn();
+                        Toast.makeText(getContext(), "We  don,t find such details in our database for more info please contact to Principal/Admin.", Toast.LENGTH_LONG).show();
+                    }
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                }
+            });
+        }
+
+
     }
 
 
@@ -346,7 +463,7 @@ public class SingUpCollegeStaff_Fragment extends Fragment {
         sign_upBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firestoreData();
+                validateFields();
             }
         });
 

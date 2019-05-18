@@ -28,8 +28,8 @@
         <android.support.v7.widget.CardView
             android:layout_width="@dimen/card_view_width"
             android:layout_height="@dimen/card_view_height"
-            app:cardElevation="@dimen/card_view_elevation"
             android:layout_margin="10dp"
+            android:id="@+id/addhodCardView"
             android:background="@color/cardbackgroundcolor"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground">
@@ -43,9 +43,8 @@
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:background="@drawable/circularbg"
                     android:padding="10dp"
-                    android:src="@drawable/attendance" />
+                    android:src="@drawable/user" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -77,8 +76,8 @@
         <android.support.v7.widget.CardView
             android:layout_width="@dimen/card_view_width"
             android:layout_height="@dimen/card_view_height"
-            app:cardElevation="@dimen/card_view_elevation"
             android:layout_margin="10dp"
+            android:id="@+id/addfacultyCardView"
             android:clickable="true"
             android:background="@color/cardbackgroundcolor"
 
@@ -93,9 +92,8 @@
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:background="@drawable/circularbg"
                     android:padding="10dp"
-                    android:src="@drawable/copy" />
+                    android:src="@drawable/teacher" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -138,9 +136,9 @@
         <android.support.v7.widget.CardView
             android:layout_width="@dimen/card_view_width"
             android:layout_height="@dimen/card_view_height"
-            app:cardElevation="@dimen/card_view_elevation"
             android:layout_margin="10dp"
             android:clickable="true"
+            android:id="@+id/addcollegestaffCardView"
             android:layout_marginTop="60dp"
             android:background="@color/cardbackgroundcolor"
 
@@ -155,9 +153,8 @@
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:background="@drawable/circularbg"
                     android:padding="10dp"
-                    android:src="@drawable/copy" />
+                    android:src="@drawable/staff" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -190,9 +187,9 @@
         <android.support.v7.widget.CardView
             android:layout_width="@dimen/card_view_width"
             android:layout_height="@dimen/card_view_height"
-            app:cardElevation="@dimen/card_view_elevation"
             android:layout_margin="10dp"
             android:clickable="true"
+            android:id="@+id/addstudentCardView"
             android:background="@color/cardbackgroundcolor"
 
             android:foreground="?android:attr/selectableItemBackground">
@@ -206,9 +203,8 @@
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:background="@drawable/circularbg"
                     android:padding="10dp"
-                    android:src="@drawable/copy" />
+                    android:src="@drawable/student" />
 
                 <TextView
                     android:layout_width="wrap_content"

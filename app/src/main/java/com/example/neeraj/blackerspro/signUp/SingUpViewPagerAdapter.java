@@ -1,4 +1,4 @@
-package com.example.neeraj.blackerspro.singUp;
+package com.example.neeraj.blackerspro.signUp;
 
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;

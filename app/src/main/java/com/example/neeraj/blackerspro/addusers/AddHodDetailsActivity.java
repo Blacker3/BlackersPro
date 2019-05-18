@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -50,13 +51,16 @@ import java.util.HashMap;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AddHodDetailsActivity extends AppCompatActivity {
-
+    private Context context;
+    private EditText editText;
+    private Intent intent;
+    private CircleImageView circleImageView;
     private EditText fnameET;
     private EditText lnameET;
     private EditText mobileET;
     private EditText emailET;
     private EditText dateET;
-    CircleImageView hod_profile_image_IV;
+    private CircleImageView hod_profile_image_IV;
     private Spinner facultySP;
     private Button addhodBT;
     private RadioButton maleRB, femaleRB;
@@ -77,7 +81,7 @@ public class AddHodDetailsActivity extends AppCompatActivity {
     private String gender;
     private String proifle_url;
     Uri uriHodProfileImage;
-    int count=1;
+    int count = 1;
     private HashMap<String, String> hashMap = new HashMap<>();
 
     private String branchAR[] = {"select your branch ", "Information Technolgy", "Computer Science and Engnering", "Electronics", "Mechanical Automobiles", "Civil", "Mechanical Production"};
@@ -93,56 +97,50 @@ public class AddHodDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.addhod);
-        fnameET = findViewById(R.id.fnameET);
-        lnameET = findViewById(R.id.lnameET);
-        mobileET = findViewById(R.id.mobileET);
-        emailET = findViewById(R.id.emailET);
-        dateET = findViewById(R.id.dateET);
-        facultySP = findViewById(R.id.facultySP);
-        uploadBT = findViewById(R.id.uploadBT);
-        addhodBT = findViewById(R.id.addhodBT);
-        progressBar = findViewById(R.id.progressbar);
-        hod_profile_image_IV = findViewById(R.id.hod_profile_image_IV);
-        maleRB = findViewById(R.id.maleRB);
-        femaleRB = findViewById(R.id.femaleRB);
-        genderRG = findViewById(R.id.genderRG);
-        profileProgressbar = findViewById(R.id.profileProgressbar);
-        userSelection();
-        dateofbirth();
+        findInit();
+        userSelection(AddHodDetailsActivity.this);
+        dateofbirth(AddHodDetailsActivity.this, dateET);
         genderSelection();
-
+//profile is image uloading button  click work
         uploadBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                hod_profile_image_IV.setClickable(false);
+
                 if (spinnerCount == 0) {
                     Toast.makeText(AddHodDetailsActivity.this, "Select a branch !", Toast.LENGTH_LONG).show();
-                    hod_profile_image_IV.setClickable(true);
+
                     return;
                 }
-                if(uploadTask!=null&&uploadTask.isInProgress())
-                {
+                if (uploadTask != null && uploadTask.isInProgress()) {
+                    hod_profile_image_IV.setClickable(false);
                     Toast.makeText(AddHodDetailsActivity.this, "Profile image is uploading......", Toast.LENGTH_SHORT).show();
-                }else{
-                uploadFile();
-                ++count;
-                    hod_profile_image_IV.setClickable(true);
+                } else {
+                    uploadFile();
 
                 }
             }
         });
+
+        // Hod info uplaoding to firestore
+
         addhodBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if(count!=1){
-                   validateFields();
-               }
-                else {
+                if (count == 1) {
+                    Toast.makeText(AddHodDetailsActivity.this, "Upload a image!", Toast.LENGTH_SHORT).show();
 
-                   Toast.makeText(AddHodDetailsActivity.this, "Upload a image!", Toast.LENGTH_SHORT).show();
-               }
+                } else if (uploadTask != null && uploadTask.isInProgress()) {
+                    hod_profile_image_IV.setClickable(false);
+                    Toast.makeText(AddHodDetailsActivity.this, "Profile image is uploading......", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    validateFields();
+
+                }
             }
         });
+
+        // hod profile image selector
 
         hod_profile_image_IV.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,10 +152,13 @@ public class AddHodDetailsActivity extends AppCompatActivity {
     }
 
 
-    private void userSelection() {
+    // Branch selectionn
+
+    private void userSelection(Context mcontext) {
+        context = mcontext;
 
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(AddHodDetailsActivity.this, android.R.layout.simple_spinner_dropdown_item, branchAR);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_dropdown_item, branchAR);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         facultySP.setAdapter(arrayAdapter);
@@ -169,7 +170,7 @@ public class AddHodDetailsActivity extends AppCompatActivity {
                 facultySP.setSelection(spinnerCount);
 
                 if (spinnerCount != 0) {
-                    branch = adapterView.getItemAtPosition(i).toString();
+                    branch = adapterView.getItemAtPosition(i).toString().trim();
                 }
 
             }
@@ -184,6 +185,7 @@ public class AddHodDetailsActivity extends AppCompatActivity {
 
     }
 
+    // on activity destroyed spinner work
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -193,12 +195,13 @@ public class AddHodDetailsActivity extends AppCompatActivity {
     }
 
 
+    //Date of birth  selection
 
+    public void dateofbirth(Context mcontext, EditText meditText) {
 
-    private void dateofbirth() {
-
-
-        dateET.setOnClickListener(new View.OnClickListener() {
+        context = mcontext;
+        editText = meditText;
+        editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -206,7 +209,7 @@ public class AddHodDetailsActivity extends AppCompatActivity {
                 int year = cal.get(Calendar.YEAR);
                 int month = cal.get(Calendar.MONTH);
                 int day = cal.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog dialog = new DatePickerDialog(AddHodDetailsActivity.this, android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener, year, month, day);
+                DatePickerDialog dialog = new DatePickerDialog(context, android.R.style.Theme_Holo_Light_Dialog_MinWidth, mDateSetListener, year, month, day);
                 dialog.getWindow();
                 dialog.show();
             }
@@ -217,13 +220,35 @@ public class AddHodDetailsActivity extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month++;
                 String date = day + "/" + month + "/" + year;
-                dateET.setText(date);
+                editText.setText(date);
+
+
             }
         };
 
 
     }
 
+    private void findInit() {
+
+        fnameET = findViewById(R.id.fnameET);
+        lnameET = findViewById(R.id.lnameET);
+        mobileET = findViewById(R.id.mobileET);
+        emailET = findViewById(R.id.emailET);
+        dateET = findViewById(R.id.dateET);
+        facultySP = findViewById(R.id.facultySP);
+        uploadBT = findViewById(R.id.uploadBT);
+        addhodBT = findViewById(R.id.addhodBT);
+        progressBar = findViewById(R.id.progressbar);
+        hod_profile_image_IV = findViewById(R.id.hod_profile_image_IV);
+        maleRB = findViewById(R.id.maleRB);
+        femaleRB = findViewById(R.id.femaleRB);
+        genderRG = findViewById(R.id.genderRG);
+        profileProgressbar = findViewById(R.id.profileProgressbar);
+
+    }
+
+    // fields validation check
 
     private void validateFields() {
 
@@ -242,7 +267,6 @@ public class AddHodDetailsActivity extends AppCompatActivity {
             lnameET.setError("Last name is required");
             lnameET.requestFocus();
             OnvisiblityBtn();
-
             return;
         }
 
@@ -287,6 +311,9 @@ public class AddHodDetailsActivity extends AppCompatActivity {
             OnvisiblityBtn();
             return;
         }
+
+        // Data is adding to hash map
+
         name = fname + " " + lname;
         hashMap.put("email", email);
         hashMap.put("name", name);
@@ -294,6 +321,7 @@ public class AddHodDetailsActivity extends AppCompatActivity {
         hashMap.put("date", date);
         hashMap.put("profile", proifle_url);
         hashMap.put("gender", gender);
+        hod_profile_image_IV.setClickable(false);
         head_of_departments_ref.document(branch + " hod").set(new GetHodInfo(name, email, date, mobile, branch, proifle_url, gender))
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -316,6 +344,8 @@ public class AddHodDetailsActivity extends AppCompatActivity {
 
     }
 
+    // Getting data from edit text fields
+
     private void getEditText() {
         email = emailET.getText().toString().trim();
         fname = fnameET.getText().toString().toUpperCase().trim();
@@ -325,7 +355,7 @@ public class AddHodDetailsActivity extends AppCompatActivity {
 
 
     }
-
+    //Progress bar visibilty methods
     private void OnvisiblityBtn() {
         progressBar.setVisibility(View.GONE);
         addhodBT.setVisibility(View.VISIBLE);
@@ -337,8 +367,9 @@ public class AddHodDetailsActivity extends AppCompatActivity {
         addhodBT.setVisibility(View.GONE);
     }
 
-    private void openFileChooser() {
+    // Opening images for uploading
 
+    protected void openFileChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -355,7 +386,7 @@ public class AddHodDetailsActivity extends AppCompatActivity {
         }
     }
 
-    private String getFileExtension(Uri uri) {
+    protected String getFileExtension(Uri uri) {
         ContentResolver contentResolver = getContentResolver();
         MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
@@ -365,13 +396,17 @@ public class AddHodDetailsActivity extends AppCompatActivity {
 
     private void uploadFile() {
         if (uriHodProfileImage != null) {
-            hod_profile_image_IV.setClickable(false);
+
             profileProgressbar.setVisibility(View.VISIBLE);
+            //file name and extension coding
             final StorageReference fileReference = storageReference.child(branch + "_hod_profile_image." + getFileExtension(uriHodProfileImage));
-            uploadTask =  fileReference.putFile(uriHodProfileImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+
+            //uploading  working
+
+            uploadTask = fileReference.putFile(uriHodProfileImage).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                   fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
                             proifle_url = uri.toString();
@@ -380,6 +415,7 @@ public class AddHodDetailsActivity extends AppCompatActivity {
 
                         }
                     });
+                    ++count;
                     Toast.makeText(AddHodDetailsActivity.this, "Profile Image uploaded", Toast.LENGTH_SHORT).show();
 
 
@@ -396,7 +432,7 @@ public class AddHodDetailsActivity extends AppCompatActivity {
                 public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                     profileProgressbar.setVisibility(View.VISIBLE);
                     double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-
+                    hod_profile_image_IV.setClickable(false);
                     profileProgressbar.setProgress((int) progress);
                 }
             });
@@ -405,6 +441,8 @@ public class AddHodDetailsActivity extends AppCompatActivity {
         }
 
     }
+
+    // male female selection
 
     private void genderSelection() {
 

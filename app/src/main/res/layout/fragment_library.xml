@@ -32,10 +32,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:background="#333"
+                    android:background="@color/colorAccent"
                     android:padding="15dp"
                     android:text="Library"
-                    android:textColor="#f90"
+                    android:textColor="#fcfcfc"
                     android:textSize="22dp"
                     android:textStyle="bold" />
 
@@ -68,8 +68,7 @@
                             android:layout_width="130dp"
                             android:layout_height="140dp"
                             android:layout_marginRight="10dp"
-                            android:background="#40000000"
-                            android:src="@drawable/ic_launcher_background" />
+                            android:src="@drawable/library" />
 
 
                     </LinearLayout>

@@ -4,129 +4,150 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_account_detail"
     android:layout_width="match_parent"
-    android:background="#ffffff"
     android:layout_height="match_parent"
+    android:background="@color/backgroundcolor"
     android:orientation="vertical">
 
-
-    <android.support.v7.widget.CardView
+    <ScrollView
         android:layout_width="match_parent"
-        app:cardElevation="10dp"
-        android:background="#ffffff"
-        app:cardCornerRadius="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="40dp"
-        android:layout_height="match_parent">
-<ScrollView
-    android:layout_width="match_parent"
-    android:scrollbars="none"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="30dp"
-        android:layout_centerHorizontal="true"
-        >
-
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:src="@mipmap/logo"
-            />
-
-        <TextView
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="20dp"
-            android:elevation="10dp"
-            android:padding="5dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="sans-serif"
-            android:textStyle="bold"
-            android:text="Welcome to Goverment Polytechnic Dehradun"
-            />
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginTop="60dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            >
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
-            <android.support.design.widget.TextInputLayout
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                >
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:hint="Email/Roll Number"
-                    android:id="@+id/signEmailET"
-                    android:inputType="text" />
+                android:orientation="vertical">
 
 
-            </android.support.design.widget.TextInputLayout>
+                <ImageView
+                    android:id="@+id/logoIV"
+                    android:layout_width="100dp"
+                    android:scaleType="fitXY"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/logo"
 
-
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:passwordToggleEnabled="true"
-                android:layout_marginTop="30dp"
-                >
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:hint="Password"
-                    android:id="@+id/signPassET"
-                    android:inputType="textPassword" />
-
-
-            </android.support.design.widget.TextInputLayout>
-
-                <Button
-                    android:layout_width="120dp"
-                    android:layout_height="40dp"
-                    android:text="Sign In"
-                    android:layout_gravity="center"
-                    android:textColor="#fcfcfc"
-                    android:id="@+id/signinBT"
-                    android:background="@drawable/buttonbg"
-                    android:layout_marginTop="30dp"
                     />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Sign Up For An Account?"
-                android:textSize="16dp"
-                android:textColor="#888"
-                android:id="@+id/loginTV"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="20dp"
-                />
+                <TextView
+                    android:id="@+id/welocme_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/logoIV"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="40dp"
+
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:gravity="center"
+                    android:text="Welcome to Goverment Polytechnic Dehradun"
+                    android:textColor="@color/icon"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/welocme_text"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        >
+
+                        <EditText
+                            android:id="@+id/login_emailET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Email"
+                            android:inputType="textEmailAddress" />
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true">
+
+                        <EditText
+                            android:id="@+id/login_passET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:hint="Password"
+                            android:inputType="textPassword" />
+
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/loginBT"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="30dp"
+                            android:background="@color/transfarentbuttonbg"
+                            android:text="Sign In"
+                            android:textColor="#fcfcfc" />
+
+
+
+                        <ProgressBar
+                            android:id="@+id/progressbar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="30dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/loginTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/loginBT"
+                            android:layout_marginTop="40dp"
+                            android:gravity="center"
+                            android:text="Sign Up For An Account!"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="16dp" />
+                        <TextView
+                            android:id="@+id/forget_passwordTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/loginTV"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="30dp"
+                            android:gravity="center"
+                            android:text="Forget password"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="16dp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
 
 
         </LinearLayout>
-
-    </LinearLayout>
-
-</ScrollView>
-
-    </android.support.v7.widget.CardView>
+    </ScrollView>
 
 
 </RelativeLayout>

@@ -33,10 +33,10 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_marginTop="10dp"
-                    android:background="#333"
+                    android:background="@color/colorAccent"
                     android:padding="15dp"
                     android:text="@string/welcome"
-                    android:textColor="#f90"
+                    android:textColor="#fcfcfc"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -65,16 +65,16 @@
                             android:layout_marginRight="10dp"
                             android:layout_weight="1"
                             android:text="@string/info"
-                            android:textColor="#222"
+
                             android:textSize="17dp" />
 
-                        <ImageView
-                            android:layout_width="130dp"
-                            android:layout_height="140dp"
-                            android:layout_marginRight="10dp"
-                            android:scaleType="fitXY"
-                            android:background="#40000000"
-                            android:src="@mipmap/govtpoly" />
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/hod_profile_image_IV"
+                            android:layout_width="80dp"
+                            android:layout_height="70dp"
+                            android:paddingTop="3dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/principal" />
 
 
                     </LinearLayout>
@@ -86,7 +86,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="4dp"
                         android:textSize="17dp"
-                        android:textColor="#222"
+
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="10dp"
                         android:text="@string/achivement"

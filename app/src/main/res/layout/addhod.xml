@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,22 +25,22 @@
                 android:orientation="vertical">
 
                 <ProgressBar
+                    android:id="@+id/profileProgressbar"
+                    style="@style/Widget.AppCompat.ProgressBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/texttap"
                     android:layout_centerInParent="true"
                     android:layout_marginTop="40dp"
-                    android:id="@+id/profileProgressbar"
-                    android:visibility="gone"
-                    style="@style/Widget.AppCompat.ProgressBar"
-                    android:elevation="@dimen/card_view_elevation" />
+                    android:elevation="@dimen/card_view_elevation"
+                    android:visibility="gone" />
 
                 <TextView
+                    android:id="@+id/texttap"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Tap on camera to choose profile picture"
                     android:textAlignment="center"
-                    android:id="@+id/texttap"
 
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
@@ -47,29 +48,29 @@
                     android:id="@+id/hod_profile_image_IV"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:layout_below="@+id/texttap"
+                    android:layout_centerInParent="true"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_centerInParent="true"
-                    android:paddingTop="3dp"
-                    android:layout_below="@+id/texttap"
-                    android:src="@drawable/ic_add_a_photo" />
+                    android:src="@drawable/camera_icon" />
 
                 <Button
                     android:id="@+id/uploadBT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/hod_profile_image_IV"
-                    android:layout_marginStart="10dp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:textColor="#fcfcfc"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorPrimaryDark"
+                    android:background="@color/transfarentbuttonbg"
                     android:text="Upload"
-                    android:textAllCaps="false" />
+                    android:textAllCaps="false"
+                    android:textColor="#fcfcfc" />
 
 
-            </RelativeLayout>>
+            </RelativeLayout>
+
 
 
             <LinearLayout
@@ -91,7 +92,9 @@
                         android:id="@+id/fnameET"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
                         android:hint="First name "
+
                         android:inputType="text" />
 
 
@@ -109,7 +112,9 @@
                         android:id="@+id/lnameET"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
+                        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                         android:hint="Last name "
+
                         android:inputType="text" />
 
 
@@ -149,7 +154,7 @@
                     android:id="@+id/dateET"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:digits="0123456789"
+                    android:digits="0123456789/"
                     android:hint="Date Of Birth(dd/mm/yy) double tap to open" />
 
 
@@ -175,6 +180,7 @@
                         android:id="@+id/mobileET"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
+                        android:digits="1234567890"
                         android:hint="Mobile Number"
                         android:inputType="number" />
 
@@ -259,10 +265,10 @@
                     android:id="@+id/addhodBT"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="17dp"
-                    android:background="@color/colorPrimaryDark"
-                    android:text="Add Hod"
                     android:layout_centerInParent="true"
+                    android:layout_margin="17dp"
+                    android:background="@color/transfarentbuttonbg"
+                    android:text="Add Hod"
                     android:textColor="#fcfcfc" />
 
 
@@ -270,9 +276,9 @@
                     android:id="@+id/progressbar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
                     android:elevation="@dimen/card_view_elevation"
-                    android:visibility="gone"
-                    android:layout_centerInParent="true" />
+                    android:visibility="gone" />
 
             </RelativeLayout>
 
