@@ -1,0 +1,139 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Constants and Literals</h1>
+ 
+<p>The constants refer to fixed values that the program may not alter during its execution. These fixed values are also called literals. Constants can be of any of the basic data types like an integer constant, a floating constant, a character constant, or a string literal. There are also enumeration constants as well.</p>
+<p>The constants are treated just like regular variables except that their values cannot be modified after their definition.</p>
+<h2>Integer Literals</h2>
+<p>An integer literal can be a decimal, or hexadecimal constant. A prefix specifies the base or radix: 0x or 0X for hexadecimal, and there is no prefix id for decimal.</p>
+<p>An integer literal can also have a suffix that is a combination of U and L, for unsigned and long, respectively. The suffix can be uppercase or lowercase and can be in any order.</p>
+<p>Here are some examples of integer literals:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="lit">212</span>         <span class="com">/* Legal */</span>
+<span class="lit">215u</span>        <span class="com">/* Legal */</span>
+<span class="lit">0xFeeL</span>      <span class="com">/* Legal */</span></pre>
+<p>Following are other examples of various types of Integer literals:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="lit">85</span>         <span class="com">/* decimal */</span>
+<span class="lit">0x4b</span>       <span class="com">/* hexadecimal */</span>
+<span class="lit">30</span>         <span class="com">/* int */</span>
+<span class="lit">30u</span>        <span class="com">/* unsigned int */</span>
+<span class="lit">30l</span>        <span class="com">/* long */</span>
+<span class="lit">30ul</span>       <span class="com">/* unsigned long */</span></pre>
+<h2>Floating-point Literals</h2>
+<p>A floating-point literal has an integer part, a decimal point, a fractional part, and an exponent part. You can represent floating point literals either in decimal form or exponential form.</p>
+<p>Here are some examples of floating-point literals:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="lit">3.14159</span>       <span class="com">/* Legal */</span>
+<span class="lit">314159E-5F</span>    <span class="com">/* Legal */</span>
+<span class="lit">510E</span>          <span class="com">/* Illegal: incomplete exponent */</span>
+<span class="lit">210f</span>          <span class="com">/* Illegal: no decimal or exponent */</span>
+<span class="pun">.</span><span class="pln">e55          </span><span class="com">/* Illegal: missing integer or fraction */</span></pre>
+<p>While representing in decimal form, you must include the decimal point, the exponent, or both; and while representing using exponential form you must include the integer part, the fractional part, or both. The signed exponent is introduced by e or E.</p>
+<h2>Character Constants</h2>
+<p>Character literals are enclosed in single quotes. For example, 'x' and can be stored in a simple variable of char type. A character literal can be a plain character (such as 'x'), an escape sequence (such as '\t'), or a universal character (such as '\u02C0').</p>
+<p>There are certain characters in C# when they are preceded by a backslash. They have special meaning and they are used to represent like newline (\n) or tab (\t). Here, is a list of some of such escape sequence codes:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 25%;">Escape sequence</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td>\\</td>
+<td>\ character</td>
+</tr>
+<tr>
+<td>\'</td>
+<td>' character</td>
+</tr>
+<tr>
+<td>\"</td>
+<td>" character</td>
+</tr>
+<tr>
+<td>\?</td>
+<td>? character</td>
+</tr>
+<tr>
+<td>\a</td>
+<td>Alert or bell</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>Backspace</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>Form feed</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>Newline</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>Carriage return</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>Horizontal tab</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>Vertical tab</td>
+</tr>
+<tr>
+<td>\xhh . . .</td>
+<td>Hexadecimal number of one or more digits</td>
+</tr>
+</tbody>
+</table>
+<p>Following is the example to show few escape sequence characters:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">EscapeChar</span> 
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Hello\tWorld\n\n"</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Hello   World
+</pre>
+<h2>String Literals</h2>
+<p>String literals or constants are enclosed in double quotes "" or with @"". A string contains characters that are similar to character literals: plain characters, escape sequences, and universal characters.</p>
+<p>You can break a long line into multiple lines using string literals and separating the parts using whitespaces.</p>
+<p>Here are some examples of string literals. All the three forms are identical strings.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="str">"hello, dear"</span>
+<span class="str">"hello, \
+dear"</span>
+<span class="str">"hello, "</span> <span class="str">"d"</span> <span class="str">"ear"</span>
+<span class="pun">@</span><span class="str">"hello dear"</span></pre>
+<h2>Defining Constants</h2>
+<p>Constants are defined using the <strong>const</strong> keyword. Syntax for defining a constant is:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">const</span> <span class="str">&lt;data_type&gt;</span> <span class="str">&lt;constant_name&gt;</span> <span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span></pre>
+<p>The following program demonstrates defining and using a constant in your program:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">DeclaringConstants</span>
+<span class="pun">{</span>
+    <span class="kwd">class</span> <span class="typ">Program</span>
+    <span class="pun">{</span>
+        <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+        <span class="pun">{</span>
+            <span class="kwd">const</span> <span class="kwd">double</span><span class="pln"> pi </span><span class="pun">=</span> <span class="lit">3.14159</span><span class="pun">;</span>   
+            
+            <span class="com">// constant declaration </span>
+            <span class="kwd">double</span><span class="pln"> r</span><span class="pun">;</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Enter Radius: "</span><span class="pun">);</span><span class="pln">
+            r </span><span class="pun">=</span> <span class="typ">Convert</span><span class="pun">.</span><span class="typ">ToDouble</span><span class="pun">(</span><span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">());</span>
+            <span class="kwd">double</span><span class="pln"> areaCircle </span><span class="pun">=</span><span class="pln"> pi </span><span class="pun">*</span><span class="pln"> r </span><span class="pun">*</span><span class="pln"> r</span><span class="pun">;</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Radius: {0}, Area: {1}"</span><span class="pun">,</span><span class="pln"> r</span><span class="pun">,</span><span class="pln"> areaCircle</span><span class="pun">);</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+        <span class="pun">}</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Enter Radius: 
+3
+Radius: 3, Area: 28.27431
+</pre>

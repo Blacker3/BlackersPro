@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microprocessor 8086 Pin Configuration</title>
+<meta name="description" content="Microprocessor 8086 Pin Configuration - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+"HTML-CSS": {
+linebreaks: { automatic: true, width: "container" } 
+} 
+});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="author" content="tutorialspoint.com">
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>8086 was the first 16-bit microprocessor available in 40-pin DIP (Dual Inline Package) chip. Let us now discuss in detail the pin configuration of a 8086 Microprocessor.</p>
+<h2>8086 Pin Diagram</h2>
+<p>Here is the pin diagram of 8086 microprocessor &minus;</p>
+<img src="image\8086_pin_diagram.jpg" alt="8086 Pin Diagram">
+<p>Let us now discuss the signals in detail &minus;</p>
+<p><b>Power supply and frequency signals</b></p>
+<p>It uses 5V DC supply at V<sub>CC</sub> pin 40, and uses ground at V<sub>SS</sub> pin 1 and 20 for its operation.</p>
+<p><b>Clock signal</b></p>
+<p>Clock signal is provided through Pin-19. It provides timing to the processor for operations. Its frequency is different for different versions, i.e. 5MHz, 8MHz and 10MHz.</p>
+<p><b>Address/data bus</b></p>
+<p>AD0-AD15. These are 16 address/data bus. AD0-AD7 carries low order byte data and AD8AD15 carries higher order byte data. During the first clock cycle, it carries 16-bit address and after that it carries 16-bit data.</p>
+<p><b>Address/status bus</b></p>
+<p>A16-A19/S3-S6. These are the 4 address/status buses. During the first clock cycle, it carries 4-bit address and later it carries status signals.</p>
+<p><b>S7/BHE</b></p>
+<p>BHE stands for Bus High Enable. It is available at pin 34 and used to indicate the transfer of data using data bus D8-D15. This signal is low during the first clock cycle, thereafter it is active.</p>
+<p><b>Read(<i>$\overline{RD}$</i>)</b></p>
+<p>It is available at pin 32 and is used to read signal for Read operation.</p>
+<p><b>Ready</b></p>
+<p>It is available at pin 32. It is an acknowledgement signal from I/O devices that data is transferred. It is an active high signal. When it is high, it indicates that the device is ready to transfer data. When it is low, it indicates wait state.</p>
+<p><b>RESET</b></p>
+<p>It is available at pin 21 and is used to restart the execution. It causes the processor to immediately terminate its present activity. This signal is active high for the first 4 clock cycles to RESET the microprocessor.</p>
+<p><b>INTR</b></p>
+<p>It is available at pin 18. It is an interrupt request signal, which is sampled during the last clock cycle of each instruction to determine if the processor considered this as an interrupt or not.</p>
+<p><b>NMI</b></p>
+<p>It stands for non-maskable interrupt and is available at pin 17. It is an edge triggered input, which causes an interrupt request to the microprocessor.</p>
+<p>$\overline{TEST}$</p>
+<p>This signal is like wait state and is available at pin 23. When this signal is high, then the processor has to wait for IDLE state, else the execution continues.</p>
+<p><b>MN/<i>$\overline{MX}$</i></b></p>
+<p>It stands for Minimum/Maximum and is available at pin 33. It indicates what mode the processor is to operate in; when it is high, it works in the minimum mode and vice-aversa.</p>
+<p><b>INTA</b></p>
+<p>It is an interrupt acknowledgement signal and id available at pin 24. When the microprocessor receives this signal, it acknowledges the interrupt.</p>
+<p><b>ALE</b></p>
+<p>It stands for address enable latch and is available at pin 25. A positive pulse is generated each time the processor begins any operation. This signal indicates the availability of a valid address on the address/data lines.</p>
+<p><b>DEN</b></p>
+<p>It stands for Data Enable and is available at pin 26. It is used to enable Transreceiver 8286. The transreceiver is a device used to separate data from the address/data bus.</p>
+<p><b>DT/R</b></p>
+<p>It stands for Data Transmit/Receive signal and is available at pin 27. It decides the direction of data flow through the transreceiver. When it is high, data is transmitted out and vice-a-versa.</p>
+<p><b>M/IO</b></p>
+<p>This signal is used to distinguish between memory and I/O operations. When it is high, it indicates I/O operation and when it is low indicates the memory operation. It is available at pin 28.</p>
+<p><b>WR</b></p>
+<p>It stands for write signal and is available at pin 29. It is used to write the data into the memory or the output device depending on the status of M/IO signal.</p>
+<p><b>HLDA</b></p>
+<p>It stands for Hold Acknowledgement signal and is available at pin 30. This signal acknowledges the HOLD signal.</p>
+<p><b>HOLD</b></p>
+<p>This signal indicates to the processor that external devices are requesting to access the address/data buses. It is available at pin 31.</p>
+<p><b>QS<sub>1</sub> and QS<sub>0</sub></b></p>
+<p>These are queue status signals and are available at pin 24 and 25. These signals provide the status of instruction queue. Their conditions are shown in the following table &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th style="text-align:center;">QS<sub>0</sub></th>
+<th style="text-align:center;">QS<sub>1</sub></th>
+<th style="text-align:center;">Status</th>
+</tr>
+<tr>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">No operation</td>
+</tr>
+<tr>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">First byte of opcode from the queue</td>
+</tr>
+<tr>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">Empty the queue</td>
+</tr>
+<tr>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">Subsequent byte from the queue</td>
+</tr>
+</table>
+<p><b>S<sub>0</sub>, S<sub>1</sub>, S<sub>2</sub></b></p>
+<p>These are the status signals that provide the status of operation, which is used by the Bus Controller 8288 to generate memory &amp; I/O control signals. These are available at pin 26, 27, and 28. Following is the table showing their status &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th style="text-align:center;">S<sub>2</sub></th>
+<th style="text-align:center;">S<sub>1</sub></th>
+<th style="text-align:center;">S<sub>0</sub></th>
+<th style="text-align:center;">Status</th>
+</tr>
+<tr>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">Interrupt acknowledgement</td>
+</tr>
+<tr>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">I/O Read</td>
+</tr>
+<tr>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">I/O Write</td>
+</tr>
+<tr>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">Halt</td>
+</tr>
+<tr>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">Opcode fetch</td>
+</tr>
+<tr>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">Memory read</td>
+</tr>
+<tr>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">0</td>
+<td style="text-align:center;">Memory write</td>
+</tr>
+<tr>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">1</td>
+<td style="text-align:center;">Passive</td>
+</tr>
+</table>
+<p><b>LOCK</b></p>
+<p>When this signal is active, it indicates to the other processors not to ask the CPU to leave the system bus. It is activated using the LOCK prefix on any instruction and is available at pin 29.</p>
+<p><b>RQ/GT<sub>1</sub> and RQ/GT<sub>0</sub></b></p>
+<p>These are the Request/Grant signals used by the other processors requesting the CPU to release the system bus. When the signal is received by CPU, then it sends acknowledgment. RQ/GT<sub>0</sub> has a higher priority than RQ/GT<sub>1</sub>.</p>
+<hr>
+<br><br>
+</html>
+

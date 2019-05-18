@@ -1,0 +1,47 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Nested if Statements</h1>
+
+<p>It is always legal in C# to <strong>nest</strong> if-else statements, which means you can use one if or else if statement inside another if or else if statement(s).</p>
+<h2>Syntax</h2>
+<p>The syntax for a <strong>nested if</strong> statement is as follows:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">if</span><span class="pun">(</span><span class="pln"> boolean_expression </span><span class="lit">1</span><span class="pun">)</span>
+<span class="pun">{</span>
+   <span class="com">/* Executes when the boolean expression 1 is true */</span>
+   <span class="kwd">if</span><span class="pun">(</span><span class="pln">boolean_expression </span><span class="lit">2</span><span class="pun">)</span>
+   <span class="pun">{</span>
+      <span class="com">/* Executes when the boolean expression 2 is true */</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>You can nest <strong>else if...else</strong> in the similar way as you have nested <em>if</em> statement.</p>
+<h2>Example</h2>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">DecisionMaking</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="com">//* local variable definition */</span>
+         <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">100</span><span class="pun">;</span>
+         <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">200</span><span class="pun">;</span>
+         
+         <span class="com">/* check the boolean condition */</span>
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">==</span> <span class="lit">100</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="com">/* if condition is true then check the following */</span>
+            <span class="kwd">if</span> <span class="pun">(</span><span class="pln">b </span><span class="pun">==</span> <span class="lit">200</span><span class="pun">)</span>
+            <span class="pun">{</span>
+               <span class="com">/* if condition is true then print the following */</span>
+               <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Value of a is 100 and b is 200"</span><span class="pun">);</span>
+            <span class="pun">}</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Exact value of a is : {0}"</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Exact value of b is : {0}"</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Value of a is 100 and b is 200
+Exact value of a is : 100
+Exact value of b is : 200
+</pre>

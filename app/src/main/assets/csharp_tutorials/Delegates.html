@@ -1,0 +1,161 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Delegates</h1>
+
+<p>C# delegates are similar to pointers to functions, in C or C++. A <strong>delegate</strong> is a reference type variable that holds the reference to a method. The reference can be changed at runtime.</p>
+<p>Delegates are especially used for implementing events and the call-back methods. All delegates are implicitly derived from the <strong>System.Delegate</strong> class.</p>
+<h2>Declaring Delegates</h2>
+<p>Delegate declaration determines the methods that can be referenced by the delegate. A delegate can refer to a method, which has the same signature as that of the delegate.</p>
+<p>For example, consider a delegate:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">public</span> <span class="kwd">delegate</span> <span class="kwd">int</span> <span class="typ">MyDelegate</span> <span class="pun">(</span><span class="kwd">string</span><span class="pln"> s</span><span class="pun">);</span></pre>
+<p>The preceding delegate can be used to reference any method that has a single <em>string</em> parameter and returns an <em>int</em> type variable.</p>
+<p>Syntax for delegate declaration is:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">delegate</span> <span class="pun">&lt;</span><span class="kwd">return</span><span class="pln"> type</span><span class="pun">&gt;</span> <span class="pun">&lt;</span><span class="kwd">delegate</span><span class="pun">-</span><span class="pln">name</span><span class="pun">&gt;</span> <span class="pun">&lt;</span><span class="pln">parameter list</span><span class="pun">&gt;</span></pre>
+<h2>Instantiating Delegates</h2>
+<p>Once a delegate type is declared, a delegate object must be created with the <strong>new </strong> keyword and be associated with a particular method. When creating a delegate, the argument passed to the <strong>new</strong> expression is written similar to a method call, but without the arguments to the method. For example:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">public</span> <span class="kwd">delegate</span> <span class="kwd">void</span><span class="pln"> printString</span><span class="pun">(</span><span class="kwd">string</span><span class="pln"> s</span><span class="pun">);</span>
+<span class="pun">...</span><span class="pln">
+printString ps1 </span><span class="pun">=</span> <span class="kwd">new</span><span class="pln"> printString</span><span class="pun">(</span><span class="typ">WriteToScreen</span><span class="pun">);</span><span class="pln">
+printString ps2 </span><span class="pun">=</span> <span class="kwd">new</span><span class="pln"> printString</span><span class="pun">(</span><span class="typ">WriteToFile</span><span class="pun">);</span></pre>
+<p>Following example demonstrates declaration, instantiation, and use of a delegate that can be used to reference methods that take an integer parameter and returns an integer value.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+
+<span class="kwd">delegate</span> <span class="kwd">int</span> <span class="typ">NumberChanger</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> n</span><span class="pun">);</span>
+<span class="kwd">namespace</span> <span class="typ">DelegateAppl</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">TestDelegate</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">int</span><span class="pln"> num </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">int</span> <span class="typ">AddNum</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> p</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         num </span><span class="pun">+=</span><span class="pln"> p</span><span class="pun">;</span>
+         <span class="kwd">return</span><span class="pln"> num</span><span class="pun">;</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">int</span> <span class="typ">MultNum</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> q</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         num </span><span class="pun">*=</span><span class="pln"> q</span><span class="pun">;</span>
+         <span class="kwd">return</span><span class="pln"> num</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">int</span><span class="pln"> getNum</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> num</span><span class="pun">;</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="com">//create delegate instances</span>
+         <span class="typ">NumberChanger</span><span class="pln"> nc1 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">NumberChanger</span><span class="pun">(</span><span class="typ">AddNum</span><span class="pun">);</span>
+         <span class="typ">NumberChanger</span><span class="pln"> nc2 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">NumberChanger</span><span class="pun">(</span><span class="typ">MultNum</span><span class="pun">);</span>
+         
+         <span class="com">//calling the methods using the delegate objects</span><span class="pln">
+         nc1</span><span class="pun">(</span><span class="lit">25</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Value of Num: {0}"</span><span class="pun">,</span><span class="pln"> getNum</span><span class="pun">());</span><span class="pln">
+         nc2</span><span class="pun">(</span><span class="lit">5</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Value of Num: {0}"</span><span class="pun">,</span><span class="pln"> getNum</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Value of Num: 35
+Value of Num: 175
+</pre>
+<h2>Multicasting of a Delegate</h2>
+<p>Delegate objects can be composed using the "+" operator. A composed delegate calls the two delegates it was composed from. Only delegates of the same type can be composed. The "-" operator can be used to remove a component delegate from a composed delegate.</p>
+<p>Using this property of delegates you can create an invocation list of methods that will be called when a delegate is invoked. This is called <strong>multicasting</strong> of a delegate. The following program demonstrates multicasting of a delegate:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+
+<span class="kwd">delegate</span> <span class="kwd">int</span> <span class="typ">NumberChanger</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> n</span><span class="pun">);</span>
+<span class="kwd">namespace</span> <span class="typ">DelegateAppl</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">TestDelegate</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">int</span><span class="pln"> num </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">int</span> <span class="typ">AddNum</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> p</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         num </span><span class="pun">+=</span><span class="pln"> p</span><span class="pun">;</span>
+         <span class="kwd">return</span><span class="pln"> num</span><span class="pun">;</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">int</span> <span class="typ">MultNum</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> q</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         num </span><span class="pun">*=</span><span class="pln"> q</span><span class="pun">;</span>
+         <span class="kwd">return</span><span class="pln"> num</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">int</span><span class="pln"> getNum</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> num</span><span class="pun">;</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="com">//create delegate instances</span>
+         <span class="typ">NumberChanger</span><span class="pln"> nc</span><span class="pun">;</span>
+         <span class="typ">NumberChanger</span><span class="pln"> nc1 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">NumberChanger</span><span class="pun">(</span><span class="typ">AddNum</span><span class="pun">);</span>
+         <span class="typ">NumberChanger</span><span class="pln"> nc2 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">NumberChanger</span><span class="pun">(</span><span class="typ">MultNum</span><span class="pun">);</span><span class="pln">
+         nc </span><span class="pun">=</span><span class="pln"> nc1</span><span class="pun">;</span><span class="pln">
+         nc </span><span class="pun">+=</span><span class="pln"> nc2</span><span class="pun">;</span>
+         
+         <span class="com">//calling multicast</span><span class="pln">
+         nc</span><span class="pun">(</span><span class="lit">5</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Value of Num: {0}"</span><span class="pun">,</span><span class="pln"> getNum</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Value of Num: 75
+</pre>
+<h2>Using Delegates</h2>
+<p>The following example demonstrates the use of delegate. The delegate <em>printString</em> can be used to reference method that takes a string as input and returns nothing.</p>
+<p>We use this delegate to call two methods, the first prints the string to the console, and the second one prints it to a file:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="pln">IO</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">DelegateAppl</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">PrintString</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="typ">FileStream</span><span class="pln"> fs</span><span class="pun">;</span>
+      <span class="kwd">static</span> <span class="typ">StreamWriter</span><span class="pln"> sw</span><span class="pun">;</span>
+      
+      <span class="com">// delegate declaration</span>
+      <span class="kwd">public</span> <span class="kwd">delegate</span> <span class="kwd">void</span><span class="pln"> printString</span><span class="pun">(</span><span class="kwd">string</span><span class="pln"> s</span><span class="pun">);</span>
+
+      <span class="com">// this method prints to the console</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">WriteToScreen</span><span class="pun">(</span><span class="kwd">string</span><span class="pln"> str</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"The String is: {0}"</span><span class="pun">,</span><span class="pln"> str</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      
+      <span class="com">//this method prints to a file</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">WriteToFile</span><span class="pun">(</span><span class="kwd">string</span><span class="pln"> s</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         fs </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">FileStream</span><span class="pun">(</span><span class="str">"c:\\message.txt"</span><span class="pun">,</span>
+         <span class="typ">FileMode</span><span class="pun">.</span><span class="typ">Append</span><span class="pun">,</span> <span class="typ">FileAccess</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">);</span><span class="pln">
+         sw </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">StreamWriter</span><span class="pun">(</span><span class="pln">fs</span><span class="pun">);</span><span class="pln">
+         sw</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span><span class="pln">
+         sw</span><span class="pun">.</span><span class="typ">Flush</span><span class="pun">();</span><span class="pln">
+         sw</span><span class="pun">.</span><span class="typ">Close</span><span class="pun">();</span><span class="pln">
+         fs</span><span class="pun">.</span><span class="typ">Close</span><span class="pun">();</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// this method takes the delegate as parameter and uses it to</span>
+      <span class="com">// call the methods as required</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> sendString</span><span class="pun">(</span><span class="pln">printString ps</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         ps</span><span class="pun">(</span><span class="str">"Hello World"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         printString ps1 </span><span class="pun">=</span> <span class="kwd">new</span><span class="pln"> printString</span><span class="pun">(</span><span class="typ">WriteToScreen</span><span class="pun">);</span><span class="pln">
+         printString ps2 </span><span class="pun">=</span> <span class="kwd">new</span><span class="pln"> printString</span><span class="pun">(</span><span class="typ">WriteToFile</span><span class="pun">);</span><span class="pln">
+         sendString</span><span class="pun">(</span><span class="pln">ps1</span><span class="pun">);</span><span class="pln">
+         sendString</span><span class="pun">(</span><span class="pln">ps2</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">The String is: Hello World
+</pre>

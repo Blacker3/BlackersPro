@@ -1,0 +1,166 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Type Conversion</h1>
+ 
+<p>Type conversion is converting one type of data to another type. It is also known as Type Casting. In C#, type casting has two forms:</p>
+<ul class="list">
+<li>
+<p><strong>Implicit type conversion</strong> - These conversions are performed by C# in a type-safe manner. For example, are conversions from smaller to larger integral types and conversions from derived classes to base classes.</p>
+</li>
+<li>
+<p><strong>Explicit type conversion</strong> - These conversions are done explicitly by users using the pre-defined functions. Explicit conversions require a cast operator.</p>
+</li>
+</ul>
+<p>The following example shows an explicit type conversion:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">TypeConversionApplication</span> 
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">ExplicitConversion</span> 
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> 
+      <span class="pun">{</span>
+         <span class="kwd">double</span><span class="pln"> d </span><span class="pun">=</span> <span class="lit">5673.74</span><span class="pun">;</span> 
+         <span class="kwd">int</span><span class="pln"> i</span><span class="pun">;</span>
+         
+         <span class="com">// cast double to int.</span><span class="pln">
+         i </span><span class="pun">=</span> <span class="pun">(</span><span class="kwd">int</span><span class="pun">)</span><span class="pln">d</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">i</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">5673
+</pre>
+<h2>C# Type Conversion Methods</h2>
+<p>C# provides the following built-in type conversion methods:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 5%;">Sr.No</th>
+<th>Methods &amp; Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>ToBoolean</strong>
+<p>Converts a type to a Boolean value, where possible.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>ToByte</strong>
+<p>Converts a type to a byte.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>ToChar</strong>
+<p>Converts a type to a single Unicode character, where possible.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>ToDateTime</strong>
+<p>Converts a type (integer or string type) to date-time structures.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>ToDecimal</strong>
+<p>Converts a floating point or integer type to a decimal type.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>ToDouble</strong>
+<p>Converts a type to a double type.</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>ToInt16</strong>
+<p>Converts a type to a 16-bit integer.</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>ToInt32</strong>
+<p>Converts a type to a 32-bit integer.</p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>ToInt64</strong>
+<p>Converts a type to a 64-bit integer.</p>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>ToSbyte</strong>
+<p>Converts a type to a signed byte type.</p>
+</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>ToSingle</strong>
+<p>Converts a type to a small floating point number.</p>
+</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>ToString</strong>
+<p>Converts a type to a string.</p>
+</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>ToType</strong>
+<p>Converts a type to a specified type.</p>
+</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>ToUInt16</strong>
+<p>Converts a type to an unsigned int type.</p>
+</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>ToUInt32</strong>
+<p>Converts a type to an unsigned long type.</p>
+</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>ToUInt64</strong>
+<p>Converts a type to an unsigned big integer.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The following example converts various value types to string type:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">TypeConversionApplication</span> 
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">StringConversion</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">75</span><span class="pun">;</span>
+         <span class="kwd">float</span><span class="pln"> f </span><span class="pun">=</span> <span class="lit">53.005f</span><span class="pun">;</span>
+         <span class="kwd">double</span><span class="pln"> d </span><span class="pun">=</span> <span class="lit">2345.7652</span><span class="pun">;</span>
+         <span class="kwd">bool</span><span class="pln"> b </span><span class="pun">=</span> <span class="kwd">true</span><span class="pun">;</span>
+
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">i</span><span class="pun">.</span><span class="typ">ToString</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">f</span><span class="pun">.</span><span class="typ">ToString</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">d</span><span class="pun">.</span><span class="typ">ToString</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">b</span><span class="pun">.</span><span class="typ">ToString</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+            
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">75
+53.005
+2345.7652
+True
+</pre>

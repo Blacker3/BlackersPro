@@ -1,0 +1,329 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Operator Overloading</h1>
+ 
+<p>You can redefine or overload most of the built-in operators available in C#. Thus a programmer can use operators with user-defined types as well. Overloaded operators are functions with special names the keyword <strong>operator</strong> followed by the symbol for the operator being defined. similar to any other function, an overloaded operator has a return type and a parameter list.</p>
+<p>For example, go through the following function:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">public</span> <span class="kwd">static</span> <span class="typ">Box</span> <span class="kwd">operator</span><span class="pun">+</span> <span class="pun">(</span><span class="typ">Box</span><span class="pln"> b</span><span class="pun">,</span> <span class="typ">Box</span><span class="pln"> c</span><span class="pun">)</span>
+<span class="pun">{</span>
+   <span class="typ">Box</span><span class="pln"> box </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span><span class="pln">
+   box</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">length </span><span class="pun">+</span><span class="pln"> c</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln">
+   box</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">+</span><span class="pln"> c</span><span class="pun">.</span><span class="pln">breadth</span><span class="pun">;</span><span class="pln">
+   box</span><span class="pun">.</span><span class="pln">height </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">height </span><span class="pun">+</span><span class="pln"> c</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span>
+   <span class="kwd">return</span><span class="pln"> box</span><span class="pun">;</span>
+<span class="pun">}</span></pre>
+<p>The above function implements the addition operator (+) for a user-defined class Box. It adds the attributes of two Box objects and returns the resultant Box object.</p>
+<h2>Implementing the Operator Overloading</h2>
+<p>The following program shows the complete implementation:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">OperatorOvlApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Box</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>   <span class="com">// Length of a box</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> breadth</span><span class="pun">;</span>  <span class="com">// Breadth of a box</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> height</span><span class="pun">;</span>   <span class="com">// Height of a box</span>
+
+      <span class="kwd">public</span> <span class="kwd">double</span><span class="pln"> getVolume</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> breadth </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setBreadth</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> bre </span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         breadth </span><span class="pun">=</span><span class="pln"> bre</span><span class="pun">;</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setHeight</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> hei </span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         height </span><span class="pun">=</span><span class="pln"> hei</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// Overload + operator to add two Box objects.</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="typ">Box</span> <span class="kwd">operator</span><span class="pun">+</span> <span class="pun">(</span><span class="typ">Box</span><span class="pln"> b</span><span class="pun">,</span> <span class="typ">Box</span><span class="pln"> c</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Box</span><span class="pln"> box </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span><span class="pln">
+         box</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">length </span><span class="pun">+</span><span class="pln"> c</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln">
+         box</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">+</span><span class="pln"> c</span><span class="pun">.</span><span class="pln">breadth</span><span class="pun">;</span><span class="pln">
+         box</span><span class="pun">.</span><span class="pln">height </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">height </span><span class="pun">+</span><span class="pln"> c</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span>
+         <span class="kwd">return</span><span class="pln"> box</span><span class="pun">;</span>
+      <span class="pun">}</span>
+
+   <span class="pun">}</span>
+
+   <span class="kwd">class</span> <span class="typ">Tester</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Box</span> <span class="typ">Box1</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span>   <span class="com">// Declare Box1 of type Box</span>
+         <span class="typ">Box</span> <span class="typ">Box2</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span>   <span class="com">// Declare Box2 of type Box</span>
+         <span class="typ">Box</span> <span class="typ">Box3</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span>   <span class="com">// Declare Box3 of type Box</span>
+         <span class="kwd">double</span><span class="pln"> volume </span><span class="pun">=</span> <span class="lit">0.0</span><span class="pun">;</span>    <span class="com">// Store the volume of a box here</span>
+
+         <span class="com">// box 1 specification</span>
+         <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">6.0</span><span class="pun">);</span>
+         <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setBreadth</span><span class="pun">(</span><span class="lit">7.0</span><span class="pun">);</span>
+         <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">5.0</span><span class="pun">);</span>
+
+         <span class="com">// box 2 specification</span>
+         <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">12.0</span><span class="pun">);</span>
+         <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setBreadth</span><span class="pun">(</span><span class="lit">13.0</span><span class="pun">);</span>
+         <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">10.0</span><span class="pun">);</span>
+
+         <span class="com">// volume of box 1</span><span class="pln">
+         volume </span><span class="pun">=</span> <span class="typ">Box1</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Volume of Box1 : {0}"</span><span class="pun">,</span><span class="pln"> volume</span><span class="pun">);</span>
+
+         <span class="com">// volume of box 2</span><span class="pln">
+         volume </span><span class="pun">=</span> <span class="typ">Box2</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Volume of Box2 : {0}"</span><span class="pun">,</span><span class="pln"> volume</span><span class="pun">);</span>
+
+         <span class="com">// Add two object as follows:</span>
+         <span class="typ">Box3</span> <span class="pun">=</span> <span class="typ">Box1</span> <span class="pun">+</span> <span class="typ">Box2</span><span class="pun">;</span>
+
+         <span class="com">// volume of box 3</span><span class="pln">
+         volume </span><span class="pun">=</span> <span class="typ">Box3</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Volume of Box3 : {0}"</span><span class="pun">,</span><span class="pln"> volume</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Volume of Box1 : 210
+Volume of Box2 : 1560
+Volume of Box3 : 5400
+</pre>
+<h2>Overloadable and Non-Overloadable Operators</h2>
+<p>The following table describes the overload ability of the operators in C#:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 25%;">Operators</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>+, -, !, ~, ++, --</td>
+<td>These unary operators take one operand and can be overloaded.</td>
+</tr>
+<tr>
+<td>+, -, *, /, %</td>
+<td>These binary operators take one operand and can be overloaded.</td>
+</tr>
+<tr>
+<td>==, !=, &lt;, &gt;, &lt;=, &gt;=</td>
+<td>The comparison operators can be overloaded</td>
+</tr>
+<tr>
+<td>&amp;&amp;, ||</td>
+<td>The conditional logical operators cannot be overloaded directly.</td>
+</tr>
+<tr>
+<td>+=, -=, *=, /=, %=</td>
+<td>The assignment operators cannot be overloaded.</td>
+</tr>
+<tr>
+<td>=, ., ?:, -&gt;, new, is, sizeof, typeof</td>
+<td>These operators cannot be overloaded.</td>
+</tr>
+</tbody>
+</table>
+<h2>Example</h2>
+<p>In the light of the above discussions, let us extend the preceding example, and overload few more operators:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">OperatorOvlApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Box</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>    <span class="com">// Length of a box</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> breadth</span><span class="pun">;</span>   <span class="com">// Breadth of a box</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> height</span><span class="pun">;</span>    <span class="com">// Height of a box</span>
+      
+      <span class="kwd">public</span> <span class="kwd">double</span><span class="pln"> getVolume</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> breadth </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setBreadth</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> bre </span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         breadth </span><span class="pun">=</span><span class="pln"> bre</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setHeight</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> hei </span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         height </span><span class="pun">=</span><span class="pln"> hei</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// Overload + operator to add two Box objects.</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="typ">Box</span> <span class="kwd">operator</span><span class="pun">+</span> <span class="pun">(</span><span class="typ">Box</span><span class="pln"> b</span><span class="pun">,</span> <span class="typ">Box</span><span class="pln"> c</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Box</span><span class="pln"> box </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span><span class="pln">
+         box</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">length </span><span class="pun">+</span><span class="pln"> c</span><span class="pun">.</span><span class="pln">length</span><span class="pun">;</span><span class="pln">
+         box</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">+</span><span class="pln"> c</span><span class="pun">.</span><span class="pln">breadth</span><span class="pun">;</span><span class="pln">
+         box</span><span class="pun">.</span><span class="pln">height </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">.</span><span class="pln">height </span><span class="pun">+</span><span class="pln"> c</span><span class="pun">.</span><span class="pln">height</span><span class="pun">;</span>
+         <span class="kwd">return</span><span class="pln"> box</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">bool</span> <span class="kwd">operator</span> <span class="pun">==</span> <span class="pun">(</span><span class="typ">Box</span><span class="pln"> lhs</span><span class="pun">,</span> <span class="typ">Box</span><span class="pln"> rhs</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">bool</span><span class="pln"> status </span><span class="pun">=</span> <span class="kwd">false</span><span class="pun">;</span>
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">lhs</span><span class="pun">.</span><span class="pln">length </span><span class="pun">==</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&amp;&amp;</span><span class="pln"> lhs</span><span class="pun">.</span><span class="pln">height </span><span class="pun">==</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">height </span><span class="pun">&amp;&amp;</span><span class="pln"> lhs</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">==</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">breadth</span><span class="pun">)</span>
+         <span class="pun">{</span><span class="pln">
+            status </span><span class="pun">=</span> <span class="kwd">true</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         <span class="kwd">return</span><span class="pln"> status</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">bool</span> <span class="kwd">operator</span> <span class="pun">!=(</span><span class="typ">Box</span><span class="pln"> lhs</span><span class="pun">,</span> <span class="typ">Box</span><span class="pln"> rhs</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">bool</span><span class="pln"> status </span><span class="pun">=</span> <span class="kwd">false</span><span class="pun">;</span>
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">lhs</span><span class="pun">.</span><span class="pln">length </span><span class="pun">!=</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">length </span><span class="pun">||</span><span class="pln"> lhs</span><span class="pun">.</span><span class="pln">height </span><span class="pun">!=</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">height </span><span class="pun">||</span><span class="pln"> lhs</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">!=</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">breadth</span><span class="pun">)</span>
+         <span class="pun">{</span><span class="pln">
+            status </span><span class="pun">=</span> <span class="kwd">true</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         <span class="kwd">return</span><span class="pln"> status</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">bool</span> <span class="kwd">operator</span> <span class="pun">&lt;(</span><span class="typ">Box</span><span class="pln"> lhs</span><span class="pun">,</span> <span class="typ">Box</span><span class="pln"> rhs</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">bool</span><span class="pln"> status </span><span class="pun">=</span> <span class="kwd">false</span><span class="pun">;</span>
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">lhs</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&lt;</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&amp;&amp;</span><span class="pln"> lhs</span><span class="pun">.</span><span class="pln">height </span><span class="pun">&lt;</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">height </span><span class="pun">&amp;&amp;</span><span class="pln"> lhs</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">&lt;</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">breadth</span><span class="pun">)</span>
+         <span class="pun">{</span><span class="pln">
+            status </span><span class="pun">=</span> <span class="kwd">true</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         <span class="kwd">return</span><span class="pln"> status</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">bool</span> <span class="kwd">operator</span> <span class="pun">&gt;(</span><span class="typ">Box</span><span class="pln"> lhs</span><span class="pun">,</span> <span class="typ">Box</span><span class="pln"> rhs</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">bool</span><span class="pln"> status </span><span class="pun">=</span> <span class="kwd">false</span><span class="pun">;</span>
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">lhs</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&gt;</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&amp;&amp;</span><span class="pln"> lhs</span><span class="pun">.</span><span class="pln">height </span><span class="pun">&gt;</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">height </span><span class="pun">&amp;&amp;</span><span class="pln"> lhs</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">&gt;</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">breadth</span><span class="pun">)</span>
+         <span class="pun">{</span><span class="pln">
+            status </span><span class="pun">=</span> <span class="kwd">true</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         <span class="kwd">return</span><span class="pln"> status</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">bool</span> <span class="kwd">operator</span> <span class="pun">&lt;=(</span><span class="typ">Box</span><span class="pln"> lhs</span><span class="pun">,</span> <span class="typ">Box</span><span class="pln"> rhs</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">bool</span><span class="pln"> status </span><span class="pun">=</span> <span class="kwd">false</span><span class="pun">;</span>
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">lhs</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&lt;=</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&amp;&amp;</span><span class="pln"> lhs</span><span class="pun">.</span><span class="pln">height </span><span class="pun">&lt;=</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">height </span><span class="pun">&amp;&amp;</span><span class="pln"> lhs</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">&lt;=</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">breadth</span><span class="pun">)</span>
+         <span class="pun">{</span><span class="pln">
+            status </span><span class="pun">=</span> <span class="kwd">true</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         <span class="kwd">return</span><span class="pln"> status</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">bool</span> <span class="kwd">operator</span> <span class="pun">&gt;=(</span><span class="typ">Box</span><span class="pln"> lhs</span><span class="pun">,</span> <span class="typ">Box</span><span class="pln"> rhs</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">bool</span><span class="pln"> status </span><span class="pun">=</span> <span class="kwd">false</span><span class="pun">;</span>
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">lhs</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&gt;=</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">length </span><span class="pun">&amp;&amp;</span><span class="pln"> lhs</span><span class="pun">.</span><span class="pln">height </span><span class="pun">&gt;=</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">height </span><span class="pun">&amp;&amp;</span><span class="pln"> lhs</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">&gt;=</span><span class="pln"> rhs</span><span class="pun">.</span><span class="pln">breadth</span><span class="pun">)</span>
+         <span class="pun">{</span><span class="pln">
+            status </span><span class="pun">=</span> <span class="kwd">true</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         <span class="kwd">return</span><span class="pln"> status</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">override</span> <span class="kwd">string</span> <span class="typ">ToString</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="typ">String</span><span class="pun">.</span><span class="typ">Format</span><span class="pun">(</span><span class="str">"({0}, {1}, {2})"</span><span class="pun">,</span><span class="pln"> length</span><span class="pun">,</span><span class="pln"> breadth</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">);</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">class</span> <span class="typ">Tester</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Box</span> <span class="typ">Box1</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span>   <span class="com">// Declare Box1 of type Box</span>
+         <span class="typ">Box</span> <span class="typ">Box2</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span>   <span class="com">// Declare Box2 of type Box</span>
+         <span class="typ">Box</span> <span class="typ">Box3</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span>   <span class="com">// Declare Box3 of type Box</span>
+         <span class="typ">Box</span> <span class="typ">Box4</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span>
+         <span class="kwd">double</span><span class="pln"> volume </span><span class="pun">=</span> <span class="lit">0.0</span><span class="pun">;</span>    <span class="com">// Store the volume of a box here</span>
+         
+         <span class="com">// box 1 specification</span>
+         <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">6.0</span><span class="pun">);</span>
+         <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setBreadth</span><span class="pun">(</span><span class="lit">7.0</span><span class="pun">);</span>
+         <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">5.0</span><span class="pun">);</span>
+         
+         <span class="com">// box 2 specification</span>
+         <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">12.0</span><span class="pun">);</span>
+         <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setBreadth</span><span class="pun">(</span><span class="lit">13.0</span><span class="pun">);</span>
+         <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">10.0</span><span class="pun">);</span>
+         
+         <span class="com">//displaying the Boxes using the overloaded ToString():</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box 1: {0}"</span><span class="pun">,</span> <span class="typ">Box1</span><span class="pun">.</span><span class="typ">ToString</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box 2: {0}"</span><span class="pun">,</span> <span class="typ">Box2</span><span class="pun">.</span><span class="typ">ToString</span><span class="pun">());</span>
+         
+         <span class="com">// volume of box 1</span><span class="pln">
+         volume </span><span class="pun">=</span> <span class="typ">Box1</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Volume of Box1 : {0}"</span><span class="pun">,</span><span class="pln"> volume</span><span class="pun">);</span>
+         
+         <span class="com">// volume of box 2</span><span class="pln">
+         volume </span><span class="pun">=</span> <span class="typ">Box2</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Volume of Box2 : {0}"</span><span class="pun">,</span><span class="pln"> volume</span><span class="pun">);</span>
+         
+         <span class="com">// Add two object as follows:</span>
+         <span class="typ">Box3</span> <span class="pun">=</span> <span class="typ">Box1</span> <span class="pun">+</span> <span class="typ">Box2</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box 3: {0}"</span><span class="pun">,</span> <span class="typ">Box3</span><span class="pun">.</span><span class="typ">ToString</span><span class="pun">());</span>
+         
+         <span class="com">// volume of box 3</span><span class="pln">
+         volume </span><span class="pun">=</span> <span class="typ">Box3</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Volume of Box3 : {0}"</span><span class="pun">,</span><span class="pln"> volume</span><span class="pun">);</span>
+         
+         <span class="com">//comparing the boxes</span>
+         <span class="kwd">if</span> <span class="pun">(</span><span class="typ">Box1</span> <span class="pun">&gt;</span> <span class="typ">Box2</span><span class="pun">)</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box1 is greater than Box2"</span><span class="pun">);</span>
+         <span class="kwd">else</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box1 is  greater than Box2"</span><span class="pun">);</span>
+         
+         <span class="kwd">if</span> <span class="pun">(</span><span class="typ">Box1</span> <span class="pun">&lt;</span> <span class="typ">Box2</span><span class="pun">)</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box1 is less than Box2"</span><span class="pun">);</span>
+         <span class="kwd">else</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box1 is not less than Box2"</span><span class="pun">);</span>
+         
+         <span class="kwd">if</span> <span class="pun">(</span><span class="typ">Box1</span> <span class="pun">&gt;=</span> <span class="typ">Box2</span><span class="pun">)</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box1 is greater or equal to Box2"</span><span class="pun">);</span>
+         <span class="kwd">else</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box1 is not greater or equal to Box2"</span><span class="pun">);</span>
+         
+         <span class="kwd">if</span> <span class="pun">(</span><span class="typ">Box1</span> <span class="pun">&lt;=</span> <span class="typ">Box2</span><span class="pun">)</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box1 is less or equal to Box2"</span><span class="pun">);</span>
+         <span class="kwd">else</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box1 is not less or equal to Box2"</span><span class="pun">);</span>
+         
+         <span class="kwd">if</span> <span class="pun">(</span><span class="typ">Box1</span> <span class="pun">!=</span> <span class="typ">Box2</span><span class="pun">)</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box1 is not equal to Box2"</span><span class="pun">);</span>
+         <span class="kwd">else</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box1 is not greater or equal to Box2"</span><span class="pun">);</span>
+         <span class="typ">Box4</span> <span class="pun">=</span> <span class="typ">Box3</span><span class="pun">;</span>
+         
+         <span class="kwd">if</span> <span class="pun">(</span><span class="typ">Box3</span> <span class="pun">==</span> <span class="typ">Box4</span><span class="pun">)</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box3 is equal to Box4"</span><span class="pun">);</span>
+         <span class="kwd">else</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Box3 is not equal to Box4"</span><span class="pun">);</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Box 1: (6, 7, 5)
+Box 2: (12, 13, 10)
+Volume of Box1 : 210
+Volume of Box2 : 1560
+Box 3: (18, 20, 15)
+Volume of Box3 : 5400
+Box1 is not greater than Box2
+Box1 is less than Box2
+Box1 is not greater or equal to Box2
+Box1 is less or equal to Box2
+Box1 is not equal to Box2
+Box3 is equal to Box4
+</pre>

@@ -1,0 +1,154 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Encapsulation</h1>
+ 
+<p><strong>Encapsulation</strong> is defined 'as the process of enclosing one or more items within a physical or logical package'. Encapsulation, in object oriented programming methodology, prevents access to implementation details.</p>
+<p>Abstraction and encapsulation are related features in object oriented programming. Abstraction allows making relevant information visible and encapsulation enables a programmer to <em>implement the desired level of abstraction</em>.</p>
+<p>Encapsulation is implemented by using <strong>access specifiers</strong>. An <strong>access specifier</strong> defines the scope and visibility of a class member. C# supports the following access specifiers:</p>
+<ul class="list">
+<li>Public</li>
+<li>Private</li>
+<li>Protected</li>
+<li>Internal</li>
+<li>Protected internal</li>
+</ul>
+<h2>Public Access Specifier</h2>
+<p>Public access specifier allows a class to expose its member variables and member functions to other functions and objects. Any public member can be accessed from outside the class.</p>
+<p>The following example illustrates this:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">RectangleApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Rectangle</span>
+   <span class="pun">{</span>
+      <span class="com">//member variables</span>
+      <span class="kwd">public</span> <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="kwd">double</span><span class="pln"> width</span><span class="pun">;</span>
+      
+      <span class="kwd">public</span> <span class="kwd">double</span> <span class="typ">GetArea</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> width</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">void</span> <span class="typ">Display</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Length: {0}"</span><span class="pun">,</span><span class="pln"> length</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Width: {0}"</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Area: {0}"</span><span class="pun">,</span> <span class="typ">GetArea</span><span class="pun">());</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span><span class="com">//end class Rectangle</span>
+   
+   <span class="kwd">class</span> <span class="typ">ExecuteRectangle</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Rectangle</span><span class="pln"> r </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Rectangle</span><span class="pun">();</span><span class="pln">
+         r</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span> <span class="lit">4.5</span><span class="pun">;</span><span class="pln">
+         r</span><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span> <span class="lit">3.5</span><span class="pun">;</span><span class="pln">
+         r</span><span class="pun">.</span><span class="typ">Display</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Length: 4.5
+Width: 3.5
+Area: 15.75
+</pre>
+<p>In the preceding example, the member variables length and width are declared <strong>public</strong>, so they can be accessed from the function Main() using an instance of the Rectangle class, named <strong>r</strong>.</p>
+<p>The member function <em>Display()</em> and <em>GetArea()</em> can also access these variables directly without using any instance of the class.</p>
+<p>The member functions <em>Display()</em> is also declared <strong>public</strong>, so it can also be accessed from <em>Main()</em> using an instance of the Rectangle class, named <strong>r</strong>.</p>
+<h2>Private Access Specifier</h2>
+<p>Private access specifier allows a class to hide its member variables and member functions from other functions and objects. Only functions of the same class can access its private members. Even an instance of a class cannot access its private members.</p>
+<p>The following example illustrates this:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">RectangleApplication</span> 
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Rectangle</span>
+   <span class="pun">{</span>
+      <span class="com">//member variables</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> width</span><span class="pun">;</span>
+      
+      <span class="kwd">public</span> <span class="kwd">void</span> <span class="typ">Acceptdetails</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Enter Length: "</span><span class="pun">);</span><span class="pln">
+         length </span><span class="pun">=</span> <span class="typ">Convert</span><span class="pun">.</span><span class="typ">ToDouble</span><span class="pun">(</span><span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Enter Width: "</span><span class="pun">);</span><span class="pln">
+         width </span><span class="pun">=</span> <span class="typ">Convert</span><span class="pun">.</span><span class="typ">ToDouble</span><span class="pun">(</span><span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">());</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">double</span> <span class="typ">GetArea</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> width</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">void</span> <span class="typ">Display</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Length: {0}"</span><span class="pun">,</span><span class="pln"> length</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Width: {0}"</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Area: {0}"</span><span class="pun">,</span> <span class="typ">GetArea</span><span class="pun">());</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span><span class="com">//end class Rectangle</span>
+   
+   <span class="kwd">class</span> <span class="typ">ExecuteRectangle</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Rectangle</span><span class="pln"> r </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Rectangle</span><span class="pun">();</span><span class="pln">
+         r</span><span class="pun">.</span><span class="typ">Acceptdetails</span><span class="pun">();</span><span class="pln">
+         r</span><span class="pun">.</span><span class="typ">Display</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Enter Length:
+4.4
+Enter Width:
+3.3
+Length: 4.4
+Width: 3.3
+Area: 14.52
+</pre>
+<p>In the preceding example, the member variables length and width are declared <strong>private</strong>, so they cannot be accessed from the function Main(). The member functions <em>AcceptDetails()</em> and <em>Display()</em> can access these variables. Since the member functions <em>AcceptDetails()</em> and <em>Display()</em> are declared <strong>public</strong>, they can be accessed from <em>Main()</em> using an instance of the Rectangle class, named <strong>r</strong>.</p>
+<h2>Protected Access Specifier</h2>
+<p>Protected access specifier allows a child class to access the member variables and member functions of its base class. This way it helps in implementing inheritance. We will discuss this in more details in the inheritance chapter.</p>
+<h2>Internal Access Specifier</h2>
+<p>Internal access specifier allows a class to expose its member variables and member functions to other functions and objects in the current assembly. In other words, any member with internal access specifier can be accessed from any class or method defined within the application in which the member is defined.</p>
+<p>The following program illustrates this:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">RectangleApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Rectangle</span>
+   <span class="pun">{</span>
+      <span class="com">//member variables</span>
+      <span class="kwd">internal</span> <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>
+      <span class="kwd">internal</span> <span class="kwd">double</span><span class="pln"> width</span><span class="pun">;</span>
+      
+      <span class="kwd">double</span> <span class="typ">GetArea</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> width</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">void</span> <span class="typ">Display</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Length: {0}"</span><span class="pun">,</span><span class="pln"> length</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Width: {0}"</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Area: {0}"</span><span class="pun">,</span> <span class="typ">GetArea</span><span class="pun">());</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span><span class="com">//end class Rectangle</span>
+   
+   <span class="kwd">class</span> <span class="typ">ExecuteRectangle</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Rectangle</span><span class="pln"> r </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Rectangle</span><span class="pun">();</span><span class="pln">
+         r</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span> <span class="lit">4.5</span><span class="pun">;</span><span class="pln">
+         r</span><span class="pun">.</span><span class="pln">width </span><span class="pun">=</span> <span class="lit">3.5</span><span class="pun">;</span><span class="pln">
+         r</span><span class="pun">.</span><span class="typ">Display</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Length: 4.5
+Width: 3.5
+Area: 15.75
+</pre>
+<p>In the preceding example, notice that the member function <em>GetArea()</em> is not declared with any access specifier. Then what would be the default access specifier of a class member if we don't mention any? It is <strong>private</strong>.</p>
+<h2>Protected Internal Access Specifier</h2>
+<p>The protected internal access specifier allows a class to hide its member variables and member functions from other class objects and functions, except a child class within the same application. This is also used while implementing inheritance.</p>

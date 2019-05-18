@@ -1,0 +1,179 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Regular Expressions</h1>
+ 
+<p>A <strong>regular expression</strong> is a pattern that could be matched against an input text. The .Net framework provides a regular expression engine that allows such matching. A pattern consists of one or more character literals, operators, or constructs.</p>
+<h2>Constructs for Defining Regular Expressions</h2>
+<p>There are various categories of characters, operators, and constructs that lets you to define regular expressions. Click the following links to find these constructs.</p>
+<ul class="list">
+<li>
+<p><a title="csharp character escapes regular expression" href="26-1.html">Character escapes</a></p>
+</li>
+<li>
+<p><a title="csharp character classes regular expression" href="26-2.html">Character classes</a></p>
+</li>
+<li>
+<p><a title="csharp anchors regular expression" href="26-3.html">Anchors</a></p>
+</li>
+<li>
+<p><a title="csharp grouping constructs regular expression" href="26-4.html">Grouping constructs</a></p>
+</li>
+<li>
+<p><a title="csharp quantifiers regular expression" href="26-5.html">Quantifiers</a></p>
+</li>
+<li>
+<p><a title="csharp backreference constructs regular expression" href="26-6.html">Backreference constructs</a></p>
+</li>
+<li>
+<p><a title="csharp alternation constructs regular expression" href="26-7.html">Alternation constructs</a></p>
+</li>
+<li>
+<p><a title="csharp substitutions regular expression" href="26-8.html">Substitutions</a></p>
+</li>
+<li>
+<p><a title="csharp miscellaneous constructs regular expression" href="26-9.html">Miscellaneous constructs</a></p>
+</li>
+</ul>
+<h2>The Regex Class</h2>
+<p>The Regex class is used for representing a regular expression. It has the following commonly used methods:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 5%;">Sr.No</th>
+<th>Methods</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>public bool IsMatch(string input)</strong>
+<p>Indicates whether the regular expression specified in the Regex constructor finds a match in a specified input string.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>public bool IsMatch(string input, int startat)</strong>
+<p>Indicates whether the regular expression specified in the Regex constructor finds a match in the specified input string, beginning at the specified starting position in the string.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>public static bool IsMatch(string input, string pattern)</strong>
+<p>Indicates whether the specified regular expression finds a match in the specified input string.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>public MatchCollection Matches(string input)</strong>
+<p>Searches the specified input string for all occurrences of a regular expression.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>public string Replace(string input, string replacement)</strong>
+<p>In a specified input string, replaces all strings that match a regular expression pattern with a specified replacement string.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>public string[] Split(string input)</strong>
+<p>Splits an input string into an array of substrings at the positions defined by a regular expression pattern specified in the Regex constructor.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For the complete list of methods and properties, please read the Microsoft documentation on C#.</p>
+<h2>Example 1</h2>
+<p>The following example matches words that start with 'S':</p>
+<pre class="prettyprint notranslate prettyprinted" style="cursor: pointer;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Text</span><span class="pun">.</span><span class="typ">RegularExpressions</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">RegExApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> showMatch</span><span class="pun">(</span><span class="kwd">string</span><span class="pln"> text</span><span class="pun">,</span> <span class="kwd">string</span><span class="pln"> expr</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"The Expression: "</span> <span class="pun">+</span><span class="pln"> expr</span><span class="pun">);</span>
+         <span class="typ">MatchCollection</span><span class="pln"> mc </span><span class="pun">=</span> <span class="typ">Regex</span><span class="pun">.</span><span class="typ">Matches</span><span class="pun">(</span><span class="pln">text</span><span class="pun">,</span><span class="pln"> expr</span><span class="pun">);</span>
+         <span class="kwd">foreach</span> <span class="pun">(</span><span class="typ">Match</span><span class="pln"> m </span><span class="kwd">in</span><span class="pln"> mc</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">m</span><span class="pun">);</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">string</span><span class="pln"> str </span><span class="pun">=</span> <span class="str">"A Thousand Splendid Suns"</span><span class="pun">;</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Matching words that start with 'S': "</span><span class="pun">);</span><span class="pln">
+         showMatch</span><span class="pun">(</span><span class="pln">str</span><span class="pun">,</span> <span class="pun">@</span><span class="str">"\bS\S*"</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Matching words that start with 'S':
+The Expression: \bS\S*
+Splendid
+Suns
+</pre>
+<h2>Example 2</h2>
+<p>The following example matches words that start with 'm' and ends with 'e':</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Text</span><span class="pun">.</span><span class="typ">RegularExpressions</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">RegExApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">static</span> <span class="kwd">void</span><span class="pln"> showMatch</span><span class="pun">(</span><span class="kwd">string</span><span class="pln"> text</span><span class="pun">,</span> <span class="kwd">string</span><span class="pln"> expr</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"The Expression: "</span> <span class="pun">+</span><span class="pln"> expr</span><span class="pun">);</span>
+         <span class="typ">MatchCollection</span><span class="pln"> mc </span><span class="pun">=</span> <span class="typ">Regex</span><span class="pun">.</span><span class="typ">Matches</span><span class="pun">(</span><span class="pln">text</span><span class="pun">,</span><span class="pln"> expr</span><span class="pun">);</span>
+         <span class="kwd">foreach</span> <span class="pun">(</span><span class="typ">Match</span><span class="pln"> m </span><span class="kwd">in</span><span class="pln"> mc</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">m</span><span class="pun">);</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">string</span><span class="pln"> str </span><span class="pun">=</span> <span class="str">"make maze and manage to measure it"</span><span class="pun">;</span>
+
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Matching words start with 'm' and ends with 'e':"</span><span class="pun">);</span><span class="pln">
+         showMatch</span><span class="pun">(</span><span class="pln">str</span><span class="pun">,</span> <span class="pun">@</span><span class="str">"\bm\S*e\b"</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Matching words start with 'm' and ends with 'e':
+The Expression: \bm\S*e\b
+make
+maze
+manage
+measure
+</pre>
+<h2>Example 3</h2>
+<p>This example replaces extra white space:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Text</span><span class="pun">.</span><span class="typ">RegularExpressions</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">RegExApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">string</span><span class="pln"> input </span><span class="pun">=</span> <span class="str">"Hello   World   "</span><span class="pun">;</span>
+         <span class="kwd">string</span><span class="pln"> pattern </span><span class="pun">=</span> <span class="str">"\\s+"</span><span class="pun">;</span>
+         <span class="kwd">string</span><span class="pln"> replacement </span><span class="pun">=</span> <span class="str">" "</span><span class="pun">;</span>
+         <span class="typ">Regex</span><span class="pln"> rgx </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Regex</span><span class="pun">(</span><span class="pln">pattern</span><span class="pun">);</span>
+         <span class="kwd">string</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> rgx</span><span class="pun">.</span><span class="typ">Replace</span><span class="pun">(</span><span class="pln">input</span><span class="pun">,</span><span class="pln"> replacement</span><span class="pun">);</span>
+
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Original String: {0}"</span><span class="pun">,</span><span class="pln"> input</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Replacement String: {0}"</span><span class="pun">,</span><span class="pln"> result</span><span class="pun">);</span>    
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Original String: Hello World   
+Replacement String: Hello World   
+</pre>

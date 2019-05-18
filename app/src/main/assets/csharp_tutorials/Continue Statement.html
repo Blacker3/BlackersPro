@@ -1,0 +1,48 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Continue Statement</h1>
+
+<p>The <strong>continue</strong> statement in C# works somewhat like the <strong>break</strong> statement. Instead of forcing termination, however, continue forces the next iteration of the loop to take place, skipping any code in between.</p>
+<p>For the <strong>for</strong> loop, <strong>continue</strong> statement causes the conditional test and increment portions of the loop to execute. For the <strong>while</strong> and <strong>do...while</strong> loops, <strong>continue</strong> statement causes the program control passes to the conditional tests.</p>
+<h2>Syntax</h2>
+<p>The syntax for a <strong>continue </strong> statement in C# is as follows:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">continue</span><span class="pun">;</span></pre>
+<h2>Flow Diagram</h2>
+<p><img width="100%" src="images/cpp_continue_statement.jpg" alt="C# continue statement" /></p>
+<h2>Example</h2>
+<pre class="prettyprint notranslate tryit prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">Loops</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="com">/* local variable definition */</span>
+         <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+         
+         <span class="com">/* do loop execution */</span>
+         <span class="kwd">do</span>
+         <span class="pun">{</span>
+            <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">==</span> <span class="lit">15</span><span class="pun">)</span>
+            <span class="pun">{</span>
+               <span class="com">/* skip the iteration */</span><span class="pln">
+               a </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span> <span class="lit">1</span><span class="pun">;</span>
+               <span class="kwd">continue</span><span class="pun">;</span>
+            <span class="pun">}</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"value of a: {0}"</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span><span class="pln">
+            a</span><span class="pun">++;</span>
+         <span class="pun">}</span> 
+         <span class="kwd">while</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">&lt;</span> <span class="lit">20</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span> </pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">value of a: 10
+value of a: 11
+value of a: 12
+value of a: 13
+value of a: 14
+value of a: 16
+value of a: 17
+value of a: 18
+value of a: 19
+</pre>

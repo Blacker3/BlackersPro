@@ -1,0 +1,179 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - SortedList Class</h1>
+
+<p>The SortedList class represents a collection of key-and-value pairs that are sorted by the keys and are accessible by key and by index.</p>
+<p>A sorted list is a combination of an array and a hash table. It contains a list of items that can be accessed using a key or an index. If you access items using an index, it is an ArrayList, and if you access items using a key, it is a Hashtable. The collection of items is always sorted by the key value.</p>
+<h2>Methods and Properties of the SortedList Class</h2>
+<p>The following table lists some of the commonly used <strong>properties</strong> of the <strong>SortedList</strong> class:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 25%;">Property</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Capacity</td>
+<td>Gets or sets the capacity of the SortedList.</td>
+</tr>
+<tr>
+<td>Count</td>
+<td>Gets the number of elements contained in the SortedList.</td>
+</tr>
+<tr>
+<td>IsFixedSize</td>
+<td>Gets a value indicating whether the SortedList has a fixed size.</td>
+</tr>
+<tr>
+<td>IsReadOnly</td>
+<td>Gets a value indicating whether the SortedList is read-only.</td>
+</tr>
+<tr>
+<td>Item</td>
+<td>Gets and sets the value associated with a specific key in the SortedList.</td>
+</tr>
+<tr>
+<td>Keys</td>
+<td>Gets the keys in the SortedList.</td>
+</tr>
+<tr>
+<td>Values</td>
+<td>Gets the values in the SortedList.</td>
+</tr>
+</tbody>
+</table>
+<p>The following table lists some of the commonly used <strong>methods</strong> of the <strong>SortedList</strong> class:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 5%;">Sr.No.</th>
+<th>Methods</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>public virtual void Add(object key, object value);</strong>
+<p>Adds an element with the specified key and value into the SortedList.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>public virtual void Clear();</strong>
+<p>Removes all elements from the SortedList.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>public virtual bool ContainsKey(object key);</strong>
+<p>Determines whether the SortedList contains a specific key.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>public virtual bool ContainsValue(object value);</strong>
+<p>Determines whether the SortedList contains a specific value.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>public virtual object GetByIndex(int index);</strong>
+<p>Gets the value at the specified index of the SortedList.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>public virtual object GetKey(int index);</strong>
+<p>Gets the key at the specified index of the SortedList.</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>public virtual IList GetKeyList();</strong>
+<p>Gets the keys in the SortedList.</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>public virtual IList GetValueList();</strong>
+<p>Gets the values in the SortedList.</p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>public virtual int IndexOfKey(object key);</strong>
+<p>Returns the zero-based index of the specified key in the SortedList.</p>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>public virtual int IndexOfValue(object value);</strong>
+<p>Returns the zero-based index of the first occurrence of the specified value in the SortedList.</p>
+</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>public virtual void Remove(object key);</strong>
+<p>Removes the element with the specified key from the SortedList.</p>
+</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>public virtual void RemoveAt(int index);</strong>
+<p>Removes the element at the specified index of SortedList.</p>
+</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>public virtual void TrimToSize();</strong>
+<p>Sets the capacity to the actual number of elements in the SortedList.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Example</h2>
+<p>The following example demonstrates the concept:</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Collections</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">CollectionsApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">SortedList</span><span class="pln"> sl </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">SortedList</span><span class="pun">();</span><span class="pln">
+         
+         sl</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"001"</span><span class="pun">,</span> <span class="str">"Zara Ali"</span><span class="pun">);</span><span class="pln">
+         sl</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"002"</span><span class="pun">,</span> <span class="str">"Abida Rehman"</span><span class="pun">);</span><span class="pln">
+         sl</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"003"</span><span class="pun">,</span> <span class="str">"Joe Holzner"</span><span class="pun">);</span><span class="pln">
+         sl</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"004"</span><span class="pun">,</span> <span class="str">"Mausam Benazir Nur"</span><span class="pun">);</span><span class="pln">
+         sl</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"005"</span><span class="pun">,</span> <span class="str">"M. Amlan"</span><span class="pun">);</span><span class="pln">
+         sl</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"006"</span><span class="pun">,</span> <span class="str">"M. Arif"</span><span class="pun">);</span><span class="pln">
+         sl</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"007"</span><span class="pun">,</span> <span class="str">"Ritesh Saikia"</span><span class="pun">);</span>
+         
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">sl</span><span class="pun">.</span><span class="typ">ContainsValue</span><span class="pun">(</span><span class="str">"Nuha Ali"</span><span class="pun">))</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"This student name is already in the list"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="kwd">else</span>
+         <span class="pun">{</span><span class="pln">
+            sl</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"008"</span><span class="pun">,</span> <span class="str">"Nuha Ali"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+
+         <span class="com">// get a collection of the keys. </span>
+         <span class="typ">ICollection</span><span class="pln"> key </span><span class="pun">=</span><span class="pln"> sl</span><span class="pun">.</span><span class="typ">Keys</span><span class="pun">;</span>
+
+         <span class="kwd">foreach</span> <span class="pun">(</span><span class="kwd">string</span><span class="pln"> k </span><span class="kwd">in</span><span class="pln"> key</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">k </span><span class="pun">+</span> <span class="str">": "</span> <span class="pun">+</span><span class="pln"> sl</span><span class="pun">[</span><span class="pln">k</span><span class="pun">]);</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">001: Zara Ali
+002: Abida Rehman
+003: Joe Holzner
+004: Mausam Banazir Nur
+005: M. Amlan 
+006: M. Arif
+007: Ritesh Saikia
+008: Nuha Ali
+</pre>

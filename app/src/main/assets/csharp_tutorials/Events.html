@@ -1,0 +1,41 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Events</h1>
+
+<p><strong>Events</strong> are user actions such as key press, clicks, mouse movements, etc., or some occurrence such as system generated notifications. Applications need to respond to events when they occur. For example, interrupts. Events are used for inter-process communication.</p>
+<h2>Using Delegates with Events</h2>
+<p>The events are declared and raised in a class and associated with the event handlers using delegates within the same class or some other class. The class containing the event is used to publish the event. This is called the <strong>publisher</strong> class. Some other class that accepts this event is called the <strong>subscriber </strong> class. Events use the <strong>publisher-subscriber</strong> model.</p>
+<p>A <strong>publisher</strong> is an object that contains the definition of the event and the delegate. The event-delegate association is also defined in this object. A publisher class object invokes the event and it is notified to other objects.</p>
+<p>A <strong>subscriber</strong> is an object that accepts the event and provides an event handler. The delegate in the publisher class invokes the method (event handler) of the subscriber class.</p>
+<h2>Declaring Events</h2>
+<p>To declare an event inside a class, first a delegate type for the event must be declared. For example,</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">public</span> <span class="kwd">delegate</span> <span class="kwd">string</span> <span class="typ">MyDel</span><span class="pun">(</span><span class="kwd">string</span><span class="pln"> str</span><span class="pun">);</span></pre>
+<p>Next, the event itself is declared, using the <strong>event</strong> keyword:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">event</span> <span class="typ">MyDel</span> <span class="typ">MyEvent</span><span class="pun">;</span></pre>
+<p>The preceding code defines a delegate named <em>BoilerLogHandler</em> and an event named <em>BoilerEventLog</em>, which invokes the delegate when it is raised.</p>
+<h2>Example</h2>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">SampleApp</span> <span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">delegate</span> <span class="kwd">string</span> <span class="typ">MyDel</span><span class="pun">(</span><span class="kwd">string</span><span class="pln"> str</span><span class="pun">);</span>
+	
+   <span class="kwd">class</span> <span class="typ">EventProgram</span> <span class="pun">{</span>
+      <span class="kwd">event</span> <span class="typ">MyDel</span> <span class="typ">MyEvent</span><span class="pun">;</span>
+		
+      <span class="kwd">public</span> <span class="typ">EventProgram</span><span class="pun">()</span> <span class="pun">{</span>
+         <span class="kwd">this</span><span class="pun">.</span><span class="typ">MyEvent</span> <span class="pun">+=</span> <span class="kwd">new</span> <span class="typ">MyDel</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="typ">WelcomeUser</span><span class="pun">);</span>
+      <span class="pun">}</span>
+		
+      <span class="kwd">public</span> <span class="kwd">string</span> <span class="typ">WelcomeUser</span><span class="pun">(</span><span class="kwd">string</span><span class="pln"> username</span><span class="pun">)</span> <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="str">"Welcome "</span> <span class="pun">+</span><span class="pln"> username</span><span class="pun">;</span>
+      <span class="pun">}</span>
+		
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> <span class="pun">{</span>
+         <span class="typ">EventProgram</span><span class="pln"> obj1 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">EventProgram</span><span class="pun">();</span>
+         <span class="kwd">string</span><span class="pln"> result </span><span class="pun">=</span><span class="pln"> obj1</span><span class="pun">.</span><span class="typ">MyEvent</span><span class="pun">(</span><span class="str">"JainDev"</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">result</span><span class="pun">);</span>
+      <span class="pun">}</span>
+
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Welcome JainDev
+</pre>

@@ -1,0 +1,402 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Strings</h1>
+ 
+<p>In C#, you can use strings as array of characters, However, more common practice is to use the <strong>string</strong> keyword to declare a string variable. The string keyword is an alias for the <strong>System.String</strong> class.</p>
+<h2>Creating a String Object</h2>
+<p>You can create string object using one of the following methods:</p>
+<ul class="list">
+<li>
+<p>By assigning a string literal to a String variable</p>
+</li>
+<li>
+<p>By using a String class constructor</p>
+</li>
+<li>
+<p>By using the string concatenation operator (+)</p>
+</li>
+<li>
+<p>By retrieving a property or calling a method that returns a string</p>
+</li>
+<li>
+<p>By calling a formatting method to convert a value or an object to its string representation</p>
+</li>
+</ul>
+<p>The following example demonstrates this:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">StringApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="com">//from string literal and string concatenation</span>
+         <span class="kwd">string</span><span class="pln"> fname</span><span class="pun">,</span><span class="pln"> lname</span><span class="pun">;</span><span class="pln">
+         fname </span><span class="pun">=</span> <span class="str">"Rowan"</span><span class="pun">;</span><span class="pln">
+         lname </span><span class="pun">=</span> <span class="str">"Atkinson"</span><span class="pun">;</span>
+         
+         <span class="kwd">string</span><span class="pln"> fullname </span><span class="pun">=</span><span class="pln"> fname </span><span class="pun">+</span><span class="pln"> lname</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Full Name: {0}"</span><span class="pun">,</span><span class="pln"> fullname</span><span class="pun">);</span>
+         
+         <span class="com">//by using string constructor</span>
+         <span class="kwd">char</span><span class="pun">[]</span><span class="pln"> letters </span><span class="pun">=</span> <span class="pun">{</span> <span class="str">'H'</span><span class="pun">,</span> <span class="str">'e'</span><span class="pun">,</span> <span class="str">'l'</span><span class="pun">,</span> <span class="str">'l'</span><span class="pun">,</span><span class="str">'o'</span> <span class="pun">};</span>
+         <span class="kwd">string</span><span class="pln"> greetings </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">string</span><span class="pun">(</span><span class="pln">letters</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Greetings: {0}"</span><span class="pun">,</span><span class="pln"> greetings</span><span class="pun">);</span>
+         
+         <span class="com">//methods returning string</span>
+         <span class="kwd">string</span><span class="pun">[]</span><span class="pln"> sarray </span><span class="pun">=</span> <span class="pun">{</span> <span class="str">"Hello"</span><span class="pun">,</span> <span class="str">"From"</span><span class="pun">,</span> <span class="str">"Jain"</span><span class="pun">,</span> <span class="str">"Dev"</span> <span class="pun">};</span>
+         <span class="kwd">string</span><span class="pln"> message </span><span class="pun">=</span> <span class="typ">String</span><span class="pun">.</span><span class="typ">Join</span><span class="pun">(</span><span class="str">" "</span><span class="pun">,</span><span class="pln"> sarray</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Message: {0}"</span><span class="pun">,</span><span class="pln"> message</span><span class="pun">);</span>
+         
+         <span class="com">//formatting method to convert a value</span>
+         <span class="typ">DateTime</span><span class="pln"> waiting </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">DateTime</span><span class="pun">(</span><span class="lit">2012</span><span class="pun">,</span> <span class="lit">10</span><span class="pun">,</span> <span class="lit">10</span><span class="pun">,</span> <span class="lit">17</span><span class="pun">,</span> <span class="lit">58</span><span class="pun">,</span> <span class="lit">1</span><span class="pun">);</span>
+         <span class="kwd">string</span><span class="pln"> chat </span><span class="pun">=</span> <span class="typ">String</span><span class="pun">.</span><span class="typ">Format</span><span class="pun">(</span><span class="str">"Message sent at {0:t} on {0:D}"</span><span class="pun">,</span><span class="pln"> waiting</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Message: {0}"</span><span class="pun">,</span><span class="pln"> chat</span><span class="pun">);</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Full Name: Rowan Atkinson
+Greetings: Hello
+Message: Hello From JainDev
+Message: Message sent at 5:58 PM on Wednesday, October 10, 2012
+</pre>
+<h2>Properties of the String Class</h2>
+<p>The String class has the following two properties:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 5%;">Sr.No</th>
+<th>Property</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>Chars</strong>
+<p>Gets the <em>Char</em> object at a specified position in the current <em>String</em> object.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Length</strong>
+<p>Gets the number of characters in the current String object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Methods of the String Class</h2>
+<p>The String class has numerous methods that help you in working with the string objects. The following table provides some of the most commonly used methods:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 5%;">Sr.No</th>
+<th>Methods</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>public static int Compare(string strA, string strB)</strong>
+<p>Compares two specified string objects and returns an integer that indicates their relative position in the sort order.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>public static int Compare(string strA, string strB, bool ignoreCase )</strong>
+<p>Compares two specified string objects and returns an integer that indicates their relative position in the sort order. However, it ignores case if the Boolean parameter is true.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>public static string Concat(string str0, string str1)</strong>
+<p>Concatenates two string objects.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>public static string Concat(string str0, string str1, string str2)</strong>
+<p>Concatenates three string objects.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>public static string Concat(string str0, string str1, string str2, string str3)</strong>
+<p>Concatenates four string objects.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>public bool Contains(string value)</strong>
+<p>Returns a value indicating whether the specified String object occurs within this string.</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>public static string Copy(string str)</strong>
+<p>Creates a new String object with the same value as the specified string.</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>public void CopyTo(int sourceIndex, char[] destination, int destinationIndex, int count)</strong>
+<p>Copies a specified number of characters from a specified position of the String object to a specified position in an array of Unicode characters.</p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>public bool EndsWith(string value)</strong>
+<p>Determines whether the end of the string object matches the specified string.</p>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>public bool Equals(string value)</strong>
+<p>Determines whether the current String object and the specified String object have the same value.</p>
+</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>public static bool Equals(string a, string b)</strong>
+<p>Determines whether two specified String objects have the same value.</p>
+</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>public static string Format(string format, Object arg0)</strong>
+<p>Replaces one or more format items in a specified string with the string representation of a specified object.</p>
+</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>public int IndexOf(char value)</strong>
+<p>Returns the zero-based index of the first occurrence of the specified Unicode character in the current string.</p>
+</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>public int IndexOf(string value)</strong>
+<p>Returns the zero-based index of the first occurrence of the specified string in this instance.</p>
+</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>public int IndexOf(char value, int startIndex)</strong>
+<p>Returns the zero-based index of the first occurrence of the specified Unicode character in this string, starting search at the specified character position.</p>
+</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>public int IndexOf(string value, int startIndex)</strong>
+<p>Returns the zero-based index of the first occurrence of the specified string in this instance, starting search at the specified character position.</p>
+</td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>public int IndexOfAny(char[] anyOf)</strong>
+<p>Returns the zero-based index of the first occurrence in this instance of any character in a specified array of Unicode characters.</p>
+</td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>public int IndexOfAny(char[] anyOf, int startIndex)</strong>
+<p>Returns the zero-based index of the first occurrence in this instance of any character in a specified array of Unicode characters, starting search at the specified character position.</p>
+</td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>public string Insert(int startIndex, string value)</strong>
+<p>Returns a new string in which a specified string is inserted at a specified index position in the current string object.</p>
+</td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>public static bool IsNullOrEmpty(string value)</strong>
+<p>Indicates whether the specified string is null or an Empty string.</p>
+</td>
+</tr>
+<tr>
+<td>21</td>
+<td><strong>public static string Join(string separator, params string[] value)</strong>
+<p>Concatenates all the elements of a string array, using the specified separator between each element.</p>
+</td>
+</tr>
+<tr>
+<td>22</td>
+<td><strong>public static string Join(string separator, string[] value, int startIndex, int count)</strong>
+<p>Concatenates the specified elements of a string array, using the specified separator between each element.</p>
+</td>
+</tr>
+<tr>
+<td>23</td>
+<td><strong>public int LastIndexOf(char value)</strong>
+<p>Returns the zero-based index position of the last occurrence of the specified Unicode character within the current string object.</p>
+</td>
+</tr>
+<tr>
+<td>24</td>
+<td><strong>public int LastIndexOf(string value)</strong>
+<p>Returns the zero-based index position of the last occurrence of a specified string within the current string object.</p>
+</td>
+</tr>
+<tr>
+<td>25</td>
+<td><strong>public string Remove(int startIndex)</strong>
+<p>Removes all the characters in the current instance, beginning at a specified position and continuing through the last position, and returns the string.</p>
+</td>
+</tr>
+<tr>
+<td>26</td>
+<td><strong>public string Remove(int startIndex, int count)</strong>
+<p>Removes the specified number of characters in the current string beginning at a specified position and returns the string.</p>
+</td>
+</tr>
+<tr>
+<td>27</td>
+<td><strong>public string Replace(char oldChar, char newChar)</strong>
+<p>Replaces all occurrences of a specified Unicode character in the current string object with the specified Unicode character and returns the new string.</p>
+</td>
+</tr>
+<tr>
+<td>28</td>
+<td><strong>public string Replace(string oldValue, string newValue)</strong>
+<p>Replaces all occurrences of a specified string in the current string object with the specified string and returns the new string.</p>
+</td>
+</tr>
+<tr>
+<td>29</td>
+<td><strong>public string[] Split(params char[] separator)</strong>
+<p>Returns a string array that contains the substrings in the current string object, delimited by elements of a specified Unicode character array.</p>
+</td>
+</tr>
+<tr>
+<td>30</td>
+<td><strong>public string[] Split(char[] separator, int count)</strong>
+<p>Returns a string array that contains the substrings in the current string object, delimited by elements of a specified Unicode character array. The int parameter specifies the maximum number of substrings to return.</p>
+</td>
+</tr>
+<tr>
+<td>31</td>
+<td><strong>public bool StartsWith(string value)</strong>
+<p>Determines whether the beginning of this string instance matches the specified string.</p>
+</td>
+</tr>
+<tr>
+<td>32</td>
+<td><strong>public char[] ToCharArray()</strong>
+<p>Returns a Unicode character array with all the characters in the current string object.</p>
+</td>
+</tr>
+<tr>
+<td>33</td>
+<td><strong>public char[] ToCharArray(int startIndex, int length)</strong>
+<p>Returns a Unicode character array with all the characters in the current string object, starting from the specified index and up to the specified length.</p>
+</td>
+</tr>
+<tr>
+<td>34</td>
+<td><strong>public string ToLower()</strong>
+<p>Returns a copy of this string converted to lowercase.</p>
+</td>
+</tr>
+<tr>
+<td>35</td>
+<td><strong>public string ToUpper()</strong>
+<p>Returns a copy of this string converted to uppercase.</p>
+</td>
+</tr>
+<tr>
+<td>36</td>
+<td><strong>public string Trim()</strong>
+<p>Removes all leading and trailing white-space characters from the current String object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can visit MSDN library for the complete list of methods and String class constructors.</p>
+<h2>Examples</h2>
+<p>The following example demonstrates some of the methods mentioned above:</p>
+<p><strong>Comparing Strings:</strong></p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">StringApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">StringProg</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">string</span><span class="pln"> str1 </span><span class="pun">=</span> <span class="str">"This is test"</span><span class="pun">;</span>
+         <span class="kwd">string</span><span class="pln"> str2 </span><span class="pun">=</span> <span class="str">"This is text"</span><span class="pun">;</span>
+
+         <span class="kwd">if</span> <span class="pun">(</span><span class="typ">String</span><span class="pun">.</span><span class="typ">Compare</span><span class="pun">(</span><span class="pln">str1</span><span class="pun">,</span><span class="pln"> str2</span><span class="pun">)</span> <span class="pun">==</span> <span class="lit">0</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">str1 </span><span class="pun">+</span> <span class="str">" and "</span> <span class="pun">+</span><span class="pln"> str2 </span><span class="pun">+</span>  <span class="str">" are equal."</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="kwd">else</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">str1 </span><span class="pun">+</span> <span class="str">" and "</span> <span class="pun">+</span><span class="pln"> str2 </span><span class="pun">+</span> <span class="str">" are not equal."</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">()</span> <span class="pun">;</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">This is test and This is text are not equal.
+</pre>
+<p><strong>String Contains String:</strong></p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">StringApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">StringProg</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">string</span><span class="pln"> str </span><span class="pun">=</span> <span class="str">"This is test"</span><span class="pun">;</span>
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">str</span><span class="pun">.</span><span class="typ">Contains</span><span class="pun">(</span><span class="str">"test"</span><span class="pun">))</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"The sequence 'test' was found."</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">()</span> <span class="pun">;</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">The sequence 'test' was found.
+</pre>
+<p><strong>Getting a Substring:</strong></p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">StringApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">StringProg</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">string</span><span class="pln"> str </span><span class="pun">=</span> <span class="str">"Last night I dreamt of San Pedro"</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">str</span><span class="pun">);</span>
+         <span class="kwd">string</span><span class="pln"> substr </span><span class="pun">=</span><span class="pln"> str</span><span class="pun">.</span><span class="typ">Substring</span><span class="pun">(</span><span class="lit">23</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">substr</span><span class="pun">);</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">San Pedro
+</pre>
+<p><strong>Joining Strings:</strong></p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">StringApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">StringProg</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">string</span><span class="pun">[]</span><span class="pln"> starray </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">string</span><span class="pun">[]{</span><span class="str">"Down the way nights are dark"</span><span class="pun">,</span>
+         <span class="str">"And the sun shines daily on the mountain top"</span><span class="pun">,</span>
+         <span class="str">"I took a trip on a sailing ship"</span><span class="pun">,</span>
+         <span class="str">"And when I reached Jamaica"</span><span class="pun">,</span>
+         <span class="str">"I made a stop"</span><span class="pun">};</span>
+
+         <span class="kwd">string</span><span class="pln"> str </span><span class="pun">=</span> <span class="typ">String</span><span class="pun">.</span><span class="typ">Join</span><span class="pun">(</span><span class="str">"\n"</span><span class="pun">,</span><span class="pln"> starray</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">str</span><span class="pun">);</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Down the way nights are dark
+And the sun shines daily on the mountain top
+I took a trip on a sailing ship
+And when I reached Jamaica
+I made a stop
+</pre>

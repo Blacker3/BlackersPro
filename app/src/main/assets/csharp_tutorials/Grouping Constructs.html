@@ -1,0 +1,74 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Grouping Constructs</h1>
+
+<p>Grouping constructs delineate sub-expressions of a regular expression and capture substrings of an input string. The following table lists the grouping constructs:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Grouping construct</th>
+<th>Description</th>
+<th>Pattern</th>
+<th>Matches</th>
+</tr>
+<tr>
+<td><strong>( subexpression )</strong></td>
+<td>Captures the matched subexpression and assigns it a zero-based ordinal number.</td>
+<td>(\w)\1</td>
+<td>"ee" in "deep"</td>
+</tr>
+<tr>
+<td><strong>(?&lt; name &gt;subexpression)</strong></td>
+<td>Captures the matched subexpression into a named group.</td>
+<td>(?&lt; double&gt;\w)\k&lt; double&gt;</td>
+<td>"ee" in "deep"</td>
+</tr>
+<tr>
+<td><strong>(?&lt; name1 -name2 &gt;subexpression)</strong></td>
+<td>Defines a balancing group definition.</td>
+<td>(((?'Open'\()[^\(\)]*)+((?'Close-Open'\))[^\(\)]*)+)*(?(Open)(?!))$</td>
+<td>"((1-3)*(3-1))" in "3+2^((1-3)*(3-1))"</td>
+</tr>
+<tr>
+<td><strong>(?: subexpression)</strong></td>
+<td>Defines a noncapturing group.</td>
+<td>Write(?:Line)?</td>
+<td>"WriteLine" in "Console.WriteLine()"</td>
+</tr>
+<tr>
+<td><strong>(?imnsx-imnsx:subexpression)</strong></td>
+<td>Applies or disables the specified options within <em>subexpression</em>.</td>
+<td>A\d{2}(?i:\w+)\b</td>
+<td>"A12xl", "A12XL" in "A12xl A12XL a12xl"</td>
+</tr>
+<tr>
+<td><strong>(?= subexpression)</strong></td>
+<td>Zero-width positive lookahead assertion.</td>
+<td>\w+(?=\.)</td>
+<td>"is", "ran", and "out" in "He is. The dog ran. The sun is out."</td>
+</tr>
+<tr>
+<td><strong>(?! subexpression)</strong></td>
+<td>Zero-width negative lookahead assertion.</td>
+<td>\b(?!un)\w+\b</td>
+<td>"sure", "used" in "unsure sure unity used"</td>
+</tr>
+<tr>
+<td><strong>(?&lt; =subexpression)</strong></td>
+<td>Zero-width positive lookbehind assertion.</td>
+<td>(?&lt; =19)\d{2}\b</td>
+<td>"51", "03" in "1851 1999 1950 1905 2003"</td>
+</tr>
+<tr>
+<td><strong>(?&lt; ! subexpression)</strong></td>
+<td>Zero-width negative lookbehind assertion.</td>
+<td>(?&lt; !19)\d{2}\b</td>
+<td>"ends", "ender" in "end sends endure lender"</td>
+</tr>
+<tr>
+<td><strong>(?&gt; subexpression)</strong></td>
+<td>Nonbacktracking (or "greedy") subexpression.</td>
+<td>[13579](?&gt;A+B+)</td>
+<td>"1ABB", "3ABB", and "5AB" in "1ABB 3ABBC 5AB 5AC"</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>

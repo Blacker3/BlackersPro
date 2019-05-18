@@ -1,0 +1,70 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Collections</h1>
+
+<p>Collection classes are specialized classes for data storage and retrieval. These classes provide support for stacks, queues, lists, and hash tables. Most collection classes implement the same interfaces.</p>
+<p>Collection classes serve various purposes, such as allocating memory dynamically to elements and accessing a list of items on the basis of an index etc. These classes create collections of objects of the Object class, which is the base class for all data types in C#.</p>
+<h2>Various Collection Classes and Their Usage</h2>
+<p>The following are the various commonly used classes of the <strong>System.Collection</strong> namespace. Click the following links to check their detail.</p>
+<p>&nbsp;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 20%;">Class</th>
+<th>Description and Useage</th>
+</tr>
+<tr>
+<td>
+<p><a title="C# ArrayList" href="35-1.html">ArrayList</a></p>
+</td>
+<td>
+<p>It represents ordered collection of an object that can be <strong>indexed</strong> individually.</p>
+<p>It is basically an alternative to an array. However, unlike array you can add and remove items from a list at a specified position using an <strong>index</strong> and the array resizes itself automatically. It also allows dynamic memory allocation, adding, searching and sorting items in the list.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a title="C# Hashtable" href="35-2.html">Hashtable</a></p>
+</td>
+<td>
+<p>It uses a <strong>key</strong> to access the elements in the collection.</p>
+<p>A hash table is used when you need to access elements by using key, and you can identify a useful key value. Each item in the hash table has a <strong>key/value</strong> pair. The key is used to access the items in the collection.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a title="C# SortedList" href="35-3.html">SortedList</a></p>
+</td>
+<td>
+<p>It uses a <strong>key</strong> as well as an <strong>index</strong> to access the items in a list.</p>
+<p>A sorted list is a combination of an array and a hash table. It contains a list of items that can be accessed using a key or an index. If you access items using an index, it is an ArrayList, and if you access items using a key , it is a Hashtable. The collection of items is always sorted by the key value.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a title="C# Stack" href="35-4.html">Stack</a></p>
+</td>
+<td>
+<p>It represents a <strong>last-in, first out</strong> collection of object.</p>
+<p>It is used when you need a last-in, first-out access of items. When you add an item in the list, it is called <strong>pushing</strong> the item and when you remove it, it is called <strong>popping</strong> the item.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a title="C# Queue" href="35-5.html">Queue</a></p>
+</td>
+<td>
+<p>It represents a <strong>first-in, first out</strong> collection of object.</p>
+<p>It is used when you need a first-in, first-out access of items. When you add an item in the list, it is called <strong>enqueue</strong> and when you remove an item, it is called <strong>deque</strong>.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a title="C# BitArray" href="35-6.html">BitArray</a></p>
+</td>
+<td>
+<p>It represents an array of the <strong>binary representation</strong> using the values 1 and 0.</p>
+<p>It is used when you need to store the bits but do not know the number of bits in advance. You can access items from the BitArray collection by using an <strong>integer index</strong>, which starts from zero.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>

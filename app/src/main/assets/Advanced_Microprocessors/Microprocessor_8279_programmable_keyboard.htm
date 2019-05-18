@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microprocessor 8279 - Programmable Keyboard</title>
+<meta name="description" content="Microprocessor 8279 - Programmable Keyboard - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>8279 programmable keyboard/display controller is designed by Intel that interfaces a keyboard with the CPU. The keyboard first scans the keyboard and identifies if any key has been pressed. It then sends their relative response of the pressed key to the CPU and vice-a-versa.</p>
+<h3>How Many Ways the Keyboard is Interfaced with the CPU?</h3>
+<p>The Keyboard can be interfaced either in the interrupt or the polled mode. In the <b>Interrupt mode</b>, the processor is requested service only if any key is pressed, otherwise the CPU will continue with its main task.</p>
+<p>In the <b>Polled mode</b>, the CPU periodically reads an internal flag of 8279 to check whether any key is pressed or not with key pressure.</p>
+<h3>How Does 8279 Keyboard Work?</h3>
+<p>The keyboard consists of maximum 64 keys, which are interfaced with the CPU by using the key-codes. These key-codes are de-bounced and stored in an 8-byte FIFORAM, which can be accessed by the CPU. If more than 8 characters are entered in the FIFO, then it means more than eight keys are pressed at a time. This is when the overrun status is set.</p>
+<p>If a FIFO contains a valid key entry, then the CPU is interrupted in an interrupt mode else the CPU checks the status in polling to read the entry. Once the CPU reads a key entry, then FIFO is updated, and the key entry is pushed out of the FIFO to generate space for new entries.</p>
+<h3>Architecture and Description</h3>
+<img src="image\8279_architecture.jpg" alt="8279 Architecture">
+<h3>I/O Control and Data Buffer</h3>
+<p>This unit controls the flow of data through the microprocessor. It is enabled only when D is low. Its data buffer interfaces the external bus of the system with the internal bus of the microprocessor. The pins A0, RD, and WR are used for command, status or data read/write operations.</p>
+<h3>Control and Timing Register and Timing Control</h3>
+<p>This unit contains registers to store the keyboard, display modes, and other operations as programmed by the CPU. The timing and control unit handles the timings for the operation of the circuit.</p>
+<h3>Scan Counter</h3>
+<p>It has two modes i.e. <b>Encoded mode</b> and Decoded mode. In the encoded mode, the counter provides the binary count that is to be externally decoded to provide the scan lines for the keyboard and display.</p>
+<p>In the <b>decoded scan mode</b>, the counter internally decodes the least significant 2 bits and provides a decoded 1 out of 4 scan on SL<sub>0</sub>-SL<sub>3</sub>.</p>
+<h3>Return Buffers, Keyboard Debounce, and Control</h3>
+<p>This unit first scans the key closure row-wise, if found then the keyboard debounce unit debounces the key entry. In case, the same key is detected, then the code of that key is directly transferred to the sensor RAM along with SHIFT &amp; CONTROL key status.</p>
+<h3>FIFO/Sensor RAM and Status Logic</h3>
+<p>This unit acts as 8-byte first-in-first-out (FIFO) RAM where the key code of every pressed key is entered into the RAM as per their sequence. The status logic generates an interrupt request after each FIFO read operation till the FIFO gets empty.</p>
+<p>In the scanned sensor matrix mode, this unit acts as sensor RAM where its each row is loaded with the status of their corresponding row of sensors into the matrix. When the sensor changes its state, the IRQ line changes to high and interrupts the CPU.</p>
+<h3>Display Address Registers and Display RAM</h3>
+<p>This unit consists of display address registers which holds the addresses of the word currently read/written by the CPU to/from the display RAM.</p>
+<h3>8279 − Pin Description</h3>
+<p>The following figure shows the pin diagram of 8279 &minus;</p>
+<img src="image\8279_pin_diagram.jpg" alt="8279 Pin Diagram">
+<h3>Data Bus Lines, DB<sub>0</sub> - DB<sub>7</sub></h3>
+<p>These are 8 bidirectional data bus lines used to transfer the data to/from the CPU.</p>
+<h3>CLK</h3>
+<p>The clock input is used to generate internal timings required by the microprocessor.</p>
+<h3>RESET</h3>
+<p>As the name suggests this pin is used to reset the microprocessor.</p>
+<h3>CS Chip Select</h3>
+<p>When this pin is set to low, it allows read/write operations, else this pin should be set to high.</p>
+<h3>A<sub>0</sub></h3>
+<p>This pin indicates the transfer of command/status information. When it is low, it indicates the transfer of data.</p>
+<h3>RD, WR</h3>
+<p>This Read/Write pin enables the data buffer to send/receive data over the data bus.</p>
+<h3>IRQ</h3>
+<p>This interrupt output line goes high when there is data in the FIFO sensor RAM. The interrupt line goes low with each FIFO RAM read operation. However, if the FIFO RAM further contains any key-code entry to be read by the CPU, this pin again goes high to generate an interrupt to the CPU.</p>
+<h3>V<sub>ss</sub>, V<sub>cc</sub></h3>
+<p>These are the ground and power supply lines of the microprocessor.</p>
+<h3>SL<sub>0</sub> − SL<sub>3</sub></h3>
+<p>These are the scan lines used to scan the keyboard matrix and display the digits. These lines can be programmed as encoded or decoded, using the mode control register.</p>
+<h3>RL<sub>0</sub> − RL<sub>7</sub></h3>
+<p>These are the Return Lines which are connected to one terminal of keys, while the other terminal of the keys is connected to the decoded scan lines. These lines are set to 0 when any key is pressed.</p>
+<h3>SHIFT</h3>
+<p>The Shift input line status is stored along with every key code in FIFO in the scanned keyboard mode. Till it is pulled low with a key closure, it is pulled up internally to keep it high</p>
+<h3>CNTL/STB - CONTROL/STROBED I/P Mode</h3>
+<p>In the keyboard mode, this line is used as a control input and stored in FIFO on a key closure. The line is a strobe line that enters the data into FIFO RAM, in the strobed input mode. It has an internal pull up. The line is pulled down with a key closure.</p>
+<h3>BD</h3>
+<p>It stands for blank display. It is used to blank the display during digit switching.</p>
+<h3>OUTA<sub>0</sub> – OUTA<sub>3</sub> and OUTB<sub>0</sub> – OUTB<sub>3</sub></h3>
+<p>These are the output ports for two 16x4 or one 16x8 internal display refresh registers. The data from these lines is synchronized with the scan lines to scan the display and the keyboard.</p>
+<h2>Operational Modes of 8279</h2>
+<p>There are two modes of operation on 8279 &minus; <b>Input Mode</b> and <b>Output Mode</b>.</p>
+<h3>Input Mode</h3>
+<p>This mode deals with the input given by the keyboard and this mode is further classified into 3 modes.</p>
+<ul class="list">
+<li><p><b>Scanned Keyboard Mode</b> &minus; In this mode, the key matrix can be interfaced using either encoded or decoded scans. In the encoded scan, an 8&times;8 keyboard or in the decoded scan, a 4&times;8 keyboard can be interfaced. The code of key pressed with SHIFT and CONTROL status is stored into the FIFO RAM.</p></li>  
+<li><p><b>Scanned Sensor Matrix</b> &minus; In this mode, a sensor array can be interfaced with the processor using either encoder or decoder scans. In the encoder scan, 8&times;8 sensor matrix or with decoder scan 4&times;8 sensor matrix can be interfaced.</p></li>  
+<li><p><b>Strobed Input</b> &minus; In this mode, when the control line is set to 0, the data on the return lines is stored in the FIFO byte by byte.</p></li>
+</ul>
+<h3>Output Mode</h3>
+<p>This mode deals with display-related operations. This mode is further classified into two output modes.</p>
+<ul class="list">
+<li><p><b>Display Scan</b> &minus; This mode allows 8/16 character multiplexed displays to be organized as dual 4-bit/single 8-bit display units.</p></li>  
+<li><p><b>Display Entry</b> &minus; This mode allows the data to be entered for display either from the right side/left side.</p></li>
+</ul>
+<hr>
+<br><br>
+</html>
+

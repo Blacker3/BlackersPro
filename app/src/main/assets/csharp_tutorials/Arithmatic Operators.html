@@ -1,0 +1,87 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Arithmatic Operators</h1>
+
+<p>Following table shows all the arithmetic operators supported by C#. Assume variable <strong>A</strong> holds 10 and variable <strong>B</strong> holds 20, then:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 10%;">Operator</th>
+<th style="width: 55%;">Description</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>+</td>
+<td>Adds two operands</td>
+<td>A + B = 30</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Subtracts second operand from the first</td>
+<td>A - B = -10</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Multiplies both operands</td>
+<td>A * B = 200</td>
+</tr>
+<tr>
+<td>/</td>
+<td>Divides numerator by de-numerator</td>
+<td>B / A = 2</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Modulus Operator and remainder of after an integer division</td>
+<td>B % A = 0</td>
+</tr>
+<tr>
+<td>++</td>
+<td>Increment operator increases integer value by one</td>
+<td>A++ = 11</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Decrement operator decreases integer value by one</td>
+<td>A-- = 9</td>
+</tr>
+</tbody>
+</table>
+<h2>Example</h2>
+<p>The following example demonstrates all the arithmetic operators available in C#:</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">OperatorsAppl</span> 
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span> 
+   <span class="pun">{</span> 
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> 
+      <span class="pun">{</span> 
+         <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">21</span><span class="pun">;</span>
+         <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+         <span class="kwd">int</span><span class="pln"> c</span><span class="pun">;</span><span class="pln">
+
+         c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 1 - Value of c is {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">-</span><span class="pln"> b</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 2 - Value of c is {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">*</span><span class="pln"> b</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 3 - Value of c is {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">/</span><span class="pln"> b</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 4 - Value of c is {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">%</span><span class="pln"> b</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 5 - Value of c is {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         c </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">++;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 6 - Value of c is {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         c </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">--;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 7 - Value of c is {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Line 1 - Value of c is 31
+Line 2 - Value of c is 11
+Line 3 - Value of c is 210
+Line 4 - Value of c is 2
+Line 5 - Value of c is 1
+Line 6 - Value of c is 22
+Line 7 - Value of c is 20
+</pre>

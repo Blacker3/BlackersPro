@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microprocessor 8086 Addressing Modes</title>
+<meta name="description" content="Microprocessor 8086 Addressing Modes - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>The different ways in which a source operand is denoted in an instruction is known as <b>addressing modes</b>. There are 8 different addressing modes in 8086 programming &minus;</p>
+<h2>Immediate addressing mode</h2>
+<p>The addressing mode in which the data operand is a part of the instruction itself is known as immediate addressing mode.</p>
+<h3>Example</h3>
+<pre class="result notranslate">
+MOV CX, 4929 H, ADD AX, 2387 H,  MOV AL, FFH 
+</pre>
+<h2>Register addressing mode</h2>
+<p>It means that the register is the source of an operand for an instruction.</p>
+<h3>Example</h3>
+<pre class="result notranslate">
+MOV CX, AX   ; copies the contents of the 16-bit AX register into  
+             ; the 16-bit CX register),  
+ADD BX, AX 
+</pre>
+<h2>Direct addressing mode</h2>
+<p>The addressing mode in which the effective address of the memory location is written directly in the instruction.</p>
+<h3>Example</h3>
+<pre class="result notranslate">
+MOV AX, [1592H], MOV AL, [0300H]
+</pre>
+<h2>Register indirect addressing mode</h2>
+<p>This addressing mode allows data to be addressed at any memory location through an offset address held in any of the following registers: BP, BX, DI &amp; SI.</p>
+<h3>Example</h3>
+<pre class="result notranslate">
+MOV AX, [BX]  ; Suppose the register BX contains 4895H, then the contents  
+              ; 4895H are moved to AX 
+ADD CX, {BX} 
+</pre>
+<h2>Based addressing mode</h2>
+<p>In this addressing mode, the offset address of the operand is given by the sum of contents of the BX/BP registers and 8-bit/16-bit displacement.</p>
+<h3>Example</h3>
+<pre class="result notranslate">
+MOV DX, [BX+04], ADD CL, [BX+08]
+</pre>
+<h2>Indexed addressing mode</h2>
+<p>In this addressing mode, the operands offset address is found by adding the contents of SI or DI register and 8-bit/16-bit displacements.</p>
+<h3>Example</h3>
+<pre class="result notranslate">
+MOV BX, [SI+16], ADD AL, [DI+16] 
+</pre>
+<h2>Based-index addressing mode</h2>
+<p>In this addressing mode, the offset address of the operand is computed by summing the base register to the contents of an Index register.</p>
+<h3>Example</h3>
+<pre class="result notranslate">
+ADD CX, [AX+SI], MOV AX, [AX+DI] 
+</pre>
+<h2>Based indexed with displacement mode</h2>
+<p>In this addressing mode, the operands offset is computed by adding the base register contents. An Index registers contents and 8 or 16-bit displacement.</p>
+<h3>Example</h3>
+<pre class="result notranslate">
+MOV AX, [BX+DI+08], ADD CX, [BX+SI+16] 
+</pre>
+<hr>
+<br><br>
+</html>
+

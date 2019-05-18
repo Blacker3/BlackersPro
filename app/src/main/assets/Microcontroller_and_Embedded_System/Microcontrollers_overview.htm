@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microcontrollers Overview</title>
+<meta name="description" content="Microcontrollers Overview - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>A <b>microcontroller</b> is a small and low-cost microcomputer, which is designed to perform the specific tasks of embedded systems like displaying microwave’s information, receiving remote signals, etc.</p>
+<p>The general microcontroller consists of the processor, the memory (RAM, ROM, EPROM), Serial ports, peripherals (timers, counters), etc.</p>
+<h2>Difference between Microprocessor and Microcontroller</h2>
+<p>The following table highlights the differences between a microprocessor and a microcontroller &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th style="text-align:center; width:50%">Microcontroller</th>
+<th style="text-align:center;">Microprocessor</th>
+</tr>
+<tr>
+<td>Microcontrollers are used to execute a single task within an application.</td>
+<td>Microprocessors are used for big applications.</td>
+</tr>
+<tr>
+<td>Its designing and hardware cost is low.</td>
+<td>Its designing and hardware cost is high.</td>
+</tr>
+<tr>
+<td>Easy to replace.</td>
+<td>Not so easy to replace.</td>
+</tr>
+<tr>
+<td>It is built with CMOS technology, which requires less power to operate.</td>
+<td>Its power consumption is high because it has to control the entire system.</td>
+</tr>
+<tr>
+<td>It consists of CPU, RAM, ROM, I/O ports.</td>
+<td>It doesn’t consist of RAM, ROM, I/O ports. It uses its pins to interface to peripheral devices.</td>
+</tr>
+</table>
+<h2>Types of Microcontrollers</h2>
+<p>Microcontrollers are divided into various categories based on memory, architecture, bits and instruction sets. Following is the list of their types &minus;</p>
+<h3>Bit</h3>
+<p>Based on bit configuration, the microcontroller is further divided into three categories.</p>
+<ul class="list">
+<li><p><b>8-bit microcontroller</b> &minus; This type of microcontroller is used to execute arithmetic and logical operations like addition, subtraction, multiplication division, etc. For example, Intel 8031 and 8051 are 8 bits microcontroller.</p></li>
+<li><p><b>16-bit microcontroller</b> &minus; This type of microcontroller is used to perform arithmetic and logical operations where higher accuracy and performance is required. For example, Intel 8096 is a 16-bit microcontroller.</p></li>  
+<li><p><b>32-bit microcontroller</b> &minus; This type of microcontroller is generally used in automatically controlled appliances like automatic operational machines, medical appliances, etc.</p></li> 
+</ul>
+<h3>Memory</h3>
+<p>Based on the memory configuration, the microcontroller is further divided into two categories.</p>
+<ul class="list">
+<li><p><b>External memory microcontroller</b> &minus; This type of microcontroller is designed in such a way that they do not have a program memory on the chip. Hence, it is named as external memory microcontroller. For example: Intel 8031 microcontroller.</p></li>  
+<li><p><b>Embedded memory microcontroller</b> &minus; This type of microcontroller is designed in such a way that the microcontroller has all programs and data memory, counters and timers, interrupts, I/O ports are embedded on the chip. For example: Intel 8051 microcontroller.</p></li> 
+</ul>
+<h3>Instruction Set</h3>
+<p>Based on the instruction set configuration, the microcontroller is further divided into two categories.</p>
+<ul class="list">
+<li><p><b>CISC</b> &minus; CISC stands for complex instruction set computer. It allows the user to insert a single instruction as an alternative to many simple instructions.</p></li>  
+<li><p><b>RISC</b> &minus; RISC stands for Reduced Instruction Set Computers. It reduces the operational time by shortening the clock cycle per instruction.</p></li> 
+</ul>
+<h2>Applications of Microcontrollers</h2>
+<p>Microcontrollers are widely used in various different devices such as &minus;</p>
+<ul class="list">
+<li><p>Light sensing and controlling devices like LED.</p></li>
+<li><p>Temperature sensing and controlling devices like microwave oven, chimneys.</p></li> 
+<li><p>Fire detection and safety devices like Fire alarm.</p></li> 
+<li><p>Measuring devices like Volt Meter.</p></li> 
+</ul>
+<hr>
+<br><br>
+</html>
+

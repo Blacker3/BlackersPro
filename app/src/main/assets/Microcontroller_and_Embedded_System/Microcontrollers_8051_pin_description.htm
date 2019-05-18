@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microcontrollers 8051 Pin Description</title>
+<meta name="description" content="Microcontrollers 8051 Pin Description - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>The pin diagram of 8051 microcontroller looks as follows &minus;</p>
+<img src="image\8051_pin_diagram.jpg" alt="8051 Pin Diagram">
+<ul class="list">
+<li><p><b>Pins 1 to 8</b> &minus; These pins are known as Port 1. This port doesn’t serve any other functions. It is internally pulled up, bi-directional I/O port.</p></li>
+<li><p><b>Pin 9</b> &minus; It is a RESET pin, which is used to reset the microcontroller to its initial values.</p></li>
+<li><p><b>Pins 10 to 17</b> &minus; These pins are known as Port 3. This port serves some functions like interrupts, timer input, control signals, serial communication signals RxD and TxD, etc.</p></li>
+<li><p><b>Pins 18 &amp; 19</b> &minus; These pins are used for interfacing an external crystal to get the system clock.</p></li>
+<li><p><b>Pin 20</b> &minus; This pin provides the power supply to the circuit.</p></li>
+<li><p><b>Pins 21 to 28</b> &minus; These pins are known as Port 2.  It serves as I/O port. Higher order address bus signals are also multiplexed using this port.</p></li>
+<li><p><b>Pin 29</b> &minus; This is PSEN pin which stands for Program Store Enable. It is used to read a signal from the external program memory.</p></li>
+<li><p><b>Pin 30</b> &minus; This is EA pin which stands for External Access input. It is used to enable/disable the external memory interfacing.</p></li>
+<li><p><b>Pin 31</b> &minus; This is ALE pin which stands for Address Latch Enable. It is used to demultiplex the address-data signal of port.</p></li>
+<li><p><b>Pins 32 to 39</b> &minus; These pins are known as Port 0. It serves as I/O port. Lower order address and data bus signals are multiplexed using this port.</p></li>
+<li><p><b>Pin 40</b> &minus; This pin is used to provide power supply to the circuit.</p></li> 
+</ul>
+<hr>
+<br><br>
+</html>
+

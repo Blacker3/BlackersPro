@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Intel 8253 Programmable Interval Timer</title>
+<meta name="description" content="Intel 8253 Programmable Interval Timer - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>The Intel 8253 and 8254 are Programmable Interval Timers (PTIs) designed for microprocessors to perform timing and counting functions using three 16-bit registers. Each counter has 2 input pins, i.e. Clock &amp; Gate, and 1 pin for “OUT” output. To operate a counter, a 16-bit count is loaded in its register. On command, it begins to decrement the count until it reaches 0, then it generates a pulse that can be used to interrupt the CPU.</p>
+<h2>Difference between 8253 and 8254</h2>
+<p>The following table differentiates the features of 8253 and 8254 &minus;</p>
+<table class="table table-bordered">
+<tr>
+<th style="text-align:center;">8253</th>
+<th style="text-align:center;">8254</th>
+</tr>
+<tr>
+<td>Its operating frequency is 0 - 2.6 MHz</td>
+<td>Its operating frequency is 0 - 10 MHz</td>
+</tr>
+<tr>
+<td>It uses N-MOS technology</td>
+<td>It uses H-MOS technology</td>
+</tr>
+<tr>
+<td>Read-Back command is not available</td>
+<td>Read-Back command is available</td>
+</tr>
+<tr>
+<td>Reads and writes of the same counter cannot be interleaved.</td>
+<td>Reads and writes of the same counter can be interleaved.</td>
+</tr>
+</table>
+<h2>Features of 8253 / 54</h2>
+<p>The most prominent features of 8253/54 are as follows &minus;</p>
+<ul class="list">
+<li><p>It has three independent 16-bit down counters.</p></li>   
+<li><p>It can handle inputs from DC to 10 MHz.</p></li>  
+<li><p>These three counters can be programmed for either binary or BCD count.</p></li>  
+<li><p>It is compatible with almost all microprocessors.</p></li>  
+<li><p>8254 has a powerful command called READ BACK command, which allows the user to check the count value, the programmed mode, the current mode, and the current status of the counter.</p></li> 
+</ul>
+<h2>8254 Architecture</h2>
+<p>The architecture of 8254 looks as follows &minus;</p>
+<img src="image\8254_architecture.jpg" alt="8254 Architecture">
+<h2>8254 Pin Description</h2>
+<p>Here is the pin diagram of 8254 &minus;</p>
+<img src="image\8254_pin_description.jpg" alt="8254 Pin Description">
+<p>In the above figure, there are three counters, a data bus buffer, Read/Write control logic, and a control register. Each counter has two input signals - CLOCK &amp; GATE, and one output signal - OUT.</p>
+<h3>Data Bus Buffer</h3>
+<p>It is a tri-state, bi-directional, 8-bit buffer, which is used to interface the 8253/54 to the system data bus. It has three basic functions &minus;</p>
+<ul class="list">
+<li>Programming the modes of 8253/54.</li> 
+<li>Loading the count registers.</li> 
+<li>Reading the count values.</li> 
+</ul>
+<h3>Read/Write Logic</h3>
+<p>It includes 5 signals, i.e. RD, WR, CS, and the address lines A<sub>0</sub> &amp; A<sub>1</sub>. In the peripheral I/O mode, the RD and WR signals are connected to IOR and IOW, respectively. In the memorymapped I/O mode, these are connected to MEMR and MEMW.</p>
+<p>Address lines A<sub>0</sub> &amp; A<sub>1</sub> of the CPU are connected to lines A<sub>0</sub> and A<sub>1</sub> of the 8253/54, and CS is tied to a decoded address. The control word register and counters are selected according to the signals on lines A<sub>0</sub> &amp; A<sub>1</sub>.</p>
+<table class="table table-bordered" style="text-align:center;">
+<tr>
+<th style="text-align:center;">A<sub>1</sub></th>
+<th style="text-align:center;">A<sub>0</sub></th>
+<th style="text-align:center;">Result</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>Counter 0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>Counter 1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>Counter 2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>Control Word Register</td>
+</tr>
+<tr>
+<td>X</td>
+<td>X</td>
+<td>No Selection</td>
+</tr>
+</table>
+<h3>Control Word Register</h3>
+<p>This register is accessed when lines A<sub>0</sub> &amp; A<sub>1</sub> are at logic 1. It is used to write a command word, which specifies the counter to be used, its mode, and either a read or write operation. Following table shows the result for various control inputs.</p>
+<table class="table table-bordered" style="text-align:center;">
+<tr>
+<th style="text-align:center;">A<sub>1</sub></th>
+<th style="text-align:center;">A<sub>0</sub></th>
+<th style="text-align:center;">RD</th>
+<th style="text-align:center;">WR</th>
+<th style="text-align:center;">CS</th>
+<th style="text-align:center;">Result</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>Write Counter 0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>Write Counter 1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>Write Counter 2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>Write Control Word</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>Read Counter 0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>Read Counter 1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>Read Counter 2</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>No operation</td>
+</tr>
+<tr>
+<td>X</td>
+<td>X</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>No operation</td>
+</tr>
+<tr>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>X</td>
+<td>1</td>
+<td>No operation</td>
+</tr>
+</table>
+<h3>Counters</h3>
+<p>Each counter consists of a single, 16 bit-down counter, which can be operated in either binary or BCD. Its input and output is configured by the selection of modes stored in the control word register. The programmer can read the contents of any of the three counters without disturbing the actual count in process.</p>
+<hr>
+<br><br>
+</html>
+

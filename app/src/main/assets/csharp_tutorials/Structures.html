@@ -1,0 +1,178 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Structures</h1>
+ 
+<p>In C#, a structure is a value type data type. It helps you to make a single variable hold related data of various data types. The <strong>struct</strong> keyword is used for creating a structure.</p>
+<p>Structures are used to represent a record. Suppose you want to keep track of your books in a library. You might want to track the following attributes about each book:</p>
+<ul class="list">
+<li>Title</li>
+<li>Author</li>
+<li>Subject</li>
+<li>Book ID</li>
+</ul>
+<h2>Defining a Structure</h2>
+<p>To define a structure, you must use the struct statement. The struct statement defines a new data type, with more than one member for your program.</p>
+<p>For example, here is the way you can declare the Book structure:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">struct</span> <span class="typ">Books</span>
+<span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">string</span><span class="pln"> title</span><span class="pun">;</span>
+   <span class="kwd">public</span> <span class="kwd">string</span><span class="pln"> author</span><span class="pun">;</span>
+   <span class="kwd">public</span> <span class="kwd">string</span><span class="pln"> subject</span><span class="pun">;</span>
+   <span class="kwd">public</span> <span class="kwd">int</span><span class="pln"> book_id</span><span class="pun">;</span>
+<span class="pun">};</span>  </pre>
+<p>The following program shows the use of the structure:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">struct</span> <span class="typ">Books</span>
+<span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">string</span><span class="pln"> title</span><span class="pun">;</span>
+   <span class="kwd">public</span> <span class="kwd">string</span><span class="pln"> author</span><span class="pun">;</span>
+   <span class="kwd">public</span> <span class="kwd">string</span><span class="pln"> subject</span><span class="pun">;</span>
+   <span class="kwd">public</span> <span class="kwd">int</span><span class="pln"> book_id</span><span class="pun">;</span>
+<span class="pun">};</span>  
+
+<span class="kwd">public</span> <span class="kwd">class</span><span class="pln"> testStructure
+</span><span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+   <span class="pun">{</span>
+
+      <span class="typ">Books</span> <span class="typ">Book1</span><span class="pun">;</span>   <span class="com">/* Declare Book1 of type Book */</span>
+      <span class="typ">Books</span> <span class="typ">Book2</span><span class="pun">;</span>   <span class="com">/* Declare Book2 of type Book */</span>
+
+      <span class="com">/* book 1 specification */</span>
+      <span class="typ">Book1</span><span class="pun">.</span><span class="pln">title </span><span class="pun">=</span> <span class="str">"C Programming"</span><span class="pun">;</span>
+      <span class="typ">Book1</span><span class="pun">.</span><span class="pln">author </span><span class="pun">=</span> <span class="str">"Nuha Ali"</span><span class="pun">;</span> 
+      <span class="typ">Book1</span><span class="pun">.</span><span class="pln">subject </span><span class="pun">=</span> <span class="str">"C Programming Tutorial"</span><span class="pun">;</span>
+      <span class="typ">Book1</span><span class="pun">.</span><span class="pln">book_id </span><span class="pun">=</span> <span class="lit">6495407</span><span class="pun">;</span>
+
+      <span class="com">/* book 2 specification */</span>
+      <span class="typ">Book2</span><span class="pun">.</span><span class="pln">title </span><span class="pun">=</span> <span class="str">"Telecom Billing"</span><span class="pun">;</span>
+      <span class="typ">Book2</span><span class="pun">.</span><span class="pln">author </span><span class="pun">=</span> <span class="str">"Zara Ali"</span><span class="pun">;</span>
+      <span class="typ">Book2</span><span class="pun">.</span><span class="pln">subject </span><span class="pun">=</span>  <span class="str">"Telecom Billing Tutorial"</span><span class="pun">;</span>
+      <span class="typ">Book2</span><span class="pun">.</span><span class="pln">book_id </span><span class="pun">=</span> <span class="lit">6495700</span><span class="pun">;</span>
+
+      <span class="com">/* print Book1 info */</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span> <span class="str">"Book 1 title : {0}"</span><span class="pun">,</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">title</span><span class="pun">);</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Book 1 author : {0}"</span><span class="pun">,</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">author</span><span class="pun">);</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Book 1 subject : {0}"</span><span class="pun">,</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">subject</span><span class="pun">);</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Book 1 book_id :{0}"</span><span class="pun">,</span> <span class="typ">Book1</span><span class="pun">.</span><span class="pln">book_id</span><span class="pun">);</span>
+
+      <span class="com">/* print Book2 info */</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Book 2 title : {0}"</span><span class="pun">,</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">title</span><span class="pun">);</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Book 2 author : {0}"</span><span class="pun">,</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">author</span><span class="pun">);</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Book 2 subject : {0}"</span><span class="pun">,</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">subject</span><span class="pun">);</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Book 2 book_id : {0}"</span><span class="pun">,</span> <span class="typ">Book2</span><span class="pun">.</span><span class="pln">book_id</span><span class="pun">);</span>       
+
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Book 1 title : C Programming
+Book 1 author : Nuha Ali
+Book 1 subject : C Programming Tutorial
+Book 1 book_id : 6495407
+Book 2 title : Telecom Billing
+Book 2 author : Zara Ali
+Book 2 subject : Telecom Billing Tutorial
+Book 2 book_id : 6495700
+</pre>
+<h2>Features of C# Structures</h2>
+<p>You have already used a simple structure named Books. Structures in C# are quite different from that in traditional C or C++. The C# structures have the following features:</p>
+<ul class="list">
+<li>
+<p>Structures can have methods, fields, indexers, properties, operator methods, and events.</p>
+</li>
+<li>
+<p>Structures can have defined constructors, but not destructors. However, you cannot define a default constructor for a structure. The default constructor is automatically defined and cannot be changed.</p>
+</li>
+<li>
+<p>Unlike classes, structures cannot inherit other structures or classes.</p>
+</li>
+<li>
+<p>Structures cannot be used as a base for other structures or classes.</p>
+</li>
+<li>
+<p>A structure can implement one or more interfaces.</p>
+</li>
+<li>
+<p>Structure members cannot be specified as abstract, virtual, or protected.</p>
+</li>
+<li>
+<p>When you create a struct object using the <strong>New</strong> operator, it gets created and the appropriate constructor is called. Unlike classes, structs can be instantiated without using the New operator.</p>
+</li>
+<li>
+<p>If the New operator is not used, the fields remain unassigned and the object cannot be used until all the fields are initialized.</p>
+</li>
+</ul>
+<h2>Class versus Structure</h2>
+<p>Classes and Structures have the following basic differences:</p>
+<ul class="list">
+<li>
+<p>classes are reference types and structs are value types</p>
+</li>
+<li>
+<p>structures do not support inheritance</p>
+</li>
+<li>
+<p>structures cannot have default constructor</p>
+</li>
+</ul>
+<p>In the light of the above discussions, let us rewrite the previous example:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">struct</span> <span class="typ">Books</span>
+<span class="pun">{</span>
+   <span class="kwd">private</span> <span class="kwd">string</span><span class="pln"> title</span><span class="pun">;</span>
+   <span class="kwd">private</span> <span class="kwd">string</span><span class="pln"> author</span><span class="pun">;</span>
+   <span class="kwd">private</span> <span class="kwd">string</span><span class="pln"> subject</span><span class="pun">;</span>
+   <span class="kwd">private</span> <span class="kwd">int</span><span class="pln"> book_id</span><span class="pun">;</span>
+   <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> getValues</span><span class="pun">(</span><span class="kwd">string</span><span class="pln"> t</span><span class="pun">,</span> <span class="kwd">string</span><span class="pln"> a</span><span class="pun">,</span> <span class="kwd">string</span><span class="pln"> s</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> id</span><span class="pun">)</span>
+   <span class="pun">{</span><span class="pln">
+      title </span><span class="pun">=</span><span class="pln"> t</span><span class="pun">;</span><span class="pln">
+      author </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">;</span><span class="pln">
+      subject </span><span class="pun">=</span><span class="pln"> s</span><span class="pun">;</span><span class="pln">
+      book_id </span><span class="pun">=</span><span class="pln"> id</span><span class="pun">;</span>
+   <span class="pun">}</span>
+   <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> display</span><span class="pun">()</span>
+   <span class="pun">{</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Title : {0}"</span><span class="pun">,</span><span class="pln"> title</span><span class="pun">);</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Author : {0}"</span><span class="pun">,</span><span class="pln"> author</span><span class="pun">);</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Subject : {0}"</span><span class="pun">,</span><span class="pln"> subject</span><span class="pun">);</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Book_id :{0}"</span><span class="pun">,</span><span class="pln"> book_id</span><span class="pun">);</span>
+   <span class="pun">}</span>
+
+<span class="pun">};</span>  
+
+<span class="kwd">public</span> <span class="kwd">class</span><span class="pln"> testStructure
+</span><span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+   <span class="pun">{</span>
+
+      <span class="typ">Books</span> <span class="typ">Book1</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Books</span><span class="pun">();</span>   <span class="com">/* Declare Book1 of type Book */</span>
+      <span class="typ">Books</span> <span class="typ">Book2</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Books</span><span class="pun">();</span>   <span class="com">/* Declare Book2 of type Book */</span>
+
+      <span class="com">/* book 1 specification */</span>
+      <span class="typ">Book1</span><span class="pun">.</span><span class="pln">getValues</span><span class="pun">(</span><span class="str">"C Programming"</span><span class="pun">,</span>
+      <span class="str">"Nuha Ali"</span><span class="pun">,</span> <span class="str">"C Programming Tutorial"</span><span class="pun">,</span><span class="lit">6495407</span><span class="pun">);</span>
+
+      <span class="com">/* book 2 specification */</span>
+      <span class="typ">Book2</span><span class="pun">.</span><span class="pln">getValues</span><span class="pun">(</span><span class="str">"Telecom Billing"</span><span class="pun">,</span>
+      <span class="str">"Zara Ali"</span><span class="pun">,</span> <span class="str">"Telecom Billing Tutorial"</span><span class="pun">,</span> <span class="lit">6495700</span><span class="pun">);</span>
+
+      <span class="com">/* print Book1 info */</span>
+      <span class="typ">Book1</span><span class="pun">.</span><span class="pln">display</span><span class="pun">();</span>
+
+      <span class="com">/* print Book2 info */</span>
+      <span class="typ">Book2</span><span class="pun">.</span><span class="pln">display</span><span class="pun">();</span> 
+
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Title : C Programming
+Author : Nuha Ali
+Subject : C Programming Tutorial
+Book_id : 6495407
+Title : Telecom Billing
+Author : Zara Ali
+Subject : Telecom Billing Tutorial
+Book_id : 6495700
+</pre>

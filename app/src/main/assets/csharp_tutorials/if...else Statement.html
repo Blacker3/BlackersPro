@@ -1,0 +1,123 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - if...else Statement</h1>
+
+<p>An <strong>if</strong> statement can be followed by an optional <strong>else</strong> statement, which executes when the boolean expression is false.</p>
+<h2>Syntax</h2>
+<p>The syntax of an <strong>if...else</strong> statement in C# is:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">if</span><span class="pun">(</span><span class="pln">boolean_expression</span><span class="pun">)</span>
+<span class="pun">{</span>
+   <span class="com">/* statement(s) will execute if the boolean expression is true */</span>
+<span class="pun">}</span>
+<span class="kwd">else</span>
+<span class="pun">{</span>
+   <span class="com">/* statement(s) will execute if the boolean expression is false */</span>
+<span class="pun">}</span></pre>
+<p>If the boolean expression evaluates to <strong>true</strong>, then the <strong>if block</strong> of code is executed, otherwise <strong>else block</strong> of code is executed.</p>
+<h2>Flow Diagram</h2>
+<p><img width="100%" src="images/if_else_statement.jpg" alt="C# if...else statement" /></p>
+<h2>Example</h2>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">DecisionMaking</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span> 
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="com">/* local variable definition */</span>
+         <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">100</span><span class="pun">;</span>
+         
+         <span class="com">/* check the boolean condition */</span>
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">&lt;</span> <span class="lit">20</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="com">/* if condition is true then print the following */</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"a is less than 20"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="kwd">else</span>
+         <span class="pun">{</span>
+            <span class="com">/* if condition is false then print the following */</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"a is not less than 20"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"value of a is : {0}"</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">a is not less than 20;
+value of a is : 100
+</pre>
+<h2>The if...else if...else Statement</h2>
+<p>An <strong>if</strong> statement can be followed by an optional <strong>else if...else</strong> statement, which is very useful to test various conditions using single if...else if statement.</p>
+<p>When using if, else if, else statements there are few points to keep in mind.</p>
+<ul class="list">
+<li>
+<p>An if can have zero or one else's and it must come after any else if's.</p>
+</li>
+<li>
+<p>An if can have zero to many else if's and they must come before the else.</p>
+</li>
+<li>
+<p>Once an else if succeeds, none of the remaining else if's or else's will be tested.</p>
+</li>
+</ul>
+<h2>Syntax</h2>
+<p>The syntax of an <strong>if...else if...else</strong> statement in C# is:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">if</span><span class="pun">(</span><span class="pln">boolean_expression </span><span class="lit">1</span><span class="pun">)</span>
+<span class="pun">{</span>
+   <span class="com">/* Executes when the boolean expression 1 is true */</span>
+<span class="pun">}</span>
+<span class="kwd">else</span> <span class="kwd">if</span><span class="pun">(</span><span class="pln"> boolean_expression </span><span class="lit">2</span><span class="pun">)</span>
+<span class="pun">{</span>
+   <span class="com">/* Executes when the boolean expression 2 is true */</span>
+<span class="pun">}</span>
+<span class="kwd">else</span> <span class="kwd">if</span><span class="pun">(</span><span class="pln"> boolean_expression </span><span class="lit">3</span><span class="pun">)</span>
+<span class="pun">{</span>
+   <span class="com">/* Executes when the boolean expression 3 is true */</span>
+<span class="pun">}</span>
+<span class="kwd">else</span> 
+<span class="pun">{</span>
+   <span class="com">/* executes when the none of the above condition is true */</span>
+<span class="pun">}</span></pre>
+<h2>Example</h2>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">DecisionMaking</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span> 
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="com">/* local variable definition */</span>
+         <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">100</span><span class="pun">;</span>
+         
+         <span class="com">/* check the boolean condition */</span>
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">==</span> <span class="lit">10</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="com">/* if condition is true then print the following */</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Value of a is 10"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         
+         <span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">==</span> <span class="lit">20</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="com">/* if else if condition is true */</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Value of a is 20"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         
+         <span class="kwd">else</span> <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">==</span> <span class="lit">30</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="com">/* if else if condition is true  */</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Value of a is 30"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         
+         <span class="kwd">else</span>
+         <span class="pun">{</span>
+            <span class="com">/* if none of the conditions is true */</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"None of the values is matching"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Exact value of a is: {0}"</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">None of the values is matching
+Exact value of a is: 100
+</pre>

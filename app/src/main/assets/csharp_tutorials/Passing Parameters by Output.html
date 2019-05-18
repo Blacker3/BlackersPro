@@ -1,0 +1,74 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Passing Parameters by Output</h1>
+
+<p>A return statement can be used for returning only one value from a function. However, using <strong>output parameters</strong>, you can return two values from a function. Output parameters are similar to reference parameters, except that they transfer data out of the method rather than into it.</p>
+<p>The following example illustrates this:</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">CalculatorApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">NumberManipulator</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> getValue</span><span class="pun">(</span><span class="kwd">out</span> <span class="kwd">int</span><span class="pln"> x </span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">int</span><span class="pln"> temp </span><span class="pun">=</span> <span class="lit">5</span><span class="pun">;</span><span class="pln">
+         x </span><span class="pun">=</span><span class="pln"> temp</span><span class="pun">;</span>
+      <span class="pun">}</span>
+   
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">NumberManipulator</span><span class="pln"> n </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">NumberManipulator</span><span class="pun">();</span>
+         
+         <span class="com">/* local variable definition */</span>
+         <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">100</span><span class="pun">;</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Before method call, value of a : {0}"</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span>
+         
+         <span class="com">/* calling a function to get the value */</span><span class="pln">
+         n</span><span class="pun">.</span><span class="pln">getValue</span><span class="pun">(</span><span class="kwd">out</span><span class="pln"> a</span><span class="pun">);</span>
+
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"After method call, value of a : {0}"</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Before method call, value of a : 100
+After method call, value of a : 5
+</pre>
+<p>The variable supplied for the output parameter need not be assigned a value. Output parameters are particularly useful when you need to return values from a method through the parameters without assigning an initial value to the parameter. Go through the following example, to understand this:</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">CalculatorApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">NumberManipulator</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> getValues</span><span class="pun">(</span><span class="kwd">out</span> <span class="kwd">int</span><span class="pln"> x</span><span class="pun">,</span> <span class="kwd">out</span> <span class="kwd">int</span><span class="pln"> y </span><span class="pun">)</span>
+      <span class="pun">{</span>
+          <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Enter the first value: "</span><span class="pun">);</span><span class="pln">
+          x </span><span class="pun">=</span> <span class="typ">Convert</span><span class="pun">.</span><span class="typ">ToInt32</span><span class="pun">(</span><span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">());</span>
+          <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Enter the second value: "</span><span class="pun">);</span><span class="pln">
+          y </span><span class="pun">=</span> <span class="typ">Convert</span><span class="pun">.</span><span class="typ">ToInt32</span><span class="pun">(</span><span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">());</span>
+      <span class="pun">}</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">NumberManipulator</span><span class="pln"> n </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">NumberManipulator</span><span class="pun">();</span>
+         
+         <span class="com">/* local variable definition */</span>
+         <span class="kwd">int</span><span class="pln"> a </span><span class="pun">,</span><span class="pln"> b</span><span class="pun">;</span>
+         
+         <span class="com">/* calling a function to get the values */</span><span class="pln">
+         n</span><span class="pun">.</span><span class="pln">getValues</span><span class="pun">(</span><span class="kwd">out</span><span class="pln"> a</span><span class="pun">,</span> <span class="kwd">out</span><span class="pln"> b</span><span class="pun">);</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"After method call, value of a : {0}"</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"After method call, value of b : {0}"</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Enter the first value:
+7
+Enter the second value:
+8
+After method call, value of a : 7
+After method call, value of b : 8
+</pre>

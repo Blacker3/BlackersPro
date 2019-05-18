@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microprocessor 8085 Addressing Modes and Interrupts</title>
+<meta name="description" content="Microprocessor 8085 Addressing Modes and Interrupts - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>Now let us discuss the addressing modes in 8085 Microprocessor.</p>
+<h2>Addressing Modes in 8085</h2>
+<p>These are the instructions used to transfer the data from one register to another register, from the memory to the register, and from the register to the memory without any alteration in the content. Addressing modes in 8085 is classified into 5 groups &minus;</p>
+<h3>Immediate addressing mode</h3>
+<p>In this mode, the 8/16-bit data is specified in the instruction itself as one of its operand. <b>For example:</b> MVI K, 20F: means 20F is copied into register K.</p>
+<h3>Register addressing mode</h3>
+<p>In this mode, the data is copied from one register to another. <b>For example:</b> MOV K, B: means data in register B is copied to register K.</p>
+<h3>Direct addressing mode</h3>
+<p>In this mode, the data is directly copied from the given address to the register. <b>For example:</b> LDB 5000K: means the data at address 5000K is copied to register B.</p>
+<h3>Indirect addressing mode</h3>
+<p>In this mode, the data is transferred from one register to another by using the address pointed by the register. <b>For example:</b> MOV K, B: means data is transferred from the memory address pointed by the register to the register K.</p>
+<h3>Implied addressing mode</h3>
+<p>This mode doesn’t require any operand; the data is specified by the opcode itself. <b>For example:</b> CMP.</p>
+<h2>Interrupts in 8085</h2>
+<p>Interrupts are the signals generated by the external devices to request the microprocessor to perform a task. There are 5 interrupt signals, i.e. TRAP, RST 7.5, RST 6.5, RST 5.5, and INTR.</p>
+<p>Interrupt are classified into following groups based on their parameter &minus;</p>
+<ul class="list">
+<li><p><b>Vector interrupt</b> &minus; In this type of interrupt, the interrupt address is known to the processor. <b>For example:</b> RST7.5, RST6.5, RST5.5, TRAP.</p></li>  
+<li><p><b>Non-Vector interrupt</b> &minus; In this type of interrupt, the interrupt address is not known to the processor so, the interrupt address needs to be sent externally by the device to perform interrupts. <b>For example:</b> INTR.</p></li> 
+<li><p><b>Maskable interrupt</b> &minus; In this type of interrupt, we can disable the interrupt by writing some instructions into the program. <b>For example:</b> RST7.5, RST6.5, RST5.5.</p></li>  
+<li><p><b>Non-Maskable interrupt</b> &minus; In this type of interrupt, we cannot disable the interrupt by writing some instructions into the program. <b>For example:</b> TRAP.</p></li>  
+<li><p><b>Software interrupt</b> &minus; In this type of interrupt, the programmer has to add the instructions into the program to execute the interrupt. There are 8 software interrupts in 8085, i.e. RST0, RST1, RST2, RST3, RST4, RST5, RST6, and RST7.</p></li>  
+<li><p><b>Hardware interrupt</b> &minus; There are 5 interrupt pins in 8085 used as hardware interrupts, i.e. TRAP, RST7.5, RST6.5, RST5.5, INTA.</p></li> 
+</ul>
+<p><b>Note</b> &minus; NTA is not an interrupt, it is used by the microprocessor for sending acknowledgement. TRAP has the highest priority, then RST7.5 and so on.</p>
+<h3>Interrupt Service Routine (ISR)</h3>
+<p>A small program or a routine that when executed, services the corresponding interrupting source is called an ISR.</p>
+<h3>TRAP</h3>
+<p>It is a non-maskable interrupt, having the highest priority among all interrupts. Bydefault, it is enabled until it gets acknowledged. In case of failure, it executes as ISR and sends the data to backup memory. This interrupt transfers the control to the location 0024H.</p>
+<h3>RST7.5</h3>
+<p>It is a maskable interrupt, having the second highest priority among all interrupts. When this interrupt is executed, the processor saves the content of the PC register into the stack and branches to 003CH address.</p>
+<h3>RST 6.5</h3>
+<p>It is a maskable interrupt, having the third highest priority among all interrupts. When this interrupt is executed, the processor saves the content of the PC register into the stack and branches to 0034H address.</p>
+<h3>RST 5.5</h3>
+<p>It is a maskable interrupt. When this interrupt is executed, the processor saves the content of the PC register into the stack and branches to 002CH address.</p>
+<h3>INTR</h3>
+<p>It is a maskable interrupt, having the lowest priority among all interrupts. It can be disabled by resetting the microprocessor.</p>
+<p>When <b>INTR signal goes high</b>, the following events can occur &minus;</p>
+<ul class="list">
+<li><p>The microprocessor checks the status of INTR signal during the execution of each instruction.</p></li>  
+<li><p>When the INTR signal is high, then the microprocessor completes its current instruction and sends active low interrupt acknowledge signal.</p></li>  
+<li><p>When instructions are received, then the microprocessor saves the address of the next instruction on stack and executes the received instruction.</p></li> 
+</ul>
+<hr>
+<br><br>
+</html>
+

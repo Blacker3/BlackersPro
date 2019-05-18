@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microprocessor 8086 Functional Units</title>
+<meta name="description" content="Microprocessor 8086 Functional Units - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>8086 Microprocessor is divided into two functional units, i.e., <b>EU</b> (Execution Unit) and <b>BIU</b> (Bus Interface Unit).</p>
+<h2>EU (Execution Unit)</h2>
+<p>Execution unit gives instructions to BIU stating from where to fetch the data and then decode and execute those instructions. Its function is to control operations on data using the instruction decoder &amp; ALU. EU has no direct connection with system buses as shown in the above figure, it performs operations over data through BIU.</p>
+<p>Let us now discuss the functional parts of 8086 microprocessors.</p>
+<h3>ALU</h3>
+<p>It handles all arithmetic and logical operations, like &plus;, &minus;, &times;, /, OR, AND, NOT operations.</p>
+<h3>Flag Register</h3>
+<p>It is a 16-bit register that behaves like a flip-flop, i.e. it changes its status according to the result stored in the accumulator. It has 9 flags and they are divided into 2 groups &minus; Conditional Flags and Control Flags.</p>
+<h3>Conditional Flags</h3>
+<p>It represents the result of the last arithmetic or logical instruction executed.  Following is the list of conditional flags &minus;</p>
+<ul class="list">
+<li><p><b>Carry flag</b> &minus; This flag indicates an overflow condition for arithmetic operations.</p></li>  
+<li><p><b>Auxiliary flag</b> &minus; When an operation is performed at ALU, it results in a carry/barrow from lower nibble (i.e. D0 – D3) to upper nibble (i.e. D4 – D7), then this flag is set, i.e. carry given by D3 bit to D4 is AF flag. The processor uses this flag to perform binary to BCD conversion.</p></li>  
+<li><p><b>Parity flag</b> &minus; This flag is used to indicate the parity of the result, i.e. when the lower order 8-bits of the result contains even number of 1’s, then the Parity Flag is set. For odd number of 1’s, the Parity Flag is reset.</p></li>   
+<li><p><b>Zero flag</b> &minus; This flag is set to 1 when the result of arithmetic or logical operation is zero else it is set to 0.</p></li>  
+<li><p><b>Sign flag</b> &minus; This flag holds the sign of the result, i.e. when the result of the operation is negative, then the sign flag is set to 1 else set to 0.</p></li>  
+<li><p><b>Overflow flag</b> &minus; This flag represents the result when the system capacity is exceeded.</p></li> 
+</ul>
+<h3>Control Flags</h3>
+<p>Control flags controls the operations of the execution unit. Following is the list of control flags &minus;</p>
+<ul class="list">
+<li><p><b>Trap flag</b> &minus; It is used for single step control and allows the user to execute one instruction at a time for debugging. If it is set, then the program can be run in a single step mode.</p></li>   
+<li><p><b>Interrupt flag</b> &minus; It is an interrupt enable/disable flag, i.e. used to allow/prohibit the interruption of a program. It is set to 1 for interrupt enabled condition and set to 0 for interrupt disabled condition.</p></li>  
+<li><p><b>Direction flag</b> &minus; It is used in string operation. As the name suggests when it is set then string bytes are accessed from the higher memory address to the lower memory address and vice-a-versa.</p></li> 
+</ul>
+<h3>General purpose register</h3>
+<p>There are 8 general purpose registers, i.e., AH, AL, BH, BL, CH, CL, DH, and DL. These registers can be used individually to store 8-bit data and can be used in pairs to store 16bit data. The valid register pairs are AH and AL, BH and BL, CH and CL, and DH and DL. It is referred to the AX, BX, CX, and DX respectively.</p>
+<ul class="list">
+<li><p><b>AX register</b> &minus; It is also known as accumulator register. It is used to store operands for arithmetic operations.</p></li>  
+<li><p><b>BX register</b> &minus; It is used as a base register. It is used to store the starting base address of the memory area within the data segment.</p></li>  
+<li><p><b>CX register</b> &minus; It is referred to as counter. It is used in loop instruction to store the loop counter.</p></li>  
+<li><p><b>DX register</b> &minus; This register is used to hold I/O port address for I/O instruction.</p></li> 
+</ul>
+<h3>Stack pointer register</h3>
+<p>It is a 16-bit register, which holds the address from the start of the segment to the memory location, where a word was most recently stored on the stack.</p>
+<h2>BIU (Bus Interface Unit)</h2>
+<p>BIU takes care of all data and addresses transfers on the buses for the EU like sending addresses, fetching instructions from the memory, reading data from the ports and the memory as well as writing data to the ports and the memory. EU has no direction connection with System Buses so this is possible with the BIU. EU and BIU are connected with the Internal Bus.</p>
+<p>It has the following functional parts &minus;</p>
+<ul class="list">
+<li><p><b>Instruction queue</b> &minus; BIU contains the instruction queue. BIU gets upto 6 bytes of next instructions and stores them in the instruction queue. When EU executes instructions and is ready for its next instruction, then it simply reads the instruction from this instruction queue resulting in increased execution speed.</p></li> 
+<li><p>Fetching the next instruction while the current instruction executes is called <b>pipelining</b>.</p></li>  
+<li><p><b>Segment register</b> &minus; BIU has 4 segment buses, i.e. CS, DS, SS&amp; ES. It holds the addresses of instructions and data in memory, which are used by the processor to access memory locations. It also contains 1 pointer register IP, which holds the address of the next instruction to executed by the EU.</p>
+<ul class="list"> 
+<li><p><b>CS</b> &minus; It stands for Code Segment. It is used for addressing a memory location in the code segment of the memory, where the executable program is stored.</p></li>
+<li><p><b>DS</b> &minus; It stands for Data Segment. It consists of data used by the program andis accessed in the data segment by an offset address or the content of other register that holds the offset address.</p></li> 
+<li><p><b>SS</b> &minus; It stands for Stack Segment. It handles memory to store data and addresses during execution.</p></li>  
+<li><p><b>ES</b> &minus; It stands for Extra Segment. ES is additional data segment, which is used by the string to hold the extra destination data.</p></li>
+</ul> 
+</li>   
+<li><p><b>Instruction pointer</b> &minus; It is a 16-bit register used to hold the address of the next instruction to be executed.</p></li> 
+</ul>
+<hr>
+<br><br>
+</html>
+

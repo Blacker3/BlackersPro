@@ -1,0 +1,127 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Assignment Operators</h1>
+
+<p>There are following assignment operators supported by C#:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 10%;">Operator</th>
+<th style="width: 55%;">Description</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>=</td>
+<td>Simple assignment operator, Assigns values from right side operands to left side operand</td>
+<td>C = A + B assigns value of A + B into C</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>Add AND assignment operator, It adds right operand to the left operand and assign the result to left operand</td>
+<td>C += A is equivalent to C = C + A</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>Subtract AND assignment operator, It subtracts right operand from the left operand and assign the result to left operand</td>
+<td>C -= A is equivalent to C = C - A</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>Multiply AND assignment operator, It multiplies right operand with the left operand and assign the result to left operand</td>
+<td>C *= A is equivalent to C = C * A</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>Divide AND assignment operator, It divides left operand with the right operand and assign the result to left operand</td>
+<td>C /= A is equivalent to C = C / A</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>Modulus AND assignment operator, It takes modulus using two operands and assign the result to left operand</td>
+<td>C %= A is equivalent to C = C % A</td>
+</tr>
+<tr>
+<td>&lt;&lt;=</td>
+<td>Left shift AND assignment operator</td>
+<td>C &lt;&lt;= 2 is same as C = C &lt;&lt; 2</td>
+</tr>
+<tr>
+<td>&gt;&gt;=</td>
+<td>Right shift AND assignment operator</td>
+<td>C &gt;&gt;= 2 is same as C = C &gt;&gt; 2</td>
+</tr>
+<tr>
+<td>&amp;=</td>
+<td>Bitwise AND assignment operator</td>
+<td>C &amp;= 2 is same as C = C &amp; 2</td>
+</tr>
+<tr>
+<td>^=</td>
+<td>bitwise exclusive OR and assignment operator</td>
+<td>C ^= 2 is same as C = C ^ 2</td>
+</tr>
+<tr>
+<td>|=</td>
+<td>bitwise inclusive OR and assignment operator</td>
+<td>C |= 2 is same as C = C | 2</td>
+</tr>
+</tbody>
+</table>
+<h2>Example</h2>
+<p>The following example demonstrates all the assignment operators available in C#:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">OperatorsAppl</span> 
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">21</span><span class="pun">;</span>
+         <span class="kwd">int</span><span class="pln"> c</span><span class="pun">;</span><span class="pln">
+         c </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 1 - =  Value of c = {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">+=</span><span class="pln"> a</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 2 - += Value of c = {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">-=</span><span class="pln"> a</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 3 - -=  Value of c = {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">*=</span><span class="pln"> a</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 4 - *=  Value of c = {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">/=</span><span class="pln"> a</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 5 - /=  Value of c = {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">=</span> <span class="lit">200</span><span class="pun">;</span><span class="pln">
+         c </span><span class="pun">%=</span><span class="pln"> a</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 6 - %=  Value of c = {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">&lt;&lt;=</span> <span class="lit">2</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 7 - &lt;&lt;=  Value of c = {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">&gt;&gt;=</span> <span class="lit">2</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 8 - &gt;&gt;=  Value of c = {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">&amp;=</span> <span class="lit">2</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 9 - &amp;=  Value of c = {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">^=</span> <span class="lit">2</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 10 - ^=  Value of c = {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">|=</span> <span class="lit">2</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 11 - |=  Value of c = {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="typ">Line</span> <span class="lit">1</span> <span class="pun">-</span> <span class="pun">=</span> <span class="typ">Value</span><span class="pln"> of c </span><span class="pun">=</span> <span class="lit">21</span>
+<span class="typ">Line</span> <span class="lit">2</span> <span class="pun">-</span> <span class="pun">+=</span> <span class="typ">Value</span><span class="pln"> of c </span><span class="pun">=</span> <span class="lit">42</span>
+<span class="typ">Line</span> <span class="lit">3</span> <span class="pun">-</span> <span class="pun">-=</span> <span class="typ">Value</span><span class="pln"> of c </span><span class="pun">=</span> <span class="lit">21</span>
+<span class="typ">Line</span> <span class="lit">4</span> <span class="pun">-</span> <span class="pun">*=</span> <span class="typ">Value</span><span class="pln"> of c </span><span class="pun">=</span> <span class="lit">441</span>
+<span class="typ">Line</span> <span class="lit">5</span> <span class="pun">-</span> <span class="pun">/=</span> <span class="typ">Value</span><span class="pln"> of c </span><span class="pun">=</span> <span class="lit">21</span>
+<span class="typ">Line</span> <span class="lit">6</span> <span class="pun">-</span> <span class="pun">%=</span> <span class="typ">Value</span><span class="pln"> of c </span><span class="pun">=</span> <span class="lit">11</span>
+<span class="typ">Line</span> <span class="lit">7</span> <span class="pun">-</span> <span class="pun">&lt;&lt;=</span> <span class="typ">Value</span><span class="pln"> of c </span><span class="pun">=</span> <span class="lit">44</span>
+<span class="typ">Line</span> <span class="lit">8</span> <span class="pun">-</span> <span class="pun">&gt;&gt;=</span> <span class="typ">Value</span><span class="pln"> of c </span><span class="pun">=</span> <span class="lit">11</span>
+<span class="typ">Line</span> <span class="lit">9</span> <span class="pun">-</span> <span class="pun">&amp;=</span> <span class="typ">Value</span><span class="pln"> of c </span><span class="pun">=</span> <span class="lit">2</span>
+<span class="typ">Line</span> <span class="lit">10</span> <span class="pun">-</span> <span class="pun">^=</span> <span class="typ">Value</span><span class="pln"> of c </span><span class="pun">=</span> <span class="lit">0</span>
+<span class="typ">Line</span> <span class="lit">11</span> <span class="pun">-</span> <span class="pun">|=</span> <span class="typ">Value</span><span class="pln"> of c </span><span class="pun">=</span> <span class="lit">2</span></pre>

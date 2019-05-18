@@ -1,0 +1,47 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - While Loop</h1>
+
+<p>A <strong>while</strong> loop statement in C# repeatedly executes a target statement as long as a given condition is true.</p>
+<h2>Syntax</h2>
+<p>The syntax of a <strong>while</strong> loop in C# is:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">while</span><span class="pun">(</span><span class="pln">condition</span><span class="pun">)</span>
+<span class="pun">{</span><span class="pln">
+   statement</span><span class="pun">(</span><span class="pln">s</span><span class="pun">);</span>
+<span class="pun">}</span></pre>
+<p>Here, <strong>statement(s)</strong> may be a single statement or a block of statements. The <strong>condition</strong> may be any expression, and true is any non-zero value. The loop iterates while the condition is true.</p>
+<p>When the condition becomes false, program control passes to the line immediately following the loop.</p>
+<h2>Flow Diagram</h2>
+<p><img width="100%" src="images/cpp_while_loop.jpg" alt="while loop in C#" /></p>
+<p>Here, key point of the <em>while</em> loop is that the loop might not ever run. When the condition is tested and the result is false, the loop body is skipped and the first statement after the while loop is executed.</p>
+<h2>Example</h2>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">Loops</span> 
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="com">/* local variable definition */</span>
+         <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+
+         <span class="com">/* while loop execution */</span>
+         <span class="kwd">while</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">&lt;</span> <span class="lit">20</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"value of a: {0}"</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span><span class="pln">
+            a</span><span class="pun">++;</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span> </pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">value of a: 10
+value of a: 11
+value of a: 12
+value of a: 13
+value of a: 14
+value of a: 15
+value of a: 16
+value of a: 17
+value of a: 18
+value of a: 19
+</pre>

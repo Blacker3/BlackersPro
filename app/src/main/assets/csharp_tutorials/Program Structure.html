@@ -1,0 +1,124 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Program Structure</h1>
+ 
+<p>Before we study basic building blocks of the C# programming language, let us look at a bare minimum C# program structure so that we can take it as a reference in upcoming chapters.</p>
+<h2>Creating Hello World Program</h2>
+<p>A C# program consists of the following parts:</p>
+<ul class="list">
+<li>Namespace declaration</li>
+<li>A class</li>
+<li>Class methods</li>
+<li>Class attributes</li>
+<li>A Main method</li>
+<li>Statements and Expressions</li>
+<li>Comments</li>
+</ul>
+<p>Let us look at a simple code that prints the words "Hello World":</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">HelloWorldApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">HelloWorld</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="com">/* my first program in C# */</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Hello World"</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When this code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Hello World
+</pre>
+<p>Let us look at the various parts of the given program:</p>
+<ul class="list">
+<li>
+<p>The first line of the program <strong>using System;</strong> - the <strong>using</strong> keyword is used to include the <strong>System </strong> namespace in the program. A program generally has multiple <strong>using</strong> statements.</p>
+</li>
+<li>
+<p>The next line has the <strong>namespace</strong> declaration. A <strong>namespace</strong> is a collection of classes. The <em>HelloWorldApplication</em> namespace contains the class <em>HelloWorld</em>.</p>
+</li>
+<li>
+<p>The next line has a <strong>class</strong> declaration, the class <em>HelloWorld</em> contains the data and method definitions that your program uses. Classes generally contain multiple methods. Methods define the behavior of the class. However, the <em>HelloWorld</em> class has only one method <strong> Main</strong>.</p>
+</li>
+<li>
+<p>The next line defines the <strong>Main</strong> method, which is the <strong>entry point</strong> for all C# programs. The <strong>Main </strong> method states what the class does when executed.</p>
+</li>
+<li>
+<p>The next line /*...*/ is ignored by the compiler and it is put to add <strong> comments</strong> in the program.</p>
+</li>
+<li>
+<p>The Main method specifies its behavior with the statement <strong>Console.WriteLine("Hello World");</strong></p>
+<p><em>WriteLine</em> is a method of the <em>Console</em> class defined in the <em>System</em> namespace. This statement causes the message "Hello, World!" to be displayed on the screen.</p>
+<p>&nbsp;</p>
+</li>
+<li>
+<p>The last line <strong>Console.ReadKey();</strong> is for the VS.NET Users. This makes the program wait for a key press and it prevents the screen from running and closing quickly when the program is launched from Visual Studio .NET.</p>
+</li>
+</ul>
+<p>It is worth to note the following points:</p>
+<ul class="list">
+<li>
+<p>C# is case sensitive.</p>
+</li>
+<li>
+<p>All statements and expression must end with a semicolon (;).</p>
+</li>
+<li>
+<p>The program execution starts at the Main method.</p>
+</li>
+<li>
+<p>Unlike Java, program file name could be different from the class name.</p>
+</li>
+</ul>
+<h2>Compiling and Executing the Program</h2>
+<p>If you are using Visual Studio.Net for compiling and executing C# programs, take the following steps:</p>
+<ul class="list">
+<li>
+<p>Start Visual Studio.</p>
+</li>
+<li>
+<p>On the menu bar, choose File -&gt; New -&gt; Project.</p>
+</li>
+<li>
+<p>Choose Visual C# from templates, and then choose Windows.</p>
+</li>
+<li>
+<p>Choose Console Application.</p>
+</li>
+<li>
+<p>Specify a name for your project and click OK button.</p>
+</li>
+<li>
+<p>This creates a new project in Solution Explorer.</p>
+</li>
+<li>
+<p>Write code in the Code Editor.</p>
+</li>
+<li>
+<p>Click the Run button or press F5 key to execute the project. A Command Prompt window appears that contains the line Hello World.</p>
+</li>
+</ul>
+<p>You can compile a C# program by using the command-line instead of the Visual Studio IDE:</p>
+<ul class="list">
+<li>
+<p>Open a text editor and add the above-mentioned code.</p>
+</li>
+<li>
+<p>Save the file as <strong>helloworld.cs</strong></p>
+</li>
+<li>
+<p>Open the command prompt tool and go to the directory where you saved the file.</p>
+</li>
+<li>
+<p>Type <strong>csc helloworld.cs</strong> and press enter to compile your code.</p>
+</li>
+<li>
+<p>If there are no errors in your code, the command prompt takes you to the next line and generates <strong>helloworld.exe</strong> executable file.</p>
+</li>
+<li>
+<p>Type <strong>helloworld</strong> to execute your program.</p>
+</li>
+<li>
+<p>You can see the output Hello World printed on the screen.</p>
+</li>
+</ul>

@@ -1,0 +1,189 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Indexers</h1>
+
+<p>An <strong>indexer</strong> allows an object to be indexed such as an array. When you define an indexer for a class, this class behaves similar to a <strong>virtual array</strong>. You can then access the instance of this class using the array access operator ([ ]).</p>
+<h2>Syntax</h2>
+<p>A one dimensional indexer has the following syntax:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">element</span><span class="pun">-</span><span class="pln">type </span><span class="kwd">this</span><span class="pun">[</span><span class="kwd">int</span><span class="pln"> index</span><span class="pun">]</span>
+<span class="pun">{</span>
+   <span class="com">// The get accessor.</span>
+   <span class="kwd">get</span>
+   <span class="pun">{</span>
+      <span class="com">// return the value specified by index</span>
+   <span class="pun">}</span>
+   
+   <span class="com">// The set accessor.</span>
+   <span class="kwd">set</span>
+   <span class="pun">{</span>
+      <span class="com">// set the value specified by index</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<h2>Use of Indexers</h2>
+<p>Declaration of behavior of an indexer is to some extent similar to a property. similar to the properties, you use <strong> get</strong> and <strong>set</strong> accessors for defining an indexer. However, properties return or set a specific data member, whereas indexers returns or sets a particular value from the object instance. In other words, it breaks the instance data into smaller parts and indexes each part, gets or sets each part.</p>
+<p>Defining a property involves providing a property name. Indexers are not defined with names, but with the <strong>this</strong> keyword, which refers to the object instance. The following example demonstrates the concept:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">IndexerApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">IndexedNames</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">string</span><span class="pun">[]</span><span class="pln"> namelist </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">string</span><span class="pun">[</span><span class="pln">size</span><span class="pun">];</span>
+      <span class="kwd">static</span> <span class="kwd">public</span> <span class="kwd">int</span><span class="pln"> size </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="typ">IndexedNames</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> size</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln">
+         namelist</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"N. A."</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">string</span> <span class="kwd">this</span><span class="pun">[</span><span class="kwd">int</span><span class="pln"> index</span><span class="pun">]</span>
+      <span class="pun">{</span>
+         <span class="kwd">get</span>
+         <span class="pun">{</span>
+            <span class="kwd">string</span><span class="pln"> tmp</span><span class="pun">;</span>
+         
+            <span class="kwd">if</span><span class="pun">(</span><span class="pln"> index </span><span class="pun">&gt;=</span> <span class="lit">0</span> <span class="pun">&amp;&amp;</span><span class="pln"> index </span><span class="pun">&lt;=</span><span class="pln"> size</span><span class="pun">-</span><span class="lit">1</span> <span class="pun">)</span>
+            <span class="pun">{</span><span class="pln">
+               tmp </span><span class="pun">=</span><span class="pln"> namelist</span><span class="pun">[</span><span class="pln">index</span><span class="pun">];</span>
+            <span class="pun">}</span>
+            <span class="kwd">else</span>
+            <span class="pun">{</span><span class="pln">
+               tmp </span><span class="pun">=</span> <span class="str">""</span><span class="pun">;</span>
+            <span class="pun">}</span>
+            
+            <span class="kwd">return</span> <span class="pun">(</span><span class="pln"> tmp </span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="kwd">set</span>
+         <span class="pun">{</span>
+            <span class="kwd">if</span><span class="pun">(</span><span class="pln"> index </span><span class="pun">&gt;=</span> <span class="lit">0</span> <span class="pun">&amp;&amp;</span><span class="pln"> index </span><span class="pun">&lt;=</span><span class="pln"> size</span><span class="pun">-</span><span class="lit">1</span> <span class="pun">)</span>
+            <span class="pun">{</span><span class="pln">
+               namelist</span><span class="pun">[</span><span class="pln">index</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span>
+            <span class="pun">}</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">IndexedNames</span><span class="pln"> names </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">IndexedNames</span><span class="pun">();</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Zara"</span><span class="pun">;</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Riz"</span><span class="pun">;</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">2</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Nuha"</span><span class="pun">;</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">3</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Asif"</span><span class="pun">;</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">4</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Davinder"</span><span class="pun">;</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">5</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Sunil"</span><span class="pun">;</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">6</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Rubic"</span><span class="pun">;</span>
+         <span class="kwd">for</span> <span class="pun">(</span> <span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span> <span class="typ">IndexedNames</span><span class="pun">.</span><span class="pln">size</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++</span> <span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">names</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span>
+         <span class="pun">}</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Zara
+Riz
+Nuha
+Asif
+Davinder
+Sunil
+Rubic
+N. A.
+N. A.
+N. A.
+</pre>
+<h2>Overloaded Indexers</h2>
+<p>Indexers can be overloaded. Indexers can also be declared with multiple parameters and each parameter may be a different type. It is not necessary that the indexes have to be integers. C# allows indexes to be of other types, for example, a string.</p>
+<p>The following example demonstrates overloaded indexers:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">IndexerApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">IndexedNames</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">string</span><span class="pun">[]</span><span class="pln"> namelist </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">string</span><span class="pun">[</span><span class="pln">size</span><span class="pun">];</span>
+      <span class="kwd">static</span> <span class="kwd">public</span> <span class="kwd">int</span><span class="pln"> size </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="typ">IndexedNames</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> size</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span>
+         <span class="pun">{</span><span class="pln">
+            namelist</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"N. A."</span><span class="pun">;</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">string</span> <span class="kwd">this</span><span class="pun">[</span><span class="kwd">int</span><span class="pln"> index</span><span class="pun">]</span>
+      <span class="pun">{</span>
+         <span class="kwd">get</span>
+         <span class="pun">{</span>
+            <span class="kwd">string</span><span class="pln"> tmp</span><span class="pun">;</span>
+            
+            <span class="kwd">if</span><span class="pun">(</span><span class="pln"> index </span><span class="pun">&gt;=</span> <span class="lit">0</span> <span class="pun">&amp;&amp;</span><span class="pln"> index </span><span class="pun">&lt;=</span><span class="pln"> size</span><span class="pun">-</span><span class="lit">1</span> <span class="pun">)</span>
+            <span class="pun">{</span><span class="pln">
+               tmp </span><span class="pun">=</span><span class="pln"> namelist</span><span class="pun">[</span><span class="pln">index</span><span class="pun">];</span>
+            <span class="pun">}</span>
+            <span class="kwd">else</span>
+            <span class="pun">{</span><span class="pln">
+               tmp </span><span class="pun">=</span> <span class="str">""</span><span class="pun">;</span>
+            <span class="pun">}</span>
+            
+            <span class="kwd">return</span> <span class="pun">(</span><span class="pln"> tmp </span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="kwd">set</span>
+         <span class="pun">{</span>
+            <span class="kwd">if</span><span class="pun">(</span><span class="pln"> index </span><span class="pun">&gt;=</span> <span class="lit">0</span> <span class="pun">&amp;&amp;</span><span class="pln"> index </span><span class="pun">&lt;=</span><span class="pln"> size</span><span class="pun">-</span><span class="lit">1</span> <span class="pun">)</span>
+            <span class="pun">{</span><span class="pln">
+               namelist</span><span class="pun">[</span><span class="pln">index</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span>
+            <span class="pun">}</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">int</span> <span class="kwd">this</span><span class="pun">[</span><span class="kwd">string</span><span class="pln"> name</span><span class="pun">]</span>
+      <span class="pun">{</span>
+         <span class="kwd">get</span>
+         <span class="pun">{</span>
+            <span class="kwd">int</span><span class="pln"> index </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+            <span class="kwd">while</span><span class="pun">(</span><span class="pln">index </span><span class="pun">&lt;</span><span class="pln"> size</span><span class="pun">)</span>
+            <span class="pun">{</span>
+               <span class="kwd">if</span> <span class="pun">(</span><span class="pln">namelist</span><span class="pun">[</span><span class="pln">index</span><span class="pun">]</span> <span class="pun">==</span><span class="pln"> name</span><span class="pun">)</span>
+               <span class="pun">{</span>
+                <span class="kwd">return</span><span class="pln"> index</span><span class="pun">;</span>
+               <span class="pun">}</span><span class="pln">
+               index</span><span class="pun">++;</span>
+            <span class="pun">}</span>
+            <span class="kwd">return</span><span class="pln"> index</span><span class="pun">;</span>
+         <span class="pun">}</span>
+
+      <span class="pun">}</span>
+
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">IndexedNames</span><span class="pln"> names </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">IndexedNames</span><span class="pun">();</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Zara"</span><span class="pun">;</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">1</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Riz"</span><span class="pun">;</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">2</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Nuha"</span><span class="pun">;</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">3</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Asif"</span><span class="pun">;</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">4</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Davinder"</span><span class="pun">;</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">5</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Sunil"</span><span class="pun">;</span><span class="pln">
+         names</span><span class="pun">[</span><span class="lit">6</span><span class="pun">]</span> <span class="pun">=</span> <span class="str">"Rubic"</span><span class="pun">;</span>
+         
+         <span class="com">//using the first indexer with int parameter</span>
+         <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span> <span class="typ">IndexedNames</span><span class="pun">.</span><span class="pln">size</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">names</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span>
+         <span class="pun">}</span>
+         
+         <span class="com">//using the second indexer with the string parameter</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">names</span><span class="pun">[</span><span class="str">"Nuha"</span><span class="pun">]);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Zara
+Riz
+Nuha
+Asif
+Davinder
+Sunil
+Rubic
+N. A.
+N. A.
+N. A.
+2
+</pre>

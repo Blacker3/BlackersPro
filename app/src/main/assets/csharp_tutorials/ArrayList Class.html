@@ -1,0 +1,182 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - ArrayList Class</h1>
+
+<p>It represents an ordered collection of an object that can be indexed individually. It is basically an alternative to an array. However, unlike array you can add and remove items from a list at a specified position using an <strong>index</strong> and the array resizes itself automatically. It also allows dynamic memory allocation, adding, searching and sorting items in the list.</p>
+<h2>Methods and Properties of ArrayList Class</h2>
+<p>The following table lists some of the commonly used <strong>properties</strong> of the <strong>ArrayList</strong> class:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 25%;">Property</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Capacity</td>
+<td>Gets or sets the number of elements that the ArrayList can contain.</td>
+</tr>
+<tr>
+<td>Count</td>
+<td>Gets the number of elements actually contained in the ArrayList.</td>
+</tr>
+<tr>
+<td>IsFixedSize</td>
+<td>Gets a value indicating whether the ArrayList has a fixed size.</td>
+</tr>
+<tr>
+<td>IsReadOnly</td>
+<td>Gets a value indicating whether the ArrayList is read-only.</td>
+</tr>
+<tr>
+<td>Item</td>
+<td>Gets or sets the element at the specified index.</td>
+</tr>
+</tbody>
+</table>
+<p>The following table lists some of the commonly used <strong>methods</strong> of the <strong>ArrayList</strong> class:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 5%;">Sr.No.</th>
+<th>Methods</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>public virtual int Add(object value);</strong>
+<p>Adds an object to the end of the ArrayList.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>public virtual void AddRange(ICollection c);</strong>
+<p>Adds the elements of an ICollection to the end of the ArrayList.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>public virtual void Clear();</strong>
+<p>Removes all elements from the ArrayList.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>public virtual bool Contains(object item);</strong>
+<p>Determines whether an element is in the ArrayList.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>public virtual ArrayList GetRange(int index, int count);</strong>
+<p>Returns an ArrayList which represents a subset of the elements in the source ArrayList.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>public virtual int IndexOf(object);</strong>
+<p>Returns the zero-based index of the first occurrence of a value in the ArrayList or in a portion of it.</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>public virtual void Insert(int index, object value);</strong>
+<p>Inserts an element into the ArrayList at the specified index.</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>public virtual void InsertRange(int index, ICollection c);</strong>
+<p>Inserts the elements of a collection into the ArrayList at the specified index.</p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>public virtual void Remove(object obj);</strong>
+<p>Removes the first occurrence of a specific object from the ArrayList.</p>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>public virtual void RemoveAt(int index);</strong>
+<p>Removes the element at the specified index of the ArrayList.</p>
+</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>public virtual void RemoveRange(int index, int count);</strong>
+<p>Removes a range of elements from the ArrayList.</p>
+</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>public virtual void Reverse();</strong>
+<p>Reverses the order of the elements in the ArrayList.</p>
+</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>public virtual void SetRange(int index, ICollection c);</strong>
+<p>Copies the elements of a collection over a range of elements in the ArrayList.</p>
+</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>public virtual void Sort();</strong>
+<p>Sorts the elements in the ArrayList.</p>
+</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>public virtual void TrimToSize();</strong>
+<p>Sets the capacity to the actual number of elements in the ArrayList.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Example</h2>
+<p>The following example demonstrates the concept:</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Collections</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">CollectionApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">ArrayList</span><span class="pln"> al </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">ArrayList</span><span class="pun">();</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Adding some numbers:"</span><span class="pun">);</span><span class="pln">
+         al</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="lit">45</span><span class="pun">);</span><span class="pln">
+         al</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="lit">78</span><span class="pun">);</span><span class="pln">
+         al</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="lit">33</span><span class="pun">);</span><span class="pln">
+         al</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="lit">56</span><span class="pun">);</span><span class="pln">
+         al</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="lit">12</span><span class="pun">);</span><span class="pln">
+         al</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="lit">23</span><span class="pun">);</span><span class="pln">
+         al</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="lit">9</span><span class="pun">);</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Capacity: {0} "</span><span class="pun">,</span><span class="pln"> al</span><span class="pun">.</span><span class="typ">Capacity</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Count: {0}"</span><span class="pun">,</span><span class="pln"> al</span><span class="pun">.</span><span class="typ">Count</span><span class="pun">);</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="str">"Content: "</span><span class="pun">);</span>
+         <span class="kwd">foreach</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> al</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="pln">i </span><span class="pun">+</span> <span class="str">" "</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="str">"Sorted Content: "</span><span class="pun">);</span><span class="pln">
+         al</span><span class="pun">.</span><span class="typ">Sort</span><span class="pun">();</span>
+         <span class="kwd">foreach</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> al</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="pln">i </span><span class="pun">+</span> <span class="str">" "</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Adding some numbers:
+Capacity: 8
+Count: 7
+Content: 45 78 33 56 12 23 9
+Content: 9 12 23 33 45 56 78    
+</pre>

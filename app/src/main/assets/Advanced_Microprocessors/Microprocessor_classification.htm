@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microprocessor Classification</title>
+<meta name="description" content="Microprocessor Classification - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>A microprocessor can be classified into three categories &minus;</p>
+<img src="image\classification_of_microprocessor.jpg" alt="Classification of Microprocessor">
+<h2>RISC Processor</h2>
+<p>RISC stands for <b>Reduced Instruction Set Computer</b>. It is designed to reduce the execution time by simplifying the instruction set of the computer. Using RISC processors, each instruction requires only one clock cycle to execute results in uniform execution time. This reduces the efficiency as there are more lines of code, hence more RAM is needed to store the instructions. The compiler also has to work more to convert high-level language instructions into machine code.</p>
+<p>Some of the RISC processors are &minus;</p>
+<ul class="list">
+<li>Power PC: 601, 604, 615, 620</li>
+<li>DEC Alpha: 210642, 211066, 21068, 21164</li>
+<li>MIPS: TS (R10000) RISC Processor</li>
+<li>PA-RISC: HP 7100LC</li>
+</ul>
+<h3>Architecture of RISC</h3>
+<p>RISC microprocessor architecture uses highly-optimized set of instructions. It is used in portable devices like Apple iPod due to its power efficiency.</p>
+<img src="image\architecture_of_risc.jpg" alt="Architecture of RISC">
+<h3>Characteristics of RISC</h3>
+<p>The major characteristics of a RISC processor are as follows &minus;</p>
+<ul class="list">
+<li><p>It consists of simple instructions.</p></li>
+<li><p>It supports various data-type formats.</p></li>
+<li><p>It utilizes simple addressing modes and fixed length instructions for pipelining.</p></li>
+<li><p>It supports register to use in any context.</p></li>
+<li><p>One cycle execution time.</p></li>
+<li><p>“LOAD” and “STORE” instructions are used to access the memory location.</p></li>
+<li><p>It consists of larger number of registers.</p></li>
+<li><p>It consists of less number of transistors.</p></li>
+</ul>
+<h2>CISC Processor</h2>
+<p>CISC stands for <b>Complex Instruction Set Computer</b>. It is designed to minimize the number of instructions per program, ignoring the number of cycles per instruction. The emphasis is on building complex instructions directly into the hardware.</p>
+<p>The compiler has to do very little work to translate a high-level language into assembly level language/machine code because the length of the code is relatively short, so very little RAM is required to store the instructions.</p>
+<p>Some of the CISC Processors are &minus;</p>
+<ul class="list">
+<li>IBM 370/168</li>
+<li>VAX 11/780</li>
+<li>Intel 80486</li>
+</ul>
+<h3>Architecture of CISC</h3>
+<p>Its architecture is designed to decrease the memory cost because more storage is needed in larger programs resulting in higher memory cost. To resolve this, the number of instructions per program can be reduced by embedding the number of operations in a single instruction.</p>
+<img src="image\architecture_of_cisc.jpg" alt="Architecture of CISC">
+<h3>Characteristics of CISC</h3>
+<ul class="list">
+<li>Variety of addressing modes.</li>
+<li>Larger number of instructions.</li>
+<li>Variable length of instruction formats.</li>
+<li>Several cycles may be required to execute one instruction.</li>
+<li>Instruction-decoding logic is complex.</li>
+<li>One instruction is required to support multiple addressing modes.</li>
+</ul>
+<h2>Special Processors</h2>
+<p>These are the processors which are designed for some special purposes. Few of the special processors are briefly discussed &minus;</p>
+<h3>Coprocessor</h3>
+<p>A coprocessor is a specially designed microprocessor, which can handle its particular function many times faster than the ordinary microprocessor.</p>
+<p><b>For example</b> &minus; Math Coprocessor.</p>
+<p>Some Intel math-coprocessors are &minus;</p>
+<ul class="list">
+<li>8087-used with 8086</li>
+<li>80287-used with 80286</li>
+<li>80387-used with 80386</li>
+</ul>
+<h3>Input/Output Processor</h3>
+<p>It is a specially designed microprocessor having a local memory of its own, which is used to control I/O devices with minimum CPU involvement.</p>
+<p><b>For example</b> &minus;</p>
+<ul class="list">
+<li>DMA (direct Memory Access) controller</li>
+<li>Keyboard/mouse controller</li>
+<li>Graphic display controller</li>
+<li>SCSI port controller</li>
+</ul>
+<h3>Transputer (Transistor Computer)</h3>
+<p>A transputer is a specially designed microprocessor with its own local memory and having links to connect one transputer to another transputer for inter-processor communications. It was first designed in 1980 by Inmos and is targeted to the utilization of VLSI technology.</p>
+<p>A transputer can be used as a single processor system or can be connected to external links, which reduces the construction cost and increases the performance.</p>
+<p><b>For example</b> &minus; 16-bit T212, 32-bit T425, the floating point (T800, T805 &amp; T9000) processors.</p>
+<h3>DSP (Digital Signal Processor)</h3>
+<p>This processor is specially designed to process the analog signals into a digital form. This is done by sampling the voltage level at regular time intervals and converting the voltage at that instant into a digital form. This process is performed by a circuit called an analogue to digital converter, A to D converter or ADC.</p>
+<p>A DSP contains the following components &minus;</p>
+<ul class="list">
+<li><p><b>Program Memory</b> &minus; It stores the programs that DSP will use to process data.</p></li> 
+<li><p><b>Data Memory</b> &minus; It stores the information to be processed.</p></li> 
+<li><p><b>Compute Engine</b> &minus; It performs the mathematical processing, accessing the program from the program memory and the data from the data memory.</p></li>
+<li><p><b>Input/Output</b> &minus; It connects to the outside world.</p></li>
+</ul>
+<p>Its applications are &minus;</p>
+<ul class="list">
+<li>Sound and music synthesis</li>
+<li>Audio and video compression</li>
+<li>Video signal processing</li>
+<li>2D and 3d graphics acceleration.</li>
+</ul>
+<p><b>For example</b> &minus; Texas Instrument’s TMS 320 series, e.g., TMS 320C40, TMS320C50.</p>
+<hr>
+<br><br>
+</html>
+

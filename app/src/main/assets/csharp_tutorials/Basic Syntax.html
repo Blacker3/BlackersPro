@@ -1,0 +1,229 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Basic Syntax</h1>
+ 
+<p>C# is an object-oriented programming language. In Object-Oriented Programming methodology, a program consists of various objects that interact with each other by means of actions. The actions that an object may take are called methods. Objects of the same kind are said to have the same type or, are said to be in the same class.</p>
+<p>For example, let us consider a Rectangle object. It has attributes such as length and width. Depending upon the design, it may need ways for accepting the values of these attributes, calculating the area, and displaying details.</p>
+<p>Let us look at implementation of a Rectangle class and discuss C# basic syntax:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">RectangleApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Rectangle</span> 
+   <span class="pun">{</span>
+      <span class="com">// member variables</span>
+      <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>
+      <span class="kwd">double</span><span class="pln"> width</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="kwd">void</span> <span class="typ">Acceptdetails</span><span class="pun">()</span>
+      <span class="pun">{</span><span class="pln">
+         length </span><span class="pun">=</span> <span class="lit">4.5</span><span class="pun">;</span><span class="pln">    
+         width </span><span class="pun">=</span> <span class="lit">3.5</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">double</span> <span class="typ">GetArea</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> width</span><span class="pun">;</span> 
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">void</span> <span class="typ">Display</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Length: {0}"</span><span class="pun">,</span><span class="pln"> length</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Width: {0}"</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Area: {0}"</span><span class="pun">,</span> <span class="typ">GetArea</span><span class="pun">());</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">class</span> <span class="typ">ExecuteRectangle</span> 
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> 
+      <span class="pun">{</span>
+         <span class="typ">Rectangle</span><span class="pln"> r </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Rectangle</span><span class="pun">();</span><span class="pln">
+         r</span><span class="pun">.</span><span class="typ">Acceptdetails</span><span class="pun">();</span><span class="pln">
+         r</span><span class="pun">.</span><span class="typ">Display</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span> 
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Length: 4.5
+Width: 3.5
+Area: 15.75
+</pre>
+<h2>The <em>using</em> Keyword</h2>
+<p>The first statement in any C# program is</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span></pre>
+<p>The <strong>using</strong> keyword is used for including the namespaces in the program. A program can include multiple using statements.</p>
+<h2>The <em>class</em> Keyword</h2>
+<p>The <strong>class</strong> keyword is used for declaring a class.</p>
+<h2>Comments in C#</h2>
+<p>Comments are used for explaining code. Compilers ignore the comment entries. The multiline comments in C# programs start with /* and terminates with the characters */ as shown below:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">/* This program demonstrates
+The basic syntax of C# programming 
+Language */</span></pre>
+<p>Single-line comments are indicated by the '//' symbol. For example,</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pun">}</span><span class="com">//end class Rectangle    </span></pre>
+<h2>Member Variables</h2>
+<p>Variables are attributes or data members of a class, used for storing data. In the preceding program, the <em>Rectangle</em> class has two member variables named <em>length</em> and <em>width</em>.</p>
+<h2>Member Functions</h2>
+<p>Functions are set of statements that perform a specific task. The member functions of a class are declared within the class. Our sample class Rectangle contains three member functions: <em> AcceptDetails</em>, <em>GetArea</em> and <em>Display</em>.</p>
+<h2>Instantiating a Class</h2>
+<p>In the preceding program, the class <em>ExecuteRectangle</em> contains the <em>Main()</em> method and instantiates the <em>Rectangle</em> class.</p>
+<h2>Identifiers</h2>
+<p>An identifier is a name used to identify a class, variable, function, or any other user-defined item. The basic rules for naming classes in C# are as follows:</p>
+<ul class="list">
+<li>
+<p>A name must begin with a letter that could be followed by a sequence of letters, digits (0 - 9) or underscore. The first character in an identifier cannot be a digit.</p>
+</li>
+<li>
+<p>It must not contain any embedded space or symbol such as? - + ! @ # % ^ &amp; * ( ) [ ] { } . ; : " ' / and \. However, an underscore ( _ ) can be used.</p>
+</li>
+<li>
+<p>It should not be a C# keyword.</p>
+</li>
+</ul>
+<h2>C# Keywords</h2>
+<p>Keywords are reserved words predefined to the C# compiler. These keywords cannot be used as identifiers. However, if you want to use these keywords as identifiers, you may prefix the keyword with the @ character.</p>
+<p>In C#, some identifiers have special meaning in context of code, such as get and set are called contextual keywords.</p>
+<p>The following table lists the reserved keywords and contextual keywords in C#:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th colspan="7">Reserved Keywords</th>
+</tr>
+<tr>
+<td>abstract</td>
+<td>as</td>
+<td>base</td>
+<td>bool</td>
+<td>break</td>
+<td>byte</td>
+<td>case</td>
+</tr>
+<tr>
+<td>catch</td>
+<td>char</td>
+<td>checked</td>
+<td>class</td>
+<td>const</td>
+<td>continue</td>
+<td>decimal</td>
+</tr>
+<tr>
+<td>default</td>
+<td>delegate</td>
+<td>do</td>
+<td>double</td>
+<td>else</td>
+<td>enum</td>
+<td>event</td>
+</tr>
+<tr>
+<td>explicit</td>
+<td>extern</td>
+<td>false</td>
+<td>finally</td>
+<td>fixed</td>
+<td>float</td>
+<td>for</td>
+</tr>
+<tr>
+<td>foreach</td>
+<td>goto</td>
+<td>if</td>
+<td>implicit</td>
+<td>in</td>
+<td>in (generic modifier)</td>
+<td>int</td>
+</tr>
+<tr>
+<td>interface</td>
+<td>internal</td>
+<td>is</td>
+<td>lock</td>
+<td>long</td>
+<td>namespace</td>
+<td>new</td>
+</tr>
+<tr>
+<td>null</td>
+<td>object</td>
+<td>operator</td>
+<td>out</td>
+<td>out (generic modifier)</td>
+<td>override</td>
+<td>params</td>
+</tr>
+<tr>
+<td>private</td>
+<td>protected</td>
+<td>public</td>
+<td>readonly</td>
+<td>ref</td>
+<td>return</td>
+<td>sbyte</td>
+</tr>
+<tr>
+<td>sealed</td>
+<td>short</td>
+<td>sizeof</td>
+<td>stackalloc</td>
+<td>static</td>
+<td>string</td>
+<td>struct</td>
+</tr>
+<tr>
+<td>switch</td>
+<td>this</td>
+<td>throw</td>
+<td>true</td>
+<td>try</td>
+<td>typeof</td>
+<td>uint</td>
+</tr>
+<tr>
+<td>ulong</td>
+<td>unchecked</td>
+<td>unsafe</td>
+<td>ushort</td>
+<td>using</td>
+<td>virtual</td>
+<td>void</td>
+</tr>
+<tr>
+<td>volatile</td>
+<td>while</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<th colspan="7">Contextual Keywords</th>
+</tr>
+<tr>
+<td>add</td>
+<td>alias</td>
+<td>ascending</td>
+<td>descending</td>
+<td>dynamic</td>
+<td>from</td>
+<td>get</td>
+</tr>
+<tr>
+<td>global</td>
+<td>group</td>
+<td>into</td>
+<td>join</td>
+<td>let</td>
+<td>orderby</td>
+<td>partial (type)</td>
+</tr>
+<tr>
+<td>partial<br /> (method)</td>
+<td>remove</td>
+<td>select</td>
+<td>set</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>

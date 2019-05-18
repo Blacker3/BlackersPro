@@ -1,0 +1,219 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Properties</h1>
+
+<p><strong>Properties</strong> are named members of classes, structures, and interfaces. Member variables or methods in a class or structures are called <strong>Fields</strong>. Properties are an extension of fields and are accessed using the same syntax. They use <strong>accessors</strong> through which the values of the private fields can be read, written or manipulated.</p>
+<p>Properties do not name the storage locations. Instead, they have <strong>accessors</strong> that read, write, or compute their values.</p>
+<p>For example, let us have a class named Student, with private fields for age, name, and code. We cannot directly access these fields from outside the class scope, but we can have properties for accessing these private fields.</p>
+<h2>Accessors</h2>
+<p>The <strong>accessor</strong> of a property contains the executable statements that helps in getting (reading or computing) or setting (writing) the property. The accessor declarations can contain a get accessor, a set accessor, or both. For example:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">// Declare a Code property of type string:</span>
+<span class="kwd">public</span> <span class="kwd">string</span> <span class="typ">Code</span>
+<span class="pun">{</span>
+   <span class="kwd">get</span>
+   <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> code</span><span class="pun">;</span>
+   <span class="pun">}</span>
+   <span class="kwd">set</span>
+   <span class="pun">{</span><span class="pln">
+      code </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="com">// Declare a Name property of type string:</span>
+<span class="kwd">public</span> <span class="kwd">string</span> <span class="typ">Name</span>
+<span class="pun">{</span>
+   <span class="kwd">get</span>
+   <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> name</span><span class="pun">;</span>
+   <span class="pun">}</span>
+   <span class="kwd">set</span>
+   <span class="pun">{</span><span class="pln">
+      name </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="com">// Declare a Age property of type int:</span>
+<span class="kwd">public</span> <span class="kwd">int</span> <span class="typ">Age</span>
+<span class="pun">{</span> 
+   <span class="kwd">get</span>
+   <span class="pun">{</span>
+      <span class="kwd">return</span><span class="pln"> age</span><span class="pun">;</span>
+   <span class="pun">}</span>
+   <span class="kwd">set</span>
+   <span class="pun">{</span><span class="pln">
+      age </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<h2>Example</h2>
+<p>The following example demonstrates use of properties:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span><span class="pln"> jaindev
+</span><span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Student</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">string</span><span class="pln"> code </span><span class="pun">=</span> <span class="str">"N.A"</span><span class="pun">;</span>
+      <span class="kwd">private</span> <span class="kwd">string</span><span class="pln"> name </span><span class="pun">=</span> <span class="str">"not known"</span><span class="pun">;</span>
+      <span class="kwd">private</span> <span class="kwd">int</span><span class="pln"> age </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+      
+      <span class="com">// Declare a Code property of type string:</span>
+      <span class="kwd">public</span> <span class="kwd">string</span> <span class="typ">Code</span>
+      <span class="pun">{</span>
+         <span class="kwd">get</span>
+         <span class="pun">{</span>
+            <span class="kwd">return</span><span class="pln"> code</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         <span class="kwd">set</span>
+         <span class="pun">{</span><span class="pln">
+            code </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// Declare a Name property of type string:</span>
+      <span class="kwd">public</span> <span class="kwd">string</span> <span class="typ">Name</span>
+      <span class="pun">{</span>
+         <span class="kwd">get</span>
+         <span class="pun">{</span>
+            <span class="kwd">return</span><span class="pln"> name</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         <span class="kwd">set</span>
+         <span class="pun">{</span><span class="pln">
+            name </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// Declare a Age property of type int:</span>
+      <span class="kwd">public</span> <span class="kwd">int</span> <span class="typ">Age</span>
+      <span class="pun">{</span>
+         <span class="kwd">get</span>
+         <span class="pun">{</span>
+            <span class="kwd">return</span><span class="pln"> age</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         <span class="kwd">set</span>
+         <span class="pun">{</span><span class="pln">
+            age </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">override</span> <span class="kwd">string</span> <span class="typ">ToString</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="str">"Code = "</span> <span class="pun">+</span> <span class="typ">Code</span> <span class="pun">+</span><span class="str">", Name = "</span> <span class="pun">+</span> <span class="typ">Name</span> <span class="pun">+</span> <span class="str">", Age = "</span> <span class="pun">+</span> <span class="typ">Age</span><span class="pun">;</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">class</span> <span class="typ">ExampleDemo</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">()</span>
+      <span class="pun">{</span>
+      
+         <span class="com">// Create a new Student object:</span>
+         <span class="typ">Student</span><span class="pln"> s </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Student</span><span class="pun">();</span>
+         
+         <span class="com">// Setting code, name and the age of the student</span><span class="pln">
+         s</span><span class="pun">.</span><span class="typ">Code</span> <span class="pun">=</span> <span class="str">"001"</span><span class="pun">;</span><span class="pln">
+         s</span><span class="pun">.</span><span class="typ">Name</span> <span class="pun">=</span> <span class="str">"Zara"</span><span class="pun">;</span><span class="pln">
+         s</span><span class="pun">.</span><span class="typ">Age</span> <span class="pun">=</span> <span class="lit">9</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Student Info: {0}"</span><span class="pun">,</span><span class="pln"> s</span><span class="pun">);</span>
+         
+         <span class="com">//let us increase age</span><span class="pln">
+         s</span><span class="pun">.</span><span class="typ">Age</span> <span class="pun">+=</span> <span class="lit">1</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Student Info: {0}"</span><span class="pun">,</span><span class="pln"> s</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Student Info: Code = 001, Name = Zara, Age = 9
+Student Info: Code = 001, Name = Zara, Age = 10
+</pre>
+<h2>Abstract Properties</h2>
+<p>An abstract class may have an abstract property, which should be implemented in the derived class. The following program illustrates this:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span><span class="pln"> jaindev
+</span><span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">abstract</span> <span class="kwd">class</span> <span class="typ">Person</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">abstract</span> <span class="kwd">string</span> <span class="typ">Name</span>
+      <span class="pun">{</span>
+         <span class="kwd">get</span><span class="pun">;</span>
+         <span class="kwd">set</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">abstract</span> <span class="kwd">int</span> <span class="typ">Age</span>
+      <span class="pun">{</span>
+         <span class="kwd">get</span><span class="pun">;</span>
+         <span class="kwd">set</span><span class="pun">;</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">class</span> <span class="typ">Student</span> <span class="pun">:</span> <span class="typ">Person</span>
+   <span class="pun">{</span>
+   
+      <span class="kwd">private</span> <span class="kwd">string</span><span class="pln"> code </span><span class="pun">=</span> <span class="str">"N.A"</span><span class="pun">;</span>
+      <span class="kwd">private</span> <span class="kwd">string</span><span class="pln"> name </span><span class="pun">=</span> <span class="str">"N.A"</span><span class="pun">;</span>
+      <span class="kwd">private</span> <span class="kwd">int</span><span class="pln"> age </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span>
+      
+      <span class="com">// Declare a Code property of type string:</span>
+      <span class="kwd">public</span> <span class="kwd">string</span> <span class="typ">Code</span>
+      <span class="pun">{</span>
+         <span class="kwd">get</span>
+         <span class="pun">{</span>
+            <span class="kwd">return</span><span class="pln"> code</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         <span class="kwd">set</span>
+         <span class="pun">{</span><span class="pln">
+            code </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// Declare a Name property of type string:</span>
+      <span class="kwd">public</span> <span class="kwd">override</span> <span class="kwd">string</span> <span class="typ">Name</span>
+      <span class="pun">{</span>
+         <span class="kwd">get</span>
+         <span class="pun">{</span>
+            <span class="kwd">return</span><span class="pln"> name</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         <span class="kwd">set</span>
+         <span class="pun">{</span><span class="pln">
+            name </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+      
+      <span class="com">// Declare a Age property of type int:</span>
+      <span class="kwd">public</span> <span class="kwd">override</span> <span class="kwd">int</span> <span class="typ">Age</span>
+      <span class="pun">{</span>
+         <span class="kwd">get</span>
+         <span class="pun">{</span>
+            <span class="kwd">return</span><span class="pln"> age</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         <span class="kwd">set</span>
+         <span class="pun">{</span><span class="pln">
+            age </span><span class="pun">=</span><span class="pln"> value</span><span class="pun">;</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">override</span> <span class="kwd">string</span> <span class="typ">ToString</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="str">"Code = "</span> <span class="pun">+</span> <span class="typ">Code</span> <span class="pun">+</span><span class="str">", Name = "</span> <span class="pun">+</span> <span class="typ">Name</span> <span class="pun">+</span> <span class="str">", Age = "</span> <span class="pun">+</span> <span class="typ">Age</span><span class="pun">;</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">class</span> <span class="typ">ExampleDemo</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="com">// Create a new Student object:</span>
+         <span class="typ">Student</span><span class="pln"> s </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Student</span><span class="pun">();</span>
+         
+         <span class="com">// Setting code, name and the age of the student</span><span class="pln">
+         s</span><span class="pun">.</span><span class="typ">Code</span> <span class="pun">=</span> <span class="str">"001"</span><span class="pun">;</span><span class="pln">
+         s</span><span class="pun">.</span><span class="typ">Name</span> <span class="pun">=</span> <span class="str">"Zara"</span><span class="pun">;</span><span class="pln">
+         s</span><span class="pun">.</span><span class="typ">Age</span> <span class="pun">=</span> <span class="lit">9</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Student Info:- {0}"</span><span class="pun">,</span><span class="pln"> s</span><span class="pun">);</span>
+         
+         <span class="com">//let us increase age</span><span class="pln">
+         s</span><span class="pun">.</span><span class="typ">Age</span> <span class="pun">+=</span> <span class="lit">1</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Student Info:- {0}"</span><span class="pun">,</span><span class="pln"> s</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Student Info: Code = 001, Name = Zara, Age = 9
+Student Info: Code = 001, Name = Zara, Age = 10
+</pre>

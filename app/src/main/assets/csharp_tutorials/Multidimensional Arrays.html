@@ -1,0 +1,57 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Multidimensional Arrays</h1>
+
+<p>C# allows multidimensional arrays. Multi-dimensional arrays are also called rectangular array. You can declare a 2-dimensional array of strings as:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">string</span> <span class="pun">[,]</span><span class="pln"> names</span><span class="pun">;</span></pre>
+<p>or, a 3-dimensional array of int variables as:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">int</span> <span class="pun">[</span> <span class="pun">,</span> <span class="pun">,</span> <span class="pun">]</span><span class="pln"> m</span><span class="pun">;</span></pre>
+<h2>Two-Dimensional Arrays</h2>
+<p>The simplest form of the multidimensional array is the 2-dimensional array. A 2-dimensional array is a list of one-dimensional arrays.</p>
+<p>A 2-dimensional array can be thought of as a table, which has x number of rows and y number of columns. Following is a 2-dimensional array, which contains 3 rows and 4 columns:</p>
+<p><img width="100%" src="images/two_dimensional_arrays.jpg" alt="Two Dimensional Arrays in C#" /></p>
+<p>Thus, every element in the array a is identified by an element name of the form a[ i , j ], where a is the name of the array, and i and j are the subscripts that uniquely identify each element in array a.</p>
+<h2>Initializing Two-Dimensional Arrays</h2>
+<p>Multidimensional arrays may be initialized by specifying bracketed values for each row. The Following array is with 3 rows and each row has 4 columns.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">int</span> <span class="pun">[,]</span><span class="pln"> a </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">int</span> <span class="pun">[</span><span class="lit">3</span><span class="pun">,</span><span class="lit">4</span><span class="pun">]</span> <span class="pun">{</span>
+   <span class="pun">{</span><span class="lit">0</span><span class="pun">,</span> <span class="lit">1</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">,</span> <span class="lit">3</span><span class="pun">}</span> <span class="pun">,</span>   <span class="com">/*  initializers for row indexed by 0 */</span>
+   <span class="pun">{</span><span class="lit">4</span><span class="pun">,</span> <span class="lit">5</span><span class="pun">,</span> <span class="lit">6</span><span class="pun">,</span> <span class="lit">7</span><span class="pun">}</span> <span class="pun">,</span>   <span class="com">/*  initializers for row indexed by 1 */</span>
+   <span class="pun">{</span><span class="lit">8</span><span class="pun">,</span> <span class="lit">9</span><span class="pun">,</span> <span class="lit">10</span><span class="pun">,</span> <span class="lit">11</span><span class="pun">}</span>   <span class="com">/*  initializers for row indexed by 2 */</span>
+<span class="pun">};</span></pre>
+<h2>Accessing Two-Dimensional Array Elements</h2>
+<p>An element in 2-dimensional array is accessed by using the subscripts. That is, row index and column index of the array. For example,</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">int</span><span class="pln"> val </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">[</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">];</span></pre>
+<p>The above statement takes 4th element from the 3rd row of the array. You can verify it in the above diagram. Let us check the program to handle a two dimensional array:</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">ArrayApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">MyArray</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="com">/* an array with 5 rows and 2 columns*/</span>
+         <span class="kwd">int</span><span class="pun">[,]</span><span class="pln"> a </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">int</span><span class="pun">[</span><span class="lit">5</span><span class="pun">,</span> <span class="lit">2</span><span class="pun">]</span> <span class="pun">{{</span><span class="lit">0</span><span class="pun">,</span><span class="lit">0</span><span class="pun">},</span> <span class="pun">{</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">},</span> <span class="pun">{</span><span class="lit">2</span><span class="pun">,</span><span class="lit">4</span><span class="pun">},</span> <span class="pun">{</span><span class="lit">3</span><span class="pun">,</span><span class="lit">6</span><span class="pun">},</span> <span class="pun">{</span><span class="lit">4</span><span class="pun">,</span><span class="lit">8</span><span class="pun">}</span> <span class="pun">};</span>
+         <span class="kwd">int</span><span class="pln"> i</span><span class="pun">,</span><span class="pln"> j</span><span class="pun">;</span>
+         
+         <span class="com">/* output each array element's value */</span>
+         <span class="kwd">for</span> <span class="pun">(</span><span class="pln">i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span> <span class="lit">5</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span>
+         <span class="pun">{</span>
+            <span class="kwd">for</span> <span class="pun">(</span><span class="pln">j </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> j </span><span class="pun">&lt;</span> <span class="lit">2</span><span class="pun">;</span><span class="pln"> j</span><span class="pun">++)</span>
+            <span class="pun">{</span>
+               <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"a[{0},{1}] = {2}"</span><span class="pun">,</span><span class="pln"> i</span><span class="pun">,</span><span class="pln"> j</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">[</span><span class="pln">i</span><span class="pun">,</span><span class="pln">j</span><span class="pun">]);</span>
+            <span class="pun">}</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">a[0,0]: 0
+a[0,1]: 0
+a[1,0]: 1
+a[1,1]: 2
+a[2,0]: 2
+a[2,1]: 4
+a[3,0]: 3
+a[3,1]: 6
+a[4,0]: 4
+a[4,1]: 8
+</pre>

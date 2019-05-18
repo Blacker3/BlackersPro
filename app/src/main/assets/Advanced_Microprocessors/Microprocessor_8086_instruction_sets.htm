@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microprocessor 8086 Instruction Sets</title>
+<meta name="description" content="Microprocessor 8086 Instruction Sets - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>The 8086 microprocessor supports 8 types of instructions &minus;</p>
+<ul class="list">
+<li>Data Transfer Instructions</li>
+<li>Arithmetic Instructions</li> 
+<li>Bit Manipulation Instructions</li> 
+<li>String Instructions</li> 
+<li>Program Execution Transfer Instructions (Branch &amp; Loop Instructions)</li> 
+<li>Processor Control Instructions</li> 
+<li>Iteration Control Instructions</li> 
+<li>Interrupt Instructions</li> 
+</ul>
+<p>Let us now discuss these instruction sets in detail.</p>
+<h2>Data Transfer Instructions</h2>
+<p>These instructions are used to transfer the data from the source operand to the destination operand. Following are the list of instructions under this group &minus;</p>
+<h3>Instruction to transfer a word</h3>
+<ul class="list">
+<li><p><b>MOV</b> &minus; Used to copy the byte or word from the provided source to the provided destination.</p></li>
+<li><p><b>PPUSH</b> &minus; Used to put a word at the top of the stack.</p></li>
+<li><p><b>POP</b> &minus; Used to get a word from the top of the stack to the provided location.</p></li>
+<li><p><b>PUSHA</b> &minus; Used to put all the registers into the stack.</p></li>
+<li><p><b>POPA</b> &minus; Used to get words from the stack to all registers.</p></li>
+<li><p><b>XCHG</b> &minus; Used to exchange the data from two locations.</p></li>
+<li><p><b>XLAT</b> &minus; Used to translate a byte in AL using a table in the memory.</p></li> 
+</ul>
+<h3>Instructions for input and output port transfer</h3>
+<ul class="list">
+<li><p><b>IN</b> &minus; Used to read a byte or word from the provided port to the accumulator.</p></li> 
+<li><p><b>OUT</b> &minus; Used to send out a byte or word from the accumulator to the provided port.</p></li> 
+</ul>
+<h3>Instructions to transfer the address</h3>
+<ul class="list">
+<li><p><b>LEA</b> &minus; Used to load the address of operand into the provided register.</p></li> 
+<li><p><b>LDS</b> &minus; Used to load DS register and other provided register from the memory</p></li> 
+<li><p><b>LES</b> &minus; Used to load ES register and other provided register from the memory.</p></li> 
+</ul>
+<h3>Instructions to transfer flag registers</h3>
+<ul class="list">
+<li><p><b>LAHF</b> &minus; Used to load AH with the low byte of the flag register.</p></li> 
+<li><p><b>SAHF</b> &minus; Used to store AH register to low byte of the flag register.</p></li> 
+<li><p><b>PUSHF</b> &minus; Used to copy the flag register at the top of the stack.</p></li> 
+<li><p><b>POPF</b> &minus; Used to copy a word at the top of the stack to the flag register.</p></li> 
+</ul>
+<h2>Arithmetic Instructions</h2>
+<p>These instructions are used to perform arithmetic operations like addition, subtraction, multiplication, division, etc.</p>
+<p>Following is the list of instructions under this group &minus;</p>
+<h3>Instructions to perform addition</h3>
+<ul class="list">
+<li><p><b>ADD</b> &minus; Used to add the provided byte to byte/word to word.</p></li> 
+<li><p><b>ADC</b> &minus; Used to add with carry.</p></li> 
+<li><p><b>INC</b> &minus; Used to increment the provided byte/word by 1.</p></li> 
+<li><p><b>AAA</b> &minus; Used to adjust ASCII after addition.</p></li> 
+<li><p><b>DAA</b> &minus; Used to adjust the decimal after the addition/subtraction operation.</p></li>
+</ul>
+<h3>Instructions to perform subtraction</h3>
+<ul class="list">
+<li><p><b>SUB</b> &minus; Used to subtract the byte from byte/word from word.</p></li> 
+<li><p><b>SBB</b> &minus; Used to perform subtraction with borrow.</p></li> 
+<li><p><b>DEC</b> &minus; Used to decrement the provided byte/word by 1.</p></li> 
+<li><p><b>NPG</b> &minus; Used to negate each bit of the provided byte/word and add 1/2’s complement.</p></li>  
+<li><p><b>CMP</b> &minus; Used to compare 2 provided byte/word.</p></li> 
+<li><p><b>AAS</b> &minus; Used to adjust ASCII codes after subtraction.</p></li> 
+<li><p><b>DAS</b> &minus; Used to adjust decimal after subtraction.</p></li>
+</ul>
+<h3>Instruction to perform multiplication</h3>
+<ul class="list">
+<li><p><b>MUL</b> &minus; Used to multiply unsigned byte by byte/word by word.</p></li> 
+<li><p><b>IMUL</b> &minus; Used to multiply signed byte by byte/word by word.</p></li> 
+<li><p><b>AAM</b> &minus; Used to adjust ASCII codes after multiplication.</p></li>
+</ul>
+<h3>Instructions to perform division</h3>
+<ul class="list">
+<li><p><b>DIV</b> &minus; Used to divide the unsigned word by byte or unsigned double word by word.</p></li> 
+<li><p><b>IDIV</b> &minus; Used to divide the signed word by byte or signed double word by word.</p></li> 
+<li><p><b>AAD</b> &minus; Used to adjust ASCII codes after division.</p></li> 
+<li><p><b>CBW</b> &minus; Used to fill the upper byte of the word with the copies of sign bit of the lower byte.</p></li>
+<li><p><b>CWD</b> &minus; Used to fill the upper word of the double word with the sign bit of the lower word.</p></li> 
+</ul>
+<h2>Bit Manipulation Instructions</h2>
+<p>These instructions are used to perform operations where data bits are involved, i.e. operations like logical, shift, etc.</p>
+<p>Following is the list of instructions under this group &minus;</p>
+<h3>Instructions to perform logical operation</h3>
+<ul class="list">
+<li><p><b>NOT</b> &minus; Used to invert each bit of a byte or word.</p></li>
+<li><p><b>AND</b> &minus; Used for adding each bit in a byte/word with the corresponding bit in another byte/word.</p></li>
+<li><p><b>OR</b> &minus; Used to multiply each bit in a byte/word with the corresponding bit in another byte/word.</p></li>
+<li><p><b>XOR</b> &minus; Used to perform Exclusive-OR operation over each bit in a byte/word with the corresponding bit in another byte/word.</p></li>
+<li><p><b>TEST</b> &minus; Used to add operands to update flags, without affecting operands.</p></li> 
+</ul>
+<h3>Instructions to perform shift operations</h3>
+<ul class="list">
+<li><p><b>SHL/SAL</b> &minus; Used to shift bits of a byte/word towards left and put zero(S) in LSBs.</p></li> 
+<li><p><b>SHR</b> &minus; Used to shift bits of a byte/word towards the right and put zero(S) in MSBs.</p></li> 
+<li><p><b>SAR</b> &minus; Used to shift bits of a byte/word towards the right and copy the old MSB into the new MSB.</p></li> 
+</ul>
+<h3>Instructions to perform rotate operations</h3>
+<ul class="list">
+<li><p><b>ROL</b> &minus; Used to rotate bits of byte/word towards the left, i.e. MSB to LSB and to Carry Flag [CF].</p></li>
+<li><p><b>ROR</b> &minus; Used to rotate bits of byte/word towards the right, i.e. LSB to MSB and to Carry Flag [CF].</p></li>
+<li><p><b>RCR</b> &minus; Used to rotate bits of byte/word towards the right, i.e. LSB to CF and CF to MSB.</p></li>
+<li><p><b>RCL</b> &minus; Used to rotate bits of byte/word towards the left, i.e. MSB to CF and CF to LSB.</p></li> 
+</ul>
+<h2>String Instructions</h2>
+<p>String is a group of bytes/words and their memory is always allocated in a sequential order.</p>
+<p>Following is the list of instructions under this group &minus;</p>
+<ul class="list">
+<li><p><b>REP</b> &minus; Used to repeat the given instruction till CX ≠ 0.</p></li>
+<li><p><b>REPE/REPZ</b> &minus; Used to repeat the given instruction until CX = 0 or zero flag ZF = 1.</p></li>
+<li><p><b>REPNE/REPNZ</b> &minus; Used to repeat the given instruction until CX = 0 or zero flag ZF = 1.</p></li>
+<li><p><b>MOVS/MOVSB/MOVSW</b> &minus; Used to move the byte/word from one string to another.</p></li>
+<li><p><b>COMS/COMPSB/COMPSW</b> &minus; Used to compare two string bytes/words.</p></li>
+<li><p><b>INS/INSB/INSW</b> &minus; Used as an input string/byte/word from the I/O port to the provided memory location.</p></li>
+<li><p><b>OUTS/OUTSB/OUTSW</b> &minus; Used as an output string/byte/word from the provided memory location to the I/O port.</p></li>
+<li><p><b>SCAS/SCASB/SCASW</b> &minus; Used to scan a string and compare its byte with a byte in AL or string word with a word in AX.</p></li>
+<li><p><b>LODS/LODSB/LODSW</b> &minus; Used to store the string byte into AL or string word into AX.</p></li> 
+</ul>
+<h2>Program Execution Transfer Instructions (Branch and Loop Instructions)</h2>
+<p>These instructions are used to transfer/branch the instructions during an execution. It includes the following instructions &minus;</p>
+<p>Instructions to transfer the instruction during an execution without any condition &minus;</p>
+<ul class="list">
+<li><p><b>CALL</b> &minus; Used to call a procedure and save their return address to the stack.</p></li> 
+<li><p><b>RET</b> &minus; Used to return from the procedure to the main program.</p></li> 
+<li><p><b>JMP</b> &minus; Used to jump to the provided address to proceed to the next instruction.</p></li> 
+</ul>
+<p>Instructions to transfer the instruction during an execution with some conditions &minus;</p>
+<ul class="list">
+<li><p><b>JA/JNBE</b> &minus; Used to jump if above/not below/equal instruction satisfies.</p></li>
+<li><p><b>JAE/JNB</b> &minus; Used to jump if above/not below instruction satisfies.</p></li>
+<li><p><b>JBE/JNA</b> &minus; Used to jump if below/equal/ not above instruction satisfies.</p></li>
+<li><p><b>JC</b> &minus; Used to jump if carry flag CF = 1</p></li> 
+<li><p><b>JE/JZ</b> &minus; Used to jump if equal/zero flag ZF = 1</p></li>
+<li><p><b>JG/JNLE</b> &minus; Used to jump if greater/not less than/equal instruction satisfies.</p></li>
+<li><p><b>JGE/JNL</b> &minus; Used to jump if greater than/equal/not less than instruction satisfies.</p></li>
+<li><p><b>JL/JNGE</b> &minus; Used to jump if less than/not greater than/equal instruction satisfies.</p></li>
+<li><p><b>JLE/JNG</b> &minus; Used to jump if less than/equal/if not greater than instruction satisfies.</p></li>
+<li><p><b>JNC</b> &minus; Used to jump if no carry flag (CF = 0)</p></li>
+<li><p><b>JNE/JNZ</b> &minus; Used to jump if not equal/zero flag ZF = 0</p></li>
+<li><p><b>JNO</b> &minus; Used to jump if no overflow flag OF = 0</p></li>
+<li><p><b>JNP/JPO</b> &minus; Used to jump if not parity/parity odd PF = 0</p></li>
+<li><p><b>JNS</b> &minus; Used to jump if not sign SF = 0</p></li>
+<li><p><b>JO</b> &minus; Used to jump if overflow flag OF = 1</p></li>
+<li><p><b>JP/JPE</b> &minus; Used to jump if parity/parity even PF = 1</p></li>
+<li><p><b>JS</b> &minus; Used to jump if sign flag SF = 1</p></li> 
+</ul>
+<h2>Processor Control Instructions</h2>
+<p>These instructions are used to control the processor action by setting/resetting the flag values.</p>
+<p>Following are the instructions under this group &minus;</p>
+<ul class="list">
+<li><p><b>STC</b> &minus; Used to set carry flag CF to 1</p></li> 
+<li><p><b>CLC</b> &minus; Used to clear/reset carry flag CF to 0</p></li> 
+<li><p><b>CMC</b> &minus; Used to put complement at the state of carry flag CF.</p></li> 
+<li><p><b>STD</b> &minus; Used to set the direction flag DF to 1</p></li> 
+<li><p><b>CLD</b> &minus; Used to clear/reset the direction flag DF to 0</p></li> 
+<li><p><b>STI</b> &minus; Used to set the interrupt enable flag to 1, i.e., enable INTR input.</p></li> 
+<li><p><b>CLI</b> &minus; Used to clear the interrupt enable flag to 0, i.e., disable INTR input.</p></li> 
+</ul>
+<h2>Iteration Control Instructions</h2>
+<p>These instructions are used to execute the given instructions for number of times. Following is the list of instructions under this group &minus;</p>
+<ul class="list">
+<li><p><b>LOOP</b> &minus; Used to loop a group of instructions until the condition satisfies, i.e., CX = 0</p></li>
+<li><p><b>LOOPE/LOOPZ</b> &minus; Used to loop a group of instructions till it satisfies ZF = 1 &amp; CX = 0</p></li>
+<li><p><b>LOOPNE/LOOPNZ</b> &minus; Used to loop a group of instructions till it satisfies ZF = 0 &amp; CX = 0</p></li>
+<li><p><b>JCXZ</b> &minus; Used to jump to the provided address if CX = 0</p></li> 
+</ul>
+<h2>Interrupt Instructions</h2>
+<p>These instructions are used to call the interrupt during program execution.</p>
+<ul class="list">
+<li><p><b>INT</b> &minus; Used to interrupt the program during execution and calling service specified.</p></li> 
+<li><p><b>INTO</b> &minus; Used to interrupt the program during execution if OF = 1</p></li> 
+<li><p><b>IRET</b> &minus; Used to return from interrupt service to the main program</p></li>
+</ul>
+<hr>
+<br><br>
+</html>
+

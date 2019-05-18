@@ -1,0 +1,155 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - BitArray Class</h1>
+
+<p>The BitArray class manages a compact array of bit values, which are represented as Booleans, where true indicates that the bit is on (1) and false indicates the bit is off (0).</p>
+<p>It is used when you need to store the bits but do not know the number of bits in advance. You can access items from the BitArray collection by using an integer index, which starts from zero.</p>
+<h2>Methods and Properties of the BitArray Class</h2>
+<p>The following table lists some of the commonly used <strong>properties</strong> of the <strong>BitArray</strong> class:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 25%;">Property</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Count</td>
+<td>Gets the number of elements contained in the BitArray.</td>
+</tr>
+<tr>
+<td>IsReadOnly</td>
+<td>Gets a value indicating whether the BitArray is read-only.</td>
+</tr>
+<tr>
+<td>Item</td>
+<td>Gets or sets the value of the bit at a specific position in the BitArray.</td>
+</tr>
+<tr>
+<td>Length</td>
+<td>Gets or sets the number of elements in the BitArray.</td>
+</tr>
+</tbody>
+</table>
+<p>The following table lists some of the commonly used <strong>methods</strong> of the <strong>BitArray</strong> class:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 5%;">Sr.No.</th>
+<th>Methods</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>public BitArray And(BitArray value);</strong>
+<p>Performs the bitwise AND operation on the elements in the current BitArray against the corresponding elements in the specified BitArray.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>public bool Get(int index);</strong>
+<p>Gets the value of the bit at a specific position in the BitArray.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>public BitArray Not();</strong>
+<p>Inverts all the bit values in the current BitArray, so that elements set to true are changed to false, and elements set to false are changed to true.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>public BitArray Or(BitArray value);</strong>
+<p>Performs the bitwise OR operation on the elements in the current BitArray against the corresponding elements in the specified BitArray.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>public void Set(int index, bool value);</strong>
+<p>Sets the bit at a specific position in the BitArray to the specified value.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>public void SetAll(bool value);</strong>
+<p>Sets all bits in the BitArray to the specified value.</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>public BitArray Xor(BitArray value);</strong>
+<p>Performs the bitwise eXclusive OR operation on the elements in the current BitArray against the corresponding elements in the specified BitArray.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Example</h2>
+<p>The following example demonstrates the use of BitArray class:</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Collections</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">CollectionsApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="com">//creating two  bit arrays of size 8</span>
+         <span class="typ">BitArray</span><span class="pln"> ba1 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">BitArray</span><span class="pun">(</span><span class="lit">8</span><span class="pun">);</span>
+         <span class="typ">BitArray</span><span class="pln"> ba2 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">BitArray</span><span class="pun">(</span><span class="lit">8</span><span class="pun">);</span>
+         <span class="kwd">byte</span><span class="pun">[]</span><span class="pln"> a </span><span class="pun">=</span> <span class="pun">{</span> <span class="lit">60</span> <span class="pun">};</span>
+         <span class="kwd">byte</span><span class="pun">[]</span><span class="pln"> b </span><span class="pun">=</span> <span class="pun">{</span> <span class="lit">13</span> <span class="pun">};</span>
+         
+         <span class="com">//storing the values 60, and 13 into the bit arrays</span><span class="pln">
+         ba1 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">BitArray</span><span class="pun">(</span><span class="pln">a</span><span class="pun">);</span><span class="pln">
+         ba2 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">BitArray</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span>
+         
+         <span class="com">//content of ba1</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Bit array ba1: 60"</span><span class="pun">);</span>
+         
+         <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> ba1</span><span class="pun">.</span><span class="typ">Count</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="str">"{0, -6} "</span><span class="pun">,</span><span class="pln"> ba1</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">();</span>
+         
+         <span class="com">//content of ba2</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Bit array ba2: 13"</span><span class="pun">);</span>
+         
+         <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> ba2</span><span class="pun">.</span><span class="typ">Count</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="str">"{0, -6} "</span><span class="pun">,</span><span class="pln"> ba2</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">();</span>
+         <span class="typ">BitArray</span><span class="pln"> ba3 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">BitArray</span><span class="pun">(</span><span class="lit">8</span><span class="pun">);</span><span class="pln">
+         ba3 </span><span class="pun">=</span><span class="pln"> ba1</span><span class="pun">.</span><span class="typ">And</span><span class="pun">(</span><span class="pln">ba2</span><span class="pun">);</span>
+         
+         <span class="com">//content of ba3</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Bit array ba3 after AND operation: 12"</span><span class="pun">);</span>
+         
+         <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> ba3</span><span class="pun">.</span><span class="typ">Count</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="str">"{0, -6} "</span><span class="pun">,</span><span class="pln"> ba3</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">();</span><span class="pln">
+         ba3 </span><span class="pun">=</span><span class="pln"> ba1</span><span class="pun">.</span><span class="typ">Or</span><span class="pun">(</span><span class="pln">ba2</span><span class="pun">);</span>
+         
+         <span class="com">//content of ba3</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Bit array ba3 after OR operation: 61"</span><span class="pun">);</span>
+         
+         <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span><span class="pln"> ba3</span><span class="pun">.</span><span class="typ">Count</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="str">"{0, -6} "</span><span class="pun">,</span><span class="pln"> ba3</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">();</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+        <span class="pun">}</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Bit array ba1: 60 
+False False True True True True False False 
+Bit array ba2: 13
+True False True True False False False False 
+Bit array ba3 after AND operation: 12
+False False True True False False False False 
+Bit array ba3 after OR operation: 61
+True False True True False False False False 
+</pre>

@@ -1,0 +1,183 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Inheritance</h1>
+ 
+<p>One of the most important concepts in object-oriented programming is inheritance. Inheritance allows us to define a class in terms of another class, which makes it easier to create and maintain an application. This also provides an opportunity to reuse the code functionality and speeds up implementation time.</p>
+<p>When creating a class, instead of writing completely new data members and member functions, the programmer can designate that the new class should inherit the members of an existing class. This existing class is called the <strong>base</strong> class, and the new class is referred to as the <strong>derived</strong> class.</p>
+<p>The idea of inheritance implements the <strong>IS-A</strong> relationship. For example, mammal <strong>IS A</strong> animal, dog <strong>IS-A</strong> mammal hence dog <strong>IS-A</strong> animal as well, and so on.</p>
+<h2>Base and Derived Classes</h2>
+<p>A class can be derived from more than one class or interface, which means that it can inherit data and functions from multiple base classes or interfaces.</p>
+<p>The syntax used in C# for creating derived classes is as follows:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="tag">&lt;acess-specifier&gt;</span><span class="pln"> class </span><span class="tag">&lt;base_class&gt;</span><span class="pln">
+{
+   ...
+}
+class </span><span class="tag">&lt;derived_class&gt;</span><span class="pln"> : </span><span class="tag">&lt;base_class&gt;</span><span class="pln">
+{
+   ...
+}</span></pre>
+<p>Consider a base class Shape and its derived class Rectangle:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">InheritanceApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Shape</span> 
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setWidth</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> w</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         width </span><span class="pun">=</span><span class="pln"> w</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setHeight</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> h</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         height </span><span class="pun">=</span><span class="pln"> h</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">protected</span> <span class="kwd">int</span><span class="pln"> width</span><span class="pun">;</span>
+      <span class="kwd">protected</span> <span class="kwd">int</span><span class="pln"> height</span><span class="pun">;</span>
+   <span class="pun">}</span>
+
+   <span class="com">// Derived class</span>
+   <span class="kwd">class</span> <span class="typ">Rectangle</span><span class="pun">:</span> <span class="typ">Shape</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">int</span><span class="pln"> getArea</span><span class="pun">()</span>
+      <span class="pun">{</span> 
+         <span class="kwd">return</span> <span class="pun">(</span><span class="pln">width </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">);</span> 
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">class</span> <span class="typ">RectangleTester</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Rectangle</span> <span class="typ">Rect</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Rectangle</span><span class="pun">();</span>
+
+         <span class="typ">Rect</span><span class="pun">.</span><span class="pln">setWidth</span><span class="pun">(</span><span class="lit">5</span><span class="pun">);</span>
+         <span class="typ">Rect</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">7</span><span class="pun">);</span>
+
+         <span class="com">// Print the area of the object.</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Total area: {0}"</span><span class="pun">,</span>  <span class="typ">Rect</span><span class="pun">.</span><span class="pln">getArea</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Total area: 35
+</pre>
+<h2>Initializing Base Class</h2>
+<p>The derived class inherits the base class member variables and member methods. Therefore the super class object should be created before the subclass is created. You can give instructions for superclass initialization in the member initialization list.</p>
+<p>The following program demonstrates this:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">RectangleApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Rectangle</span>
+   <span class="pun">{</span>
+      <span class="com">//member variables</span>
+      <span class="kwd">protected</span> <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>
+      <span class="kwd">protected</span> <span class="kwd">double</span><span class="pln"> width</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="typ">Rectangle</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> l</span><span class="pun">,</span> <span class="kwd">double</span><span class="pln"> w</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         length </span><span class="pun">=</span><span class="pln"> l</span><span class="pun">;</span><span class="pln">
+         width </span><span class="pun">=</span><span class="pln"> w</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">double</span> <span class="typ">GetArea</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> width</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">void</span> <span class="typ">Display</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Length: {0}"</span><span class="pun">,</span><span class="pln"> length</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Width: {0}"</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Area: {0}"</span><span class="pun">,</span> <span class="typ">GetArea</span><span class="pun">());</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span><span class="com">//end class Rectangle  </span>
+   
+   <span class="kwd">class</span> <span class="typ">Tabletop</span> <span class="pun">:</span> <span class="typ">Rectangle</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> cost</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="typ">Tabletop</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> l</span><span class="pun">,</span> <span class="kwd">double</span><span class="pln"> w</span><span class="pun">)</span> <span class="pun">:</span> <span class="kwd">base</span><span class="pun">(</span><span class="pln">l</span><span class="pun">,</span><span class="pln"> w</span><span class="pun">)</span>
+      <span class="pun">{</span> <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">double</span> <span class="typ">GetCost</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">double</span><span class="pln"> cost</span><span class="pun">;</span><span class="pln">
+         cost </span><span class="pun">=</span> <span class="typ">GetArea</span><span class="pun">()</span> <span class="pun">*</span> <span class="lit">70</span><span class="pun">;</span>
+         <span class="kwd">return</span><span class="pln"> cost</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">void</span> <span class="typ">Display</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">base</span><span class="pun">.</span><span class="typ">Display</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Cost: {0}"</span><span class="pun">,</span> <span class="typ">GetCost</span><span class="pun">());</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   <span class="kwd">class</span> <span class="typ">ExecuteRectangle</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Tabletop</span><span class="pln"> t </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Tabletop</span><span class="pun">(</span><span class="lit">4.5</span><span class="pun">,</span> <span class="lit">7.5</span><span class="pun">);</span><span class="pln">
+         t</span><span class="pun">.</span><span class="typ">Display</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Length: 4.5
+Width: 7.5
+Area: 33.75
+Cost: 2362.5
+</pre>
+<h2>Multiple Inheritance in C#</h2>
+<p><strong>C# does not support multiple inheritance</strong>. However, you can use interfaces to implement multiple inheritance. The following program demonstrates this:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">InheritanceApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Shape</span> 
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setWidth</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> w</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         width </span><span class="pun">=</span><span class="pln"> w</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setHeight</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> h</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         height </span><span class="pun">=</span><span class="pln"> h</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">protected</span> <span class="kwd">int</span><span class="pln"> width</span><span class="pun">;</span>
+      <span class="kwd">protected</span> <span class="kwd">int</span><span class="pln"> height</span><span class="pun">;</span>
+   <span class="pun">}</span>
+
+   <span class="com">// Base class PaintCost</span>
+   <span class="kwd">public</span> <span class="kwd">interface</span> <span class="typ">PaintCost</span> 
+   <span class="pun">{</span>
+      <span class="kwd">int</span><span class="pln"> getCost</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> area</span><span class="pun">);</span>
+
+   <span class="pun">}</span>
+   
+   <span class="com">// Derived class</span>
+   <span class="kwd">class</span> <span class="typ">Rectangle</span> <span class="pun">:</span> <span class="typ">Shape</span><span class="pun">,</span> <span class="typ">PaintCost</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">int</span><span class="pln"> getArea</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span> <span class="pun">(</span><span class="pln">width </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">int</span><span class="pln"> getCost</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> area</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> area </span><span class="pun">*</span> <span class="lit">70</span><span class="pun">;</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   <span class="kwd">class</span> <span class="typ">RectangleTester</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Rectangle</span> <span class="typ">Rect</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Rectangle</span><span class="pun">();</span>
+         <span class="kwd">int</span><span class="pln"> area</span><span class="pun">;</span>
+         <span class="typ">Rect</span><span class="pun">.</span><span class="pln">setWidth</span><span class="pun">(</span><span class="lit">5</span><span class="pun">);</span>
+         <span class="typ">Rect</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">7</span><span class="pun">);</span><span class="pln">
+         area </span><span class="pun">=</span> <span class="typ">Rect</span><span class="pun">.</span><span class="pln">getArea</span><span class="pun">();</span>
+         
+         <span class="com">// Print the area of the object.</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Total area: {0}"</span><span class="pun">,</span>  <span class="typ">Rect</span><span class="pun">.</span><span class="pln">getArea</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Total paint cost: ${0}"</span> <span class="pun">,</span> <span class="typ">Rect</span><span class="pun">.</span><span class="pln">getCost</span><span class="pun">(</span><span class="pln">area</span><span class="pun">));</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Total area: 35
+Total paint cost: $2450
+</pre>

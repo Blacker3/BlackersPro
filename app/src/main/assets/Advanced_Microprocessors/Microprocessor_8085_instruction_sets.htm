@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microprocessor 8085 Instruction Sets</title>
+<meta name="description" content="Microprocessor 8085 Instruction Sets - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>Let us take a look at the programming of 8085 Microprocessor.</p>
+<p>Instruction sets are instruction codes to perform some task. It is classified into five categories.</p>
+<table class="table table-bordered">
+<tr>
+<th>S.No.</th>
+<th style="text-align:center;">Instruction &amp; Description</th>
+</tr>
+<tr>
+<td style="text-align:center;vertical-align:middle;">1</td>
+<td><span>Control Instructions</span>
+<p>Following is the table showing the list of Control instructions with their meanings.</p></td>
+</tr>
+<tr>
+<td style="text-align:center;vertical-align:middle;">2</td>
+<td><span>Logical Instructions</span>
+<p>Following is the table showing the list of Logical instructions with their meanings.</p></td>
+</tr>
+<tr>
+<td style="text-align:center;vertical-align:middle;">3</td>
+<td><span>Branching Instructions</span>
+<p>Following is the table showing the list of Branching instructions with their meanings.</p></td>
+</tr>
+<tr>
+<td style="text-align:center;vertical-align:middle;">4</td>
+<td><span>Arithmetic Instructions</span>
+<p>Following is the table showing the list of Arithmetic instructions with their meanings.</p></td>
+</tr>
+<tr>
+<td style="text-align:center;vertical-align:middle;">5</td>
+<td><span>Data Transfer Instructions</span>
+<p>Following is the table showing the list of Data-transfer instructions with their meanings.</p></td>
+</tr>
+</table>
+<h2>8085 – Demo Programs</h2>
+<p>Now, let us take a look at some program demonstrations using the above instructions &minus;</p>
+<h3>Adding Two 8-bit Numbers</h3>
+<p>Write a program to add data at 3005H &amp; 3006H memory location and store the result at 3007H memory location.</p>
+<p><b>Problem demo</b> &minus;</p>
+<pre class="result notranslate">
+(3005H) = 14H 
+   (3006H) = 89H
+</pre>
+<p><b>Result</b> &minus;</p>
+<p>14H &plus; 89H = 9DH</p>
+<p>The program code can be written like this &minus;</p>
+<pre class="prettyprint notraslate">
+LXI H 3005H   : "HL points 3005H" 
+MOV A, M      : "Getting first operand" 
+INX H         : "HL points 3006H" 
+ADD M         : "Add second operand" 
+INX H         : "HL points 3007H" 
+MOV M, A      : "Store result at 3007H" 
+HLT           : "Exit program" 
+</pre>
+<h3>Exchanging the Memory Locations</h3>
+<p>Write a program to exchange the data at 5000M&amp; 6000M memory location.</p>
+<pre class="prettyprint notranslate">
+LDA 5000M   : "Getting the contents at5000M location into accumulator" 
+MOV B, A    : "Save the contents into B register" 
+LDA 6000M   : "Getting the contents at 6000M location into accumulator" 
+STA 5000M   : "Store the contents of accumulator at address 5000M" 
+MOV A, B    : "Get the saved contents back into A register" 
+STA 6000M   : "Store the contents of accumulator at address 6000M" 
+</pre>
+<h3>Arrange Numbers in an Ascending Order</h3>
+<p>Write a program to arrange first 10 numbers from memory address 3000H in an ascending order.</p>
+<pre class="prettyprint notranslate">
+MVI B, 09         :"Initialize counter"      
+START             :"LXI H, 3000H: Initialize memory pointer" 
+MVI C, 09H        :"Initialize counter 2" 
+BACK: MOV A, M    :"Get the number" 
+INX H             :"Increment memory pointer" 
+CMP M             :"Compare number with next number" 
+JC SKIP           :"If less, don’t interchange" 
+JZ SKIP           :"If equal, don’t interchange" 
+MOV D, M 
+MOV M, A 
+DCX H 
+MOV M, D 
+INX H             :"Interchange two numbers" 
+SKIP:DCR C        :"Decrement counter 2" 
+JNZ BACK          :"If not zero, repeat" 
+DCR B             :"Decrement counter 1" 
+JNZ START 
+HLT               :"Terminate program execution" 
+</pre>
+<hr>
+<br><br>
+</html>
+

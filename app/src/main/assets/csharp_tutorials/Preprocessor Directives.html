@@ -1,0 +1,120 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Preprocessor Directives</h1>
+ 
+<p>The preprocessor directives give instruction to the compiler to preprocess the information before actual compilation starts.</p>
+<p>All preprocessor directives begin with #, and only white-space characters may appear before a preprocessor directive on a line. Preprocessor directives are not statements, so they do not end with a semicolon (;).</p>
+<p>C# compiler does not have a separate preprocessor; however, the directives are processed as if there was one. In C# the preprocessor directives are used to help in conditional compilation. Unlike C and C++ directives, they are not used to create macros. A preprocessor directive must be the only instruction on a line.</p>
+<h2>Preprocessor Directives in C#</h2>
+<p>The following table lists the preprocessor directives available in C#:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 20%;">Preprocessor Directive</th>
+<th>Description.</th>
+</tr>
+<tr>
+<td>#define</td>
+<td>It defines a sequence of characters, called symbol.</td>
+</tr>
+<tr>
+<td>#undef</td>
+<td>It allows you to undefine a symbol.</td>
+</tr>
+<tr>
+<td>#if</td>
+<td>It allows testing a symbol or symbols to see if they evaluate to true.</td>
+</tr>
+<tr>
+<td>#else</td>
+<td>It allows to create a compound conditional directive, along with #if.</td>
+</tr>
+<tr>
+<td>#elif</td>
+<td>It allows creating a compound conditional directive.</td>
+</tr>
+<tr>
+<td>#endif</td>
+<td>Specifies the end of a conditional directive.</td>
+</tr>
+<tr>
+<td>#line</td>
+<td>It lets you modify the compiler's line number and (optionally) the file name output for errors and warnings.</td>
+</tr>
+<tr>
+<td>#error</td>
+<td>It allows generating an error from a specific location in your code.</td>
+</tr>
+<tr>
+<td>#warning</td>
+<td>It allows generating a level one warning from a specific location in your code.</td>
+</tr>
+<tr>
+<td>#region</td>
+<td>It lets you specify a block of code that you can expand or collapse when using the outlining feature of the Visual Studio Code Editor.</td>
+</tr>
+<tr>
+<td>#endregion</td>
+<td>It marks the end of a #region block.</td>
+</tr>
+</tbody>
+</table>
+<h2>The #define Preprocessor</h2>
+<p>The #define preprocessor directive creates symbolic constants.</p>
+<p>#define lets you define a symbol such that, by using the symbol as the expression passed to the #if directive, the expression evaluates to true. Its syntax is as follows:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">#define</span><span class="pln"> symbol</span></pre>
+<p>The following program illustrates this:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">#define</span><span class="pln"> PI 
+</span><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">PreprocessorDAppl</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="com">#if (PI)</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"PI is defined"</span><span class="pun">);</span>
+         <span class="com">#else</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"PI is not defined"</span><span class="pun">);</span>
+         <span class="com">#endif</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">PI is defined
+</pre>
+<h2>Conditional Directives</h2>
+<p>You can use the #if directive to create a conditional directive. Conditional directives are useful for testing a symbol or symbols to check if they evaluate to true. If they do evaluate to true, the compiler evaluates all the code between the #if and the next directive.</p>
+<p>Syntax for conditional directive is:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">#if symbol [operator symbol]...</span></pre>
+<p>Where, <em>symbol</em> is the name of the symbol you want to test. You can also use true and false or prepend the symbol with the negation operator.</p>
+<p>The <em>operator symbol</em> is the operator used for evaluating the symbol. Operators could be either of the following:</p>
+<ul class="list">
+<li>== (equality)</li>
+<li>!= (inequality)</li>
+<li>&amp;&amp; (and)</li>
+<li>|| (or)</li>
+</ul>
+<p>You can also group symbols and operators with parentheses. Conditional directives are used for compiling code for a debug build or when compiling for a specific configuration. A conditional directive beginning with a <strong>#if</strong> directive must explicitly be terminated with a <strong>#endif</strong> directive.</p>
+<p>The following program demonstrates use of conditional directives:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="com">#define</span><span class="pln"> DEBUG
+</span><span class="com">#define</span><span class="pln"> VC_V10
+</span><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">TestClass</span>
+<span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">()</span>
+   <span class="pun">{</span>
+      <span class="com">#if (DEBUG &amp;&amp; !VC_V10)</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"DEBUG is defined"</span><span class="pun">);</span>
+      <span class="com">#elif</span> <span class="pun">(!</span><span class="pln">DEBUG </span><span class="pun">&amp;&amp;</span><span class="pln"> VC_V10</span><span class="pun">)</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"VC_V10 is defined"</span><span class="pun">);</span>
+      <span class="com">#elif</span> <span class="pun">(</span><span class="pln">DEBUG </span><span class="pun">&amp;&amp;</span><span class="pln"> VC_V10</span><span class="pun">)</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"DEBUG and VC_V10 are defined"</span><span class="pun">);</span>
+      <span class="com">#else</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"DEBUG and VC_V10 are not defined"</span><span class="pun">);</span>
+      <span class="com">#endif</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">DEBUG and VC_V10 are defined
+</pre>

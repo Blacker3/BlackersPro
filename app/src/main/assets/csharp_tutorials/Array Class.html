@@ -1,0 +1,186 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Array Class</h1>
+
+<p>The Array class is the base class for all the arrays in C#. It is defined in the System namespace. The Array class provides various properties and methods to work with arrays.</p>
+<h2>Properties of the Array Class</h2>
+<p>The following table describes some of the most commonly used properties of the Array class:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 5%;">Sr.No</th>
+<th>Property</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>IsFixedSize</strong>
+<p>Gets a value indicating whether the Array has a fixed size.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>IsReadOnly</strong>
+<p>Gets a value indicating whether the Array is read-only.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Length</strong>
+<p>Gets a 32-bit integer that represents the total number of elements in all the dimensions of the Array.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>LongLength</strong>
+<p>Gets a 64-bit integer that represents the total number of elements in all the dimensions of the Array.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Rank</strong>
+<p>Gets the rank (number of dimensions) of the Array.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Methods of the Array Class</h2>
+<p>The following table describes some of the most commonly used methods of the Array class:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 5%;">Sr.No</th>
+<th>Methods</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>Clear</strong>
+<p>Sets a range of elements in the Array to zero, to false, or to null, depending on the element type.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Copy(Array, Array, Int32)</strong>
+<p>Copies a range of elements from an Array starting at the first element and pastes them into another Array starting at the first element. The length is specified as a 32-bit integer.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>CopyTo(Array, Int32)</strong>
+<p>Copies all the elements of the current one-dimensional Array to the specified one-dimensional Array starting at the specified destination Array index. The index is specified as a 32-bit integer.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>GetLength </strong>
+<p>Gets a 32-bit integer that represents the number of elements in the specified dimension of the Array.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>GetLongLength</strong>
+<p>Gets a 64-bit integer that represents the number of elements in the specified dimension of the Array.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>GetLowerBound</strong>
+<p>Gets the lower bound of the specified dimension in the Array.</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>GetType</strong>
+<p>Gets the Type of the current instance. (Inherited from Object.)</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>GetUpperBound</strong>
+<p>Gets the upper bound of the specified dimension in the Array.</p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>GetValue(Int32)</strong>
+<p>Gets the value at the specified position in the one-dimensional Array. The index is specified as a 32-bit integer.</p>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>IndexOf(Array, Object)</strong>
+<p>Searches for the specified object and returns the index of the first occurrence within the entire one-dimensional Array.</p>
+</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Reverse(Array)</strong>
+<p>Reverses the sequence of the elements in the entire one-dimensional Array.</p>
+</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>SetValue(Object, Int32)</strong>
+<p>Sets a value to the element at the specified position in the one-dimensional Array. The index is specified as a 32-bit integer.</p>
+</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>Sort(Array)</strong>
+<p>Sorts the elements in an entire one-dimensional Array using the IComparable implementation of each element of the Array.</p>
+</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>ToStringk</strong>
+<p>Returns a string that represents the current object. (Inherited from Object.)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For complete list of Array class properties and methods, please consult Microsoft documentation on C#.</p>
+<h2>Example</h2>
+<p>The following program demonstrates use of some of the methods of the Array class:</p>
+<p>&nbsp;</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">ArrayApplication</span>  
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">MyArray</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">int</span><span class="pun">[]</span><span class="pln"> list </span><span class="pun">=</span> <span class="pun">{</span> <span class="lit">34</span><span class="pun">,</span> <span class="lit">72</span><span class="pun">,</span> <span class="lit">13</span><span class="pun">,</span> <span class="lit">44</span><span class="pun">,</span> <span class="lit">25</span><span class="pun">,</span> <span class="lit">30</span><span class="pun">,</span> <span class="lit">10</span> <span class="pun">};</span>
+         <span class="kwd">int</span><span class="pun">[]</span><span class="pln"> temp </span><span class="pun">=</span><span class="pln"> list</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="str">"Original Array: "</span><span class="pun">);</span>
+         
+         <span class="kwd">foreach</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> list</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="pln">i </span><span class="pun">+</span> <span class="str">" "</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">();</span>
+         
+         <span class="com">// reverse the array</span>
+         <span class="typ">Array</span><span class="pun">.</span><span class="typ">Reverse</span><span class="pun">(</span><span class="pln">temp</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="str">"Reversed Array: "</span><span class="pun">);</span>
+         
+         <span class="kwd">foreach</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> temp</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="pln">i </span><span class="pun">+</span> <span class="str">" "</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">();</span>
+         
+         <span class="com">//sort the array</span>
+         <span class="typ">Array</span><span class="pun">.</span><span class="typ">Sort</span><span class="pun">(</span><span class="pln">list</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="str">"Sorted Array: "</span><span class="pun">);</span>
+         
+         <span class="kwd">foreach</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> list</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">Write</span><span class="pun">(</span><span class="pln">i </span><span class="pun">+</span> <span class="str">" "</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Original Array: 34 72 13 44 25 30 10
+Reversed Array: 10 30 25 44 13 72 34
+Sorted Array: 10 13 25 30 34 44 72
+</pre>

@@ -1,0 +1,100 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Relational Operators</h1>
+
+<p>Following table shows all the relational operators supported by C#. Assume variable <strong>A</strong> holds 10 and variable <strong>B</strong> holds 20, then:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 10%;">Operator</th>
+<th style="width: 55%;">Description</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>==</td>
+<td>Checks if the values of two operands are equal or not, if yes then condition becomes true.</td>
+<td>(A == B) is not true.</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>Checks if the values of two operands are equal or not, if values are not equal then condition becomes true.</td>
+<td>(A != B) is true.</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>Checks if the value of left operand is greater than the value of right operand, if yes then condition becomes true.</td>
+<td>(A &gt; B) is not true.</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>Checks if the value of left operand is less than the value of right operand, if yes then condition becomes true.</td>
+<td>(A &lt; B) is true.</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>Checks if the value of left operand is greater than or equal to the value of right operand, if yes then condition becomes true.</td>
+<td>(A &gt;= B) is not true.</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>Checks if the value of left operand is less than or equal to the value of right operand, if yes then condition becomes true.</td>
+<td>(A &lt;= B) is true.</td>
+</tr>
+</tbody>
+</table>
+<h2>Example</h2>
+<p>The following example demonstrates all the relational operators available in C#:</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">class</span> <span class="typ">Program</span>
+<span class="pun">{</span>
+   <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+   <span class="pun">{</span>
+      <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">21</span><span class="pun">;</span>
+      <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+      
+      <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">==</span><span class="pln"> b</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 1 - a is equal to b"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      <span class="kwd">else</span> 
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 1 - a is not equal to b"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">&lt;</span><span class="pln"> b</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 2 - a is less than b"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      <span class="kwd">else</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 2 - a is not less than b"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">&gt;</span><span class="pln"> b</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 3 - a is greater than b"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      <span class="kwd">else</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 3 - a is not greater than b"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      <span class="com">/* Lets change value of a and b */</span><span class="pln">
+      a </span><span class="pun">=</span> <span class="lit">5</span><span class="pun">;</span><span class="pln">
+      b </span><span class="pun">=</span> <span class="lit">20</span><span class="pun">;</span>
+      
+      <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">&lt;=</span><span class="pln"> b</span><span class="pun">)</span> 
+      <span class="pun">{</span> 
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 4 - a is either less than or equal to  b"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">if</span> <span class="pun">(</span><span class="pln">b </span><span class="pun">&gt;=</span><span class="pln"> a</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 5-b is either greater than or equal to b"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Line 1 - a is not equal to b
+Line 2 - a is not less than b
+Line 3 - a is greater than b
+Line 4 - a is either less than or equal to b
+Line 5 - b is either greater than or equal to b
+</pre>

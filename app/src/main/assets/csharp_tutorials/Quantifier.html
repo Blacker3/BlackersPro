@@ -1,0 +1,85 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Quantifier</h1>
+
+<p>Quantifiers specify how many instances of the previous element (which can be a character, a group, or a character class) must be present in the input string for a match to occur.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 10%;">Quantifier</th>
+<th style="width: 40%;">Description</th>
+<th style="width: 20%;">Pattern</th>
+<th style="width: 30%;">Matches</th>
+</tr>
+<tr>
+<td><strong>*</strong></td>
+<td>Matches the previous element zero or more times.</td>
+<td>\d*\.\d</td>
+<td>".0", "19.9", "219.9"</td>
+</tr>
+<tr>
+<td><strong>+</strong></td>
+<td>Matches the previous element one or more times.</td>
+<td>"be+"</td>
+<td>"bee" in "been", "be" in "bent"</td>
+</tr>
+<tr>
+<td><strong>?</strong></td>
+<td>Matches the previous element zero or one time.</td>
+<td>"rai?n"</td>
+<td>"ran", "rain"</td>
+</tr>
+<tr>
+<td><strong>{ n }</strong></td>
+<td>Matches the previous element exactly n times.</td>
+<td>",\d{3}"</td>
+<td>",043" in "1,043.6", ",876", ",543", and ",210" in "9,876,543,210"</td>
+</tr>
+<tr>
+<td><strong>{ n ,}</strong></td>
+<td>Matches the previous element at least n times.</td>
+<td>"\d{2,}"</td>
+<td>"166", "29", "1930"</td>
+</tr>
+<tr>
+<td><strong>{ n , m }</strong></td>
+<td>Matches the previous element at least n times, but no more than m times.</td>
+<td>"\d{3,5}"</td>
+<td>"166", "17668" "19302" in "193024"</td>
+</tr>
+<tr>
+<td><strong>*?</strong></td>
+<td>Matches the previous element zero or more times, but as few times as possible.</td>
+<td>\d*?\.\d</td>
+<td>".0", "19.9", "219.9"</td>
+</tr>
+<tr>
+<td><strong>+?</strong></td>
+<td>Matches the previous element one or more times, but as few times as possible.</td>
+<td>"be+?"</td>
+<td>"be" in "been", "be" in "bent"</td>
+</tr>
+<tr>
+<td><strong>??</strong></td>
+<td>Matches the previous element zero or one time, but as few times as possible.</td>
+<td>"rai??n"</td>
+<td>"ran", "rain"</td>
+</tr>
+<tr>
+<td><strong>{ n }?</strong></td>
+<td>Matches the preceding element exactly n times.</td>
+<td>",\d{3}?"</td>
+<td>",043" in "1,043.6", ",876", ",543", and ",210" in "9,876,543,210"</td>
+</tr>
+<tr>
+<td><strong>{ n ,}?</strong></td>
+<td>Matches the previous element at least n times, but as few times as possible.</td>
+<td>"\d{2,}?"</td>
+<td>"166", "29", "1930"</td>
+</tr>
+<tr>
+<td><strong>{ n , m }?</strong></td>
+<td>Matches the previous element between n and m times, but as few times as possible.</td>
+<td>"\d{3,5}?"</td>
+<td>"166", "17668" "193", "024" in "193024"</td>
+</tr>
+</tbody>
+</table>

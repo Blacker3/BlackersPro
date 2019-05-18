@@ -1,0 +1,84 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Bitwise Operators</h1>
+
+<p>The Bitwise operators supported by C# are listed in the following table. Assume variable A holds 60 and variable B holds 13, then:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 10%;">Operator</th>
+<th style="width: 55%;">Description</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>Binary AND Operator copies a bit to the result if it exists in both operands.</td>
+<td>(A &amp; B) = 12, which is 0000 1100</td>
+</tr>
+<tr>
+<td>|</td>
+<td>Binary OR Operator copies a bit if it exists in either operand.</td>
+<td>(A | B) = 61, which is 0011 1101</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Binary XOR Operator copies the bit if it is set in one operand but not both.</td>
+<td>(A ^ B) = 49, which is 0011 0001</td>
+</tr>
+<tr>
+<td>~</td>
+<td>Binary Ones Complement Operator is unary and has the effect of 'flipping' bits.</td>
+<td>(~A ) = 61, which is 1100 0011 in 2's complement due to a signed binary number.</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>Binary Left Shift Operator. The left operands value is moved left by the number of bits specified by the right operand.</td>
+<td>A &lt;&lt; 2 = 240, which is 1111 0000</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>Binary Right Shift Operator. The left operands value is moved right by the number of bits specified by the right operand.</td>
+<td>A &gt;&gt; 2 = 15, which is 0000 1111</td>
+</tr>
+</tbody>
+</table>
+<h2>Example</h2>
+<p>The following example demonstrates all the bitwise operators available in C#:</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">OperatorsAppl</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">60</span><span class="pun">;</span>            <span class="com">/* 60 = 0011 1100 */</span> 
+         <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">13</span><span class="pun">;</span>            <span class="com">/* 13 = 0000 1101 */</span>
+         <span class="kwd">int</span><span class="pln"> c </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> 
+         
+         c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">&amp;</span><span class="pln"> b</span><span class="pun">;</span>             <span class="com">/* 12 = 0000 1100 */</span> 
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 1 - Value of c is {0}"</span><span class="pun">,</span><span class="pln"> c </span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">|</span><span class="pln"> b</span><span class="pun">;</span>             <span class="com">/* 61 = 0011 1101 */</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 2 - Value of c is {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">^</span><span class="pln"> b</span><span class="pun">;</span>             <span class="com">/* 49 = 0011 0001 */</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 3 - Value of c is {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">=</span> <span class="pun">~</span><span class="pln">a</span><span class="pun">;</span>                <span class="com">/*-61 = 1100 0011 */</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 4 - Value of c is {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">&lt;&lt;</span> <span class="lit">2</span><span class="pun">;</span>      <span class="com">/* 240 = 1111 0000 */</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 5 - Value of c is {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span><span class="pln">
+         
+         c </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">&gt;&gt;</span> <span class="lit">2</span><span class="pun">;</span>      <span class="com">/* 15 = 0000 1111 */</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 6 - Value of c is {0}"</span><span class="pun">,</span><span class="pln"> c</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Line 1 - Value of c is 12
+Line 2 - Value of c is 61
+Line 3 - Value of c is 49
+Line 4 - Value of c is -61
+Line 5 - Value of c is 240
+Line 6 - Value of c is 15
+</pre>

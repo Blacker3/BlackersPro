@@ -1,0 +1,51 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Break Statement</h1>
+
+<p>The <strong>break</strong> statement in C# has following two usage:</p>
+<ul class="list">
+<li>
+<p>When the <strong>break</strong> statement is encountered inside a loop, the loop is immediately terminated and program control resumes at the next statement following the loop.</p>
+</li>
+<li>
+<p>It can be used to terminate a case in the <strong>switch</strong> statement.</p>
+</li>
+</ul>
+<p>If you are using nested loops (i.e., one loop inside another loop), the break statement will stop the execution of the innermost loop and start executing the next line of code after the block.</p>
+<h2>Syntax</h2>
+<p>The syntax for a <strong>break</strong> statement in C# is as follows:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">break</span><span class="pun">;</span></pre>
+<h2>Flow Diagram</h2>
+<p><img width="100%" src="images/cpp_break_statement.jpg" alt="c# break statement" /></p>
+<h2>Example</h2>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">Loops</span> 
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="com">/* local variable definition */</span>
+         <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+         
+         <span class="com">/* while loop execution */</span>
+         <span class="kwd">while</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">&lt;</span> <span class="lit">20</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"value of a: {0}"</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span><span class="pln">
+            a</span><span class="pun">++;</span>
+            <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">&gt;</span> <span class="lit">15</span><span class="pun">)</span>
+            <span class="pun">{</span>
+               <span class="com">/* terminate the loop using break statement */</span>
+               <span class="kwd">break</span><span class="pun">;</span>
+            <span class="pun">}</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span> </pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">value of a: 10
+value of a: 11
+value of a: 12
+value of a: 13
+value of a: 14
+value of a: 15
+</pre>

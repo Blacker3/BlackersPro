@@ -1,0 +1,75 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Logical Operators</h1>
+
+<p>Following table shows all the logical operators supported by C#. Assume variable <strong>A</strong> holds Boolean value true and variable <strong>B</strong> holds Boolean value false, then:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 10%;">Operator</th>
+<th style="width: 55%;">Description</th>
+<th>Example</th>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>Called Logical AND operator. If both the operands are non zero then condition becomes true.</td>
+<td>(A &amp;&amp; B) is false.</td>
+</tr>
+<tr>
+<td>||</td>
+<td>Called Logical OR Operator. If any of the two operands is non zero then condition becomes true.</td>
+<td>(A || B) is true.</td>
+</tr>
+<tr>
+<td>!</td>
+<td>Called Logical NOT Operator. Use to reverses the logical state of its operand. If a condition is true then Logical NOT operator will make false.</td>
+<td>!(A &amp;&amp; B) is true.</td>
+</tr>
+</tbody>
+</table>
+<h2>Example</h2>
+<p>The following example demonstrates all the logical operators available in C#:</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">OperatorsAppl</span> 
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span> 
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span> 
+      <span class="pun">{</span>
+         <span class="kwd">bool</span><span class="pln"> a </span><span class="pun">=</span> <span class="kwd">true</span><span class="pun">;</span> 
+         <span class="kwd">bool</span><span class="pln"> b </span><span class="pun">=</span> <span class="kwd">true</span><span class="pun">;</span>
+         
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">&amp;&amp;</span><span class="pln"> b</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 1 - Condition is true"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">||</span><span class="pln"> b</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 2 - Condition is true"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="com">/* lets change the value of  a and b */</span><span class="pln">
+         a </span><span class="pun">=</span> <span class="kwd">false</span><span class="pun">;</span><span class="pln">
+         b </span><span class="pun">=</span> <span class="kwd">true</span><span class="pun">;</span>
+         
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">&amp;&amp;</span><span class="pln"> b</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 3 - Condition is true"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="kwd">else</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 3 - Condition is not true"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         
+         <span class="kwd">if</span> <span class="pun">(!(</span><span class="pln">a </span><span class="pun">&amp;&amp;</span><span class="pln"> b</span><span class="pun">))</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Line 4 - Condition is true"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Line 1 - Condition is true
+Line 2 - Condition is true
+Line 3 - Condition is not true
+Line 4 - Condition is true
+</pre>

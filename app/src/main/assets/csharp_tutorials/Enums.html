@@ -1,0 +1,44 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Enums</h1>
+ 
+<p>An enumeration is a set of named integer constants. An enumerated type is declared using the <strong>enum</strong> keyword.</p>
+<p>C# enumerations are value data type. In other words, enumeration contains its own values and cannot inherit or cannot pass inheritance.</p>
+<h2>Declaring <em>enum</em> Variable</h2>
+<p>The general syntax for declaring an enumeration is:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">enum</span> <span class="str">&lt;enum_name&gt;</span> 
+<span class="pun">{</span><span class="pln">
+   enumeration list 
+</span><span class="pun">};</span></pre>
+<p>Where,</p>
+<ul class="list">
+<li>
+<p>The <em>enum_name</em> specifies the enumeration type name.</p>
+</li>
+<li>
+<p>The <em>enumeration list</em> is a comma-separated list of identifiers.</p>
+</li>
+</ul>
+<p>Each of the symbols in the enumeration list stands for an integer value, one greater than the symbol that precedes it. By default, the value of the first enumeration symbol is 0. For example:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">enum</span> <span class="typ">Days</span> <span class="pun">{</span> <span class="typ">Sun</span><span class="pun">,</span> <span class="typ">Mon</span><span class="pun">,</span><span class="pln"> tue</span><span class="pun">,</span> <span class="typ">Wed</span><span class="pun">,</span><span class="pln"> thu</span><span class="pun">,</span> <span class="typ">Fri</span><span class="pun">,</span> <span class="typ">Sat</span> <span class="pun">};</span></pre>
+<h2>Example</h2>
+<p>The following example demonstrates use of enum variable:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">EnumApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">EnumProgram</span>
+   <span class="pun">{</span>
+      <span class="kwd">enum</span> <span class="typ">Days</span> <span class="pun">{</span> <span class="typ">Sun</span><span class="pun">,</span> <span class="typ">Mon</span><span class="pun">,</span><span class="pln"> tue</span><span class="pun">,</span> <span class="typ">Wed</span><span class="pun">,</span><span class="pln"> thu</span><span class="pun">,</span> <span class="typ">Fri</span><span class="pun">,</span> <span class="typ">Sat</span> <span class="pun">};</span>
+
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">int</span> <span class="typ">WeekdayStart</span> <span class="pun">=</span> <span class="pun">(</span><span class="kwd">int</span><span class="pun">)</span><span class="typ">Days</span><span class="pun">.</span><span class="typ">Mon</span><span class="pun">;</span>
+         <span class="kwd">int</span> <span class="typ">WeekdayEnd</span> <span class="pun">=</span> <span class="pun">(</span><span class="kwd">int</span><span class="pun">)</span><span class="typ">Days</span><span class="pun">.</span><span class="typ">Fri</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Monday: {0}"</span><span class="pun">,</span> <span class="typ">WeekdayStart</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Friday: {0}"</span><span class="pun">,</span> <span class="typ">WeekdayEnd</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Monday: 1
+Friday: 5
+</pre>

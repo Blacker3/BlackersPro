@@ -1,0 +1,45 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Passing Parameters by Value</h1>
+
+<p>This is the default mechanism for passing parameters to a method. In this mechanism, when a method is called, a new storage location is created for each value parameter.</p>
+<p>The values of the actual parameters are copied into them. Hence, the changes made to the parameter inside the method have no effect on the argument. The following example demonstrates the concept:</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">CalculatorApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">NumberManipulator</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> swap</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> x</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> y</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">int</span><span class="pln"> temp</span><span class="pun">;</span><span class="pln">
+         
+         temp </span><span class="pun">=</span><span class="pln"> x</span><span class="pun">;</span> <span class="com">/* save the value of x */</span><span class="pln">
+         x </span><span class="pun">=</span><span class="pln"> y</span><span class="pun">;</span>    <span class="com">/* put y into x */</span><span class="pln">
+         y </span><span class="pun">=</span><span class="pln"> temp</span><span class="pun">;</span> <span class="com">/* put temp into y */</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">NumberManipulator</span><span class="pln"> n </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">NumberManipulator</span><span class="pun">();</span>
+         <span class="com">/* local variable definition */</span>
+         <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">100</span><span class="pun">;</span>
+         <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">200</span><span class="pun">;</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Before swap, value of a : {0}"</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Before swap, value of b : {0}"</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">);</span>
+         
+         <span class="com">/* calling a function to swap the values */</span><span class="pln">
+         n</span><span class="pun">.</span><span class="pln">swap</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">);</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"After swap, value of a : {0}"</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"After swap, value of b : {0}"</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">);</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Before swap, value of a :100
+Before swap, value of b :200
+After swap, value of a :100
+After swap, value of b :200
+</pre>
+<p>It shows that there is no change in the values though they had changed inside the function.</p>

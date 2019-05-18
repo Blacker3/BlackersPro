@@ -1,0 +1,163 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Arrays</h1>
+ 
+<p>An array stores a fixed-size sequential collection of elements of the same type. An array is used to store a collection of data, but it is often more useful to think of an array as a collection of variables of the same type stored at contiguous memory locations.</p>
+<p>Instead of declaring individual variables, such as number0, number1, ..., and number99, you declare one array variable such as numbers and use numbers[0], numbers[1], and ..., numbers[99] to represent individual variables. A specific element in an array is accessed by an index.</p>
+<p>All arrays consist of contiguous memory locations. The lowest address corresponds to the first element and the highest address to the last element.</p>
+<p><img width="100%" src="images/arrays.jpg" alt="Arrays in C#" /></p>
+<h2>Declaring Arrays</h2>
+<p>To declare an array in C#, you can use the following syntax:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">datatype</span><span class="pun">[]</span><span class="pln"> arrayName</span><span class="pun">;</span></pre>
+<p>where,</p>
+<ul class="list">
+<li>
+<p>d<em>atatype</em> is used to specify the type of elements in the array.</p>
+</li>
+<li>
+<p><em>[ ]</em> specifies the rank of the array. The rank specifies the size of the array.</p>
+</li>
+<li>
+<p><em>arrayName</em> specifies the name of the array.</p>
+</li>
+</ul>
+<p>For example,</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">double</span><span class="pun">[]</span><span class="pln"> balance</span><span class="pun">;</span></pre>
+<h2>Initializing an Array</h2>
+<p>Declaring an array does not initialize the array in the memory. When the array variable is initialized, you can assign values to the array.</p>
+<p>Array is a reference type, so you need to use the <strong>new</strong> keyword to create an instance of the array. For example,</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">double</span><span class="pun">[]</span><span class="pln"> balance </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">double</span><span class="pun">[</span><span class="lit">10</span><span class="pun">];</span></pre>
+<h2>Assigning Values to an Array</h2>
+<p>You can assign values to individual array elements, by using the index number, like:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">double</span><span class="pun">[]</span><span class="pln"> balance </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">double</span><span class="pun">[</span><span class="lit">10</span><span class="pun">];</span><span class="pln">
+balance</span><span class="pun">[</span><span class="lit">0</span><span class="pun">]</span> <span class="pun">=</span> <span class="lit">4500.0</span><span class="pun">;</span></pre>
+<p>You can assign values to the array at the time of declaration, as shown:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">double</span><span class="pun">[]</span><span class="pln"> balance </span><span class="pun">=</span> <span class="pun">{</span> <span class="lit">2340.0</span><span class="pun">,</span> <span class="lit">4523.69</span><span class="pun">,</span> <span class="lit">3421.0</span><span class="pun">};</span></pre>
+<p>You can also create and initialize an array, as shown:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">int</span> <span class="pun">[]</span><span class="pln"> marks </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">int</span><span class="pun">[</span><span class="lit">5</span><span class="pun">]</span>  <span class="pun">{</span> <span class="lit">99</span><span class="pun">,</span>  <span class="lit">98</span><span class="pun">,</span> <span class="lit">92</span><span class="pun">,</span> <span class="lit">97</span><span class="pun">,</span> <span class="lit">95</span><span class="pun">};</span></pre>
+<p>You may also omit the size of the array, as shown:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">int</span> <span class="pun">[]</span><span class="pln"> marks </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">int</span><span class="pun">[]</span>  <span class="pun">{</span> <span class="lit">99</span><span class="pun">,</span>  <span class="lit">98</span><span class="pun">,</span> <span class="lit">92</span><span class="pun">,</span> <span class="lit">97</span><span class="pun">,</span> <span class="lit">95</span><span class="pun">};</span></pre>
+<p>You can copy an array variable into another target array variable. In such case, both the target and source point to the same memory location:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">int</span> <span class="pun">[]</span><span class="pln"> marks </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">int</span><span class="pun">[]</span>  <span class="pun">{</span> <span class="lit">99</span><span class="pun">,</span>  <span class="lit">98</span><span class="pun">,</span> <span class="lit">92</span><span class="pun">,</span> <span class="lit">97</span><span class="pun">,</span> <span class="lit">95</span><span class="pun">};</span>
+<span class="kwd">int</span><span class="pun">[]</span><span class="pln"> score </span><span class="pun">=</span><span class="pln"> marks</span><span class="pun">;</span></pre>
+<p>When you create an array, C# compiler implicitly initializes each array element to a default value depending on the array type. For example, for an int array all elements are initialized to 0.</p>
+<h2>Accessing Array Elements</h2>
+<p>An element is accessed by indexing the array name. This is done by placing the index of the element within square brackets after the name of the array. For example,</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">double</span><span class="pln"> salary </span><span class="pun">=</span><span class="pln"> balance</span><span class="pun">[</span><span class="lit">9</span><span class="pun">];</span></pre>
+<p>The following example, demonstrates the above-mentioned concepts declaration, assignment, and accessing arrays:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">ArrayApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">MyArray</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">int</span> <span class="pun">[]</span><span class="pln">  n </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">int</span><span class="pun">[</span><span class="lit">10</span><span class="pun">];</span> <span class="com">/* n is an array of 10 integers */</span>
+         <span class="kwd">int</span><span class="pln"> i</span><span class="pun">,</span><span class="pln">j</span><span class="pun">;</span>
+
+         <span class="com">/* initialize elements of array n */</span>
+         <span class="kwd">for</span> <span class="pun">(</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span> <span class="lit">10</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++</span> <span class="pun">)</span>
+         <span class="pun">{</span><span class="pln">
+            n</span><span class="pun">[</span><span class="pln"> i </span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> i </span><span class="pun">+</span> <span class="lit">100</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         
+         <span class="com">/* output each array element's value */</span>
+         <span class="kwd">for</span> <span class="pun">(</span><span class="pln">j </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> j </span><span class="pun">&lt;</span> <span class="lit">10</span><span class="pun">;</span><span class="pln"> j</span><span class="pun">++</span> <span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Element[{0}] = {1}"</span><span class="pun">,</span><span class="pln"> j</span><span class="pun">,</span><span class="pln"> n</span><span class="pun">[</span><span class="pln">j</span><span class="pun">]);</span>
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Element[0] = 100
+Element[1] = 101
+Element[2] = 102
+Element[3] = 103
+Element[4] = 104
+Element[5] = 105
+Element[6] = 106
+Element[7] = 107
+Element[8] = 108
+Element[9] = 109
+</pre>
+<h2>Using the <em>foreach</em> Loop</h2>
+<p>In the previous example, we used a for loop for accessing each array element. You can also use a <strong>foreach</strong> statement to iterate through an array.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">ArrayApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">MyArray</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">int</span> <span class="pun">[]</span><span class="pln">  n </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">int</span><span class="pun">[</span><span class="lit">10</span><span class="pun">];</span> <span class="com">/* n is an array of 10 integers */</span>
+         
+         <span class="com">/* initialize elements of array n */</span>
+         <span class="kwd">for</span> <span class="pun">(</span> <span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&lt;</span> <span class="lit">10</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++</span> <span class="pun">)</span>
+         <span class="pun">{</span><span class="pln">
+            n</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span> <span class="pun">=</span><span class="pln"> i </span><span class="pun">+</span> <span class="lit">100</span><span class="pun">;</span>
+         <span class="pun">}</span>
+         
+         <span class="com">/* output each array element's value */</span>
+         <span class="kwd">foreach</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> j </span><span class="kwd">in</span><span class="pln"> n </span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> j</span><span class="pun">-</span><span class="lit">100</span><span class="pun">;</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Element[{0}] = {1}"</span><span class="pun">,</span><span class="pln"> i</span><span class="pun">,</span><span class="pln"> j</span><span class="pun">);</span>
+            
+         <span class="pun">}</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Element[0] = 100
+Element[1] = 101
+Element[2] = 102
+Element[3] = 103
+Element[4] = 104
+Element[5] = 105
+Element[6] = 106
+Element[7] = 107
+Element[8] = 108
+Element[9] = 109
+</pre>
+<h2>C# Arrays</h2>
+<p>There are following few important concepts related to array which should be clear to a C# programmer:</p>
+<p>&nbsp;</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 30%;">Concept</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>
+<p><a title="Multi-dimensional arrays in C#" href="15-1.html">Multi-dimensional arrays</a></p>
+</td>
+<td>C# supports multidimensional arrays. The simplest form of the multidimensional array is the two-dimensional array.</td>
+</tr>
+<tr>
+<td>
+<p><a title="Jagged arrays in C#" href="15-2.html">Jagged arrays</a></p>
+</td>
+<td>C# supports multidimensional arrays, which are arrays of arrays.</td>
+</tr>
+<tr>
+<td>
+<p><a title="Passing arrays to functions as arguments in C#" href="15-3.html">Passing arrays to functions</a></p>
+</td>
+<td>You can pass to the function a pointer to an array by specifying the array's name without an index.</td>
+</tr>
+<tr>
+<td>
+<p><a title="Param arrays in C#" href="15-4.html">Param arrays</a></p>
+</td>
+<td>This is used for passing unknown number of parameters to a function.</td>
+</tr>
+<tr>
+<td>
+<p><a title="Array class in C" href="15-5.html">The Array Class</a></p>
+</td>
+<td>Defined in System namespace, it is the base class to all arrays, and provides various properties and methods for working with arrays.</td>
+</tr>
+</tbody>
+</table>

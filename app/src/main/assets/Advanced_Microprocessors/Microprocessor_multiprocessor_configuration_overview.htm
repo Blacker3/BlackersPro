@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microprocessor Multiprocessor Configuration Overview</title>
+<meta name="description" content="Microprocessor Multiprocessor Configuration Overview - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>Multiprocessor means a multiple set of processors that executes instructions simultaneously. There are three basic multiprocessor configurations.</p>
+<ul class="list">
+<li>Coprocessor configuration</li>
+<li>Closely coupled configuration</li>
+<li>Loosely coupled configuration</li>
+</ul>
+<h2>Coprocessor Configuration</h2>
+<p>A Coprocessor is a specially designed circuit on microprocessor chip which can perform the same task very quickly, which the microprocessor performs. It reduces the work load of the main processor. The coprocessor shares the same memory, IO system, bus, control logic and clock generator. The coprocessor handles specialized tasks like mathematical calculations, graphical display on screen, etc.</p>
+<p>The 8086 and 8088 can perform most of the operations but their instruction set is not able to perform complex mathematical operations, so in these cases the microprocessor requires the math coprocessor like Intel 8087 math coprocessor, which can easily perform these operations very quickly.</p>
+<h3>Block Diagram of Coprocessor Configuration</h3>
+<img src="image\coprocessor_configuration.jpg" alt="Coprocessor Configuration">
+<h3>How is the coprocessor and the processor connected?</h3>
+<ul class="list">
+<li><p>The coprocessor and the processor is connected via TEST, RQ-/GT- and QS<sub>0</sub> &amp; QS<sub>1</sub> signals.</p></li>  
+<li><p>The TEST signal is connected to BUSY pin of coprocessor and the remaining 3 pins are connected to the coprocessor’s 3 pins of the same name.</p></li>  
+<li><p>TEST signal takes care of the coprocessor’s activity, i.e. the coprocessor is busy or idle.</p></li>  
+<li><p>The RT-/GT-is used for bus arbitration.</p></li>  
+<li><p>The coprocessor uses QS<sub>0</sub> &amp; QS<sub>1</sub> to track the status of the queue of the host processor.</p></li> 
+</ul>
+<h2>Closely Coupled Configuration</h2>
+<p>Closely coupled configuration is similar to the coprocessor configuration, i.e. both share the same memory, I/O system bus, control logic, and control generator with the host processor. However, the coprocessor and the host processor fetches and executes their own instructions. The system bus is controlled by the coprocessor and the host processor independently.</p>
+<h3>Block Diagram of Closely Coupled Configuration</h3>
+<img src="image\closely_coupled_configuration.jpg" alt="Closely Coupled Configuration">
+<h3>How is the processor and the independent processor connected?</h3>
+<ul class="list">
+<li><p>Communication between the host and the independent processor is done through memory space.</p></li>  
+<li><p>None of the instructions are used for communication, like WAIT, ESC, etc.</p></li>
+<li><p>The host processor manages the memory and wakes up the independent processor by sending commands to one of its ports.</p></li>   
+<li><p>Then the independent processor accesses the memory to execute the task.</p></li> 
+<li><p>After completion of the task, it sends an acknowledgement to the host processor by using the status signal or an interrupt request.</p></li> 
+</ul>
+<h2>Loosely Coupled Configuration</h2>
+<p>Loosely coupled configuration consists of the number of modules of the microprocessor based systems, which are connected through a common system bus. Each module consists of their own clock generator, memory, I/O devices and are connected through a local bus.</p>
+<h3>Block Diagram of Loosely Coupled Configuration</h3>
+<img src="image\loosely_coupled_configuration.jpg" alt="Loosely Coupled Configuration">
+<h3>Advantages</h3>
+<ul class="list">
+<li><p>Having more than one processor results in increased efficiency.</p></li>
+<li><p>Each of the processors have their own local bus to access the local memory/I/O devices. This makes it easy to achieve parallel processing.</p></li>
+<li><p>The system structure is flexible, i.e. the failure of one module doesn’t affect the whole system failure; faulty module can be replaced later.</p></li>
+</ul>
+<hr>
+<br><br>
+</html>
+

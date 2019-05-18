@@ -1,0 +1,123 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Operators Precedence</h1>
+
+<p>Operator precedence determines the grouping of terms in an expression. This affects evaluation of an expression. Certain operators have higher precedence than others; for example, the multiplication operator has higher precedence than the addition operator.</p>
+<p>For example x = 7 + 3 * 2; here, x is assigned 13, not 20 because operator * has higher precedence than +, so the first evaluation takes place for 3*2 and then 7 is added into it.</p>
+<p>Here, operators with the highest precedence appear at the top of the table, those with the lowest appear at the bottom. Within an expression, higher precedence operators are evaluated first.</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th>Category</th>
+<th>Operator</th>
+<th>Associativity</th>
+</tr>
+<tr>
+<td>Postfix</td>
+<td>() [] -&gt; . ++ - -</td>
+<td>Left to right</td>
+</tr>
+<tr>
+<td>Unary</td>
+<td>+ - ! ~ ++ - - (type)* &amp; sizeof</td>
+<td>Right to left</td>
+</tr>
+<tr>
+<td>Multiplicative</td>
+<td>* / %</td>
+<td>Left to right</td>
+</tr>
+<tr>
+<td>Additive</td>
+<td>+ -</td>
+<td>Left to right</td>
+</tr>
+<tr>
+<td>Shift</td>
+<td>&lt;&lt; &gt;&gt;</td>
+<td>Left to right</td>
+</tr>
+<tr>
+<td>Relational</td>
+<td>&lt; &lt;= &gt; &gt;=</td>
+<td>Left to right</td>
+</tr>
+<tr>
+<td>Equality</td>
+<td>== !=</td>
+<td>Left to right</td>
+</tr>
+<tr>
+<td>Bitwise AND</td>
+<td>&amp;</td>
+<td>Left to right</td>
+</tr>
+<tr>
+<td>Bitwise XOR</td>
+<td>^</td>
+<td>Left to right</td>
+</tr>
+<tr>
+<td>Bitwise OR</td>
+<td>|</td>
+<td>Left to right</td>
+</tr>
+<tr>
+<td>Logical AND</td>
+<td>&amp;&amp;</td>
+<td>Left to right</td>
+</tr>
+<tr>
+<td>Logical OR</td>
+<td>||</td>
+<td>Left to right</td>
+</tr>
+<tr>
+<td>Conditional</td>
+<td>?:</td>
+<td>Right to left</td>
+</tr>
+<tr>
+<td>Assignment</td>
+<td>= += -= *= /= %=&gt;&gt;= &lt;&lt;= &amp;= ^= |=</td>
+<td>Right to left</td>
+</tr>
+<tr>
+<td>Comma</td>
+<td>,</td>
+<td>Left to right</td>
+</tr>
+</tbody>
+</table>
+<h2>Example</h2>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">OperatorsAppl</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">20</span><span class="pun">;</span>
+         <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">10</span><span class="pun">;</span>
+         <span class="kwd">int</span><span class="pln"> c </span><span class="pun">=</span> <span class="lit">15</span><span class="pun">;</span>
+         <span class="kwd">int</span><span class="pln"> d </span><span class="pun">=</span> <span class="lit">5</span><span class="pun">;</span>
+         <span class="kwd">int</span><span class="pln"> e</span><span class="pun">;</span><span class="pln">
+         e </span><span class="pun">=</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">)</span> <span class="pun">*</span><span class="pln"> c </span><span class="pun">/</span><span class="pln"> d</span><span class="pun">;</span>     <span class="com">// ( 30 * 15 ) / 5</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Value of (a + b) * c / d is : {0}"</span><span class="pun">,</span><span class="pln"> e</span><span class="pun">);</span><span class="pln">
+
+         e </span><span class="pun">=</span> <span class="pun">((</span><span class="pln">a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">)</span> <span class="pun">*</span><span class="pln"> c</span><span class="pun">)</span> <span class="pun">/</span><span class="pln"> d</span><span class="pun">;</span>   <span class="com">// (30 * 15 ) / 5</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Value of ((a + b) * c) / d is  : {0}"</span><span class="pun">,</span><span class="pln"> e</span><span class="pun">);</span><span class="pln">
+
+         e </span><span class="pun">=</span> <span class="pun">(</span><span class="pln">a </span><span class="pun">+</span><span class="pln"> b</span><span class="pun">)</span> <span class="pun">*</span> <span class="pun">(</span><span class="pln">c </span><span class="pun">/</span><span class="pln"> d</span><span class="pun">);</span>   <span class="com">// (30) * (15/5)</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Value of (a + b) * (c / d) is  : {0}"</span><span class="pun">,</span><span class="pln"> e</span><span class="pun">);</span><span class="pln">
+
+         e </span><span class="pun">=</span><span class="pln"> a </span><span class="pun">+</span> <span class="pun">(</span><span class="pln">b </span><span class="pun">*</span><span class="pln"> c</span><span class="pun">)</span> <span class="pun">/</span><span class="pln"> d</span><span class="pun">;</span>    <span class="com">//  20 + (150/5)</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Value of a + (b * c) / d is  : {0}"</span><span class="pun">,</span><span class="pln"> e</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Value of (a + b) * c / d is : 90
+Value of ((a + b) * c) / d is  : 90
+Value of (a + b) * (c / d) is  : 90
+Value of a + (b * c) / d is  : 50
+</pre>

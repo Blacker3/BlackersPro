@@ -1,0 +1,149 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Namespaces</h1>
+ 
+<p>A <strong>namespace</strong> is designed for providing a way to keep one set of names separate from another. The class names declared in one namespace does not conflict with the same class names declared in another.</p>
+<h2>Defining a Namespace</h2>
+<p>A namespace definition begins with the keyword <strong>namespace</strong> followed by the namespace name as follows:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">namespace</span><span class="pln"> namespace_name
+</span><span class="pun">{</span>
+   <span class="com">// code declarations</span>
+<span class="pun">}</span></pre>
+<p>To call the namespace-enabled version of either function or variable, prepend the namespace name as follows:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">namespace_name</span><span class="pun">.</span><span class="pln">item_name</span><span class="pun">;</span></pre>
+<p>The following program demonstrates use of namespaces:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span><span class="pln"> first_space
+</span><span class="pun">{</span>
+   <span class="kwd">class</span><span class="pln"> namespace_cl
+   </span><span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> func</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Inside first_space"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">namespace</span><span class="pln"> second_space
+</span><span class="pun">{</span>
+   <span class="kwd">class</span><span class="pln"> namespace_cl
+   </span><span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> func</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Inside second_space"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">class</span> <span class="typ">TestClass</span>
+<span class="pun">{</span>
+   <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+   <span class="pun">{</span><span class="pln">
+      first_space</span><span class="pun">.</span><span class="pln">namespace_cl fc </span><span class="pun">=</span> <span class="kwd">new</span><span class="pln"> first_space</span><span class="pun">.</span><span class="pln">namespace_cl</span><span class="pun">();</span><span class="pln">
+      second_space</span><span class="pun">.</span><span class="pln">namespace_cl sc </span><span class="pun">=</span> <span class="kwd">new</span><span class="pln"> second_space</span><span class="pun">.</span><span class="pln">namespace_cl</span><span class="pun">();</span><span class="pln">
+      fc</span><span class="pun">.</span><span class="pln">func</span><span class="pun">();</span><span class="pln">
+      sc</span><span class="pun">.</span><span class="pln">func</span><span class="pun">();</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Inside first_space
+Inside second_space
+</pre>
+<h2>The <em>using</em> Keyword</h2>
+<p>The <strong>using</strong> keyword states that the program is using the names in the given namespace. For example, we are using the <strong>System</strong> namespace in our programs. The class Console is defined there. We just write:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span> <span class="pun">(</span><span class="str">"Hello there"</span><span class="pun">);</span></pre>
+<p>We could have written the fully qualified name as:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="typ">System</span><span class="pun">.</span><span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Hello there"</span><span class="pun">);</span></pre>
+<p>You can also avoid prepending of namespaces with the <strong>using</strong> namespace directive. This directive tells the compiler that the subsequent code is making use of names in the specified namespace. The namespace is thus implied for the following code:</p>
+<p>Let us rewrite our preceding example, with using directive:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span><span class="pln"> first_space</span><span class="pun">;</span>
+<span class="kwd">using</span><span class="pln"> second_space</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span><span class="pln"> first_space
+</span><span class="pun">{</span>
+   <span class="kwd">class</span><span class="pln"> abc
+   </span><span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> func</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Inside first_space"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>
+
+<span class="kwd">namespace</span><span class="pln"> second_space
+</span><span class="pun">{</span>
+   <span class="kwd">class</span><span class="pln"> efg
+   </span><span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> func</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Inside second_space"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span>   
+
+<span class="kwd">class</span> <span class="typ">TestClass</span>
+<span class="pun">{</span>
+   <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+   <span class="pun">{</span><span class="pln">
+      abc fc </span><span class="pun">=</span> <span class="kwd">new</span><span class="pln"> abc</span><span class="pun">();</span><span class="pln">
+      efg sc </span><span class="pun">=</span> <span class="kwd">new</span><span class="pln"> efg</span><span class="pun">();</span><span class="pln">
+      fc</span><span class="pun">.</span><span class="pln">func</span><span class="pun">();</span><span class="pln">
+      sc</span><span class="pun">.</span><span class="pln">func</span><span class="pun">();</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Inside first_space
+Inside second_space
+</pre>
+<h2>Nested Namespaces</h2>
+<p>You can define one namespace inside another namespace as follows:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">namespace</span><span class="pln"> namespace_name1
+</span><span class="pun">{</span>
+   <span class="com">// code declarations</span>
+   <span class="kwd">namespace</span><span class="pln"> namespace_name2
+   </span><span class="pun">{</span>
+      <span class="com">// code declarations</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>You can access members of nested namespace by using the dot (.) operator as follows:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span><span class="pln"> first_space</span><span class="pun">;</span>
+<span class="kwd">using</span><span class="pln"> first_space</span><span class="pun">.</span><span class="pln">second_space</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span><span class="pln"> first_space
+</span><span class="pun">{</span>
+   <span class="kwd">class</span><span class="pln"> abc
+   </span><span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> func</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Inside first_space"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   <span class="kwd">namespace</span><span class="pln"> second_space
+   </span><span class="pun">{</span>
+      <span class="kwd">class</span><span class="pln"> efg
+      </span><span class="pun">{</span>
+         <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> func</span><span class="pun">()</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Inside second_space"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>   
+<span class="pun">}</span>
+ 
+<span class="kwd">class</span> <span class="typ">TestClass</span>
+<span class="pun">{</span>
+   <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+   <span class="pun">{</span><span class="pln">
+      abc fc </span><span class="pun">=</span> <span class="kwd">new</span><span class="pln"> abc</span><span class="pun">();</span><span class="pln">
+      efg sc </span><span class="pun">=</span> <span class="kwd">new</span><span class="pln"> efg</span><span class="pun">();</span><span class="pln">
+      fc</span><span class="pun">.</span><span class="pln">func</span><span class="pun">();</span><span class="pln">
+      sc</span><span class="pun">.</span><span class="pln">func</span><span class="pun">();</span>
+      <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Inside first_space
+Inside second_space
+</pre>

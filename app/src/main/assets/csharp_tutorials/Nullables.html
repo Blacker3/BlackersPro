@@ -1,0 +1,57 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Nullables</h1>
+ 
+<p>C# provides a special data types, the <strong>nullable</strong> types, to which you can assign normal range of values as well as null values.</p>
+<p>For example, you can store any value from -2,147,483,648 to 2,147,483,647 or null in a Nullable&lt;Int32&gt; variable. Similarly, you can assign true, false, or null in a Nullable&lt;bool&gt; variable. Syntax for declaring a <strong>nullable</strong> type is as follows:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">&lt; data_type&gt; ? </span><span class="tag">&lt;variable_name&gt;</span><span class="pln"> = null;</span></pre>
+<p>The following example demonstrates use of nullable data types:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">CalculatorApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">NullablesAtShow</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">int</span><span class="pun">?</span><span class="pln"> num1 </span><span class="pun">=</span> <span class="kwd">null</span><span class="pun">;</span>
+         <span class="kwd">int</span><span class="pun">?</span><span class="pln"> num2 </span><span class="pun">=</span> <span class="lit">45</span><span class="pun">;</span>
+         <span class="kwd">double</span><span class="pun">?</span><span class="pln"> num3 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">double</span><span class="pun">?();</span>
+         <span class="kwd">double</span><span class="pun">?</span><span class="pln"> num4 </span><span class="pun">=</span> <span class="lit">3.14157</span><span class="pun">;</span>
+         
+         <span class="kwd">bool</span><span class="pun">?</span><span class="pln"> boolval </span><span class="pun">=</span> <span class="kwd">new</span> <span class="kwd">bool</span><span class="pun">?();</span>
+
+         <span class="com">// display the values</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Nullables at Show: {0}, {1}, {2}, {3}"</span><span class="pun">,</span><span class="pln"> num1</span><span class="pun">,</span><span class="pln"> num2</span><span class="pun">,</span><span class="pln"> num3</span><span class="pun">,</span><span class="pln"> num4</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"A Nullable boolean value: {0}"</span><span class="pun">,</span><span class="pln"> boolval</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Nullables at Show: , 45,  , 3.14157
+A Nullable boolean value:
+</pre>
+<h2>The Null Coalescing Operator (??)</h2>
+<p>The null coalescing operator is used with the nullable value types and reference types. It is used for converting an operand to the type of another nullable (or not) value type operand, where an implicit conversion is possible.</p>
+<p>If the value of the first operand is null, then the operator returns the value of the second operand, otherwise it returns the value of the first operand. The following example explains this:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">CalculatorApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">NullablesAtShow</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">double</span><span class="pun">?</span><span class="pln"> num1 </span><span class="pun">=</span> <span class="kwd">null</span><span class="pun">;</span>
+         <span class="kwd">double</span><span class="pun">?</span><span class="pln"> num2 </span><span class="pun">=</span> <span class="lit">3.14157</span><span class="pun">;</span>
+         <span class="kwd">double</span><span class="pln"> num3</span><span class="pun">;</span><span class="pln">
+         num3 </span><span class="pun">=</span><span class="pln"> num1 </span><span class="pun">??</span> <span class="lit">5.34</span><span class="pun">;</span>      
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">" Value of num3: {0}"</span><span class="pun">,</span><span class="pln"> num3</span><span class="pun">);</span><span class="pln">
+         num3 </span><span class="pun">=</span><span class="pln"> num2 </span><span class="pun">??</span> <span class="lit">5.34</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">" Value of num3: {0}"</span><span class="pun">,</span><span class="pln"> num3</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadLine</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Value of num3: 5.34
+Value of num3: 3.14157
+</pre>

@@ -1,0 +1,399 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Multithreading</h1>
+ 
+<p>A <strong>thread</strong> is defined as the execution path of a program. Each thread defines a unique flow of control. If your application involves complicated and time consuming operations, then it is often helpful to set different execution paths or threads, with each thread performing a particular job.</p>
+<p>Threads are <strong>lightweight processes</strong>. One common example of use of thread is implementation of concurrent programming by modern operating systems. Use of threads saves wastage of CPU cycle and increase efficiency of an application.</p>
+<p>So far we wrote the programs where a single thread runs as a single process which is the running instance of the application. However, this way the application can perform one job at a time. To make it execute more than one task at a time, it could be divided into smaller threads.</p>
+<h2>Thread Life Cycle</h2>
+<p>The life cycle of a thread starts when an object of the System.Threading.Thread class is created and ends when the thread is terminated or completes execution.</p>
+<p>Following are the various states in the life cycle of a thread:</p>
+<ul class="list">
+<li>
+<p><strong>The Unstarted State</strong>: It is the situation when the instance of the thread is created but the Start method is not called.</p>
+</li>
+<li>
+<p><strong>The Ready State</strong>: It is the situation when the thread is ready to run and waiting CPU cycle.</p>
+</li>
+<li>
+<p><strong>The Not Runnable State</strong>: A thread is not executable, when:</p>
+<ul class="list">
+<li>Sleep method has been called</li>
+<li>Wait method has been called</li>
+<li>Blocked by I/O operations</li>
+</ul>
+</li>
+<li>
+<p><strong>The Dead State</strong>: It is the situation when the thread completes execution or is aborted.</p>
+</li>
+</ul>
+<h2>The Main Thread</h2>
+<p>In C#, the <strong>System.Threading.Thread</strong> class is used for working with threads. It allows creating and accessing individual threads in a multithreaded application. The first thread to be executed in a process is called the <strong>main</strong> thread.</p>
+<p>When a C# program starts execution, the main thread is automatically created. The threads created using the <strong>Thread</strong> class are called the child threads of the main thread. You can access a thread using the <strong>CurrentThread</strong> property of the Thread class.</p>
+<p>The following program demonstrates main thread execution:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Threading</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">MultithreadingApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">MainThreadProgram</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Thread</span><span class="pln"> th </span><span class="pun">=</span> <span class="typ">Thread</span><span class="pun">.</span><span class="typ">CurrentThread</span><span class="pun">;</span><span class="pln">
+         th</span><span class="pun">.</span><span class="typ">Name</span> <span class="pun">=</span> <span class="str">"MainThread"</span><span class="pun">;</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"This is {0}"</span><span class="pun">,</span><span class="pln"> th</span><span class="pun">.</span><span class="typ">Name</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">This is MainThread
+</pre>
+<h2>Properties and Methods of the Thread Class</h2>
+<p>The following table shows some most commonly used <strong>properties</strong> of the <strong>Thread</strong> class:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 25%;">Property</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>CurrentContext</td>
+<td>Gets the current context in which the thread is executing.</td>
+</tr>
+<tr>
+<td>CurrentCulture</td>
+<td>Gets or sets the culture for the current thread.</td>
+</tr>
+<tr>
+<td>CurrentPrinciple</td>
+<td>Gets or sets the thread's current principal (for role-based security).</td>
+</tr>
+<tr>
+<td>CurrentThread</td>
+<td>Gets the currently running thread.</td>
+</tr>
+<tr>
+<td>CurrentUICulture</td>
+<td>Gets or sets the current culture used by the Resource Manager to look up culture-specific resources at run-time.</td>
+</tr>
+<tr>
+<td>ExecutionContext</td>
+<td>Gets an ExecutionContext object that contains information about the various contexts of the current thread.</td>
+</tr>
+<tr>
+<td>IsAlive</td>
+<td>Gets a value indicating the execution status of the current thread.</td>
+</tr>
+<tr>
+<td>IsBackground</td>
+<td>Gets or sets a value indicating whether or not a thread is a background thread.</td>
+</tr>
+<tr>
+<td>IsThreadPoolThread</td>
+<td>Gets a value indicating whether or not a thread belongs to the managed thread pool.</td>
+</tr>
+<tr>
+<td>ManagedThreadId</td>
+<td>Gets a unique identifier for the current managed thread.</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Gets or sets the name of the thread.</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>Gets or sets a value indicating the scheduling priority of a thread.</td>
+</tr>
+<tr>
+<td>ThreadState</td>
+<td>Gets a value containing the states of the current thread.</td>
+</tr>
+</tbody>
+</table>
+<p>The following table shows some of the most commonly used <strong>methods</strong> of the <strong>Thread</strong> class:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 5%;">Sr.No.</th>
+<th>Methods</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>public void Abort()</strong>
+<p>Raises a ThreadAbortException in the thread on which it is invoked, to begin the process of terminating the thread. Calling this method usually terminates the thread.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>public static LocalDataStoreSlot AllocateDataSlot()</strong>
+<p>Allocates an unnamed data slot on all the threads. For better performance, use fields that are marked with the ThreadStaticAttribute attribute instead.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>public static LocalDataStoreSlot AllocateNamedDataSlot(string name)</strong>
+<p>Allocates a named data slot on all threads. For better performance, use fields that are marked with the ThreadStaticAttribute attribute instead.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>public static void BeginCriticalRegion()</strong>
+<p>Notifies a host that execution is about to enter a region of code in which the effects of a thread abort or unhandled exception might jeopardize other tasks in the application domain.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>public static void BeginThreadAffinity()</strong>
+<p>Notifies a host that managed code is about to execute instructions that depend on the identity of the current physical operating system thread.</p>
+</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>public static void EndCriticalRegion()</strong>
+<p>Notifies a host that execution is about to enter a region of code in which the effects of a thread abort or unhandled exception are limited to the current task.</p>
+</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>public static void EndThreadAffinity()</strong>
+<p>Notifies a host that managed code has finished executing instructions that depend on the identity of the current physical operating system thread.</p>
+</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>public static void FreeNamedDataSlot(string name)</strong>
+<p>Eliminates the association between a name and a slot, for all threads in the process. For better performance, use fields that are marked with the ThreadStaticAttribute attribute instead.</p>
+</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>public static Object GetData(LocalDataStoreSlot slot)</strong>
+<p>Retrieves the value from the specified slot on the current thread, within the current thread's current domain. For better performance, use fields that are marked with the ThreadStaticAttribute attribute instead.</p>
+</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>public static AppDomain GetDomain()</strong>
+<p>Returns the current domain in which the current thread is running.</p>
+</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>public static AppDomain GetDomainID()</strong>
+<p>Returns a unique application domain identifier</p>
+</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>public static LocalDataStoreSlot GetNamedDataSlot(string name)</strong>
+<p>Looks up a named data slot. For better performance, use fields that are marked with the ThreadStaticAttribute attribute instead.</p>
+</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>public void Interrupt()</strong>
+<p>Interrupts a thread that is in the WaitSleepJoin thread state.</p>
+</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>public void Join()</strong>
+<p>Blocks the calling thread until a thread terminates, while continuing to perform standard COM and SendMessage pumping. This method has different overloaded forms.</p>
+</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>public static void MemoryBarrier()</strong>
+<p>Synchronizes memory access as follows: The processor executing the current thread cannot reorder instructions in such a way that memory accesses prior to the call to MemoryBarrier execute after memory accesses that follow the call to MemoryBarrier.</p>
+</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>public static void ResetAbort()</strong>
+<p>Cancels an Abort requested for the current thread.</p>
+</td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>public static void SetData(LocalDataStoreSlot slot, Object data)</strong>
+<p>Sets the data in the specified slot on the currently running thread, for that thread's current domain. For better performance, use fields marked with the ThreadStaticAttribute attribute instead.</p>
+</td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>public void Start()</strong>
+<p>Starts a thread.</p>
+</td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>public static void Sleep(int millisecondsTimeout)</strong>
+<p>Makes the thread pause for a period of time.</p>
+</td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>public static void SpinWait(int iterations)</strong>
+<p>Causes a thread to wait the number of times defined by the iterations parameter</p>
+</td>
+</tr>
+<tr>
+<td>21</td>
+<td>
+<p><strong>public static byte VolatileRead(ref byte address)</strong></p>
+<p><strong>public static double VolatileRead(ref double address)</strong></p>
+<p><strong>public static int VolatileRead(ref int address)</strong></p>
+<p><strong>public static Object VolatileRead(ref Object address)</strong></p>
+<p>Reads the value of a field. The value is the latest written by any processor in a computer, regardless of the number of processors or the state of processor cache. This method has different overloaded forms. Only some are given above.</p>
+</td>
+</tr>
+<tr>
+<td>22</td>
+<td>
+<p><strong>public static void VolatileWrite(ref byte address,byte value)</strong></p>
+<p><strong>public static void VolatileWrite(ref double address, double value)</strong></p>
+<p><strong>public static void VolatileWrite(ref int address, int value)</strong></p>
+<p><strong>public static void VolatileWrite(ref Object address, Object value)</strong></p>
+<p>Writes a value to a field immediately, so that the value is visible to all processors in the computer. This method has different overloaded forms. Only some are given above.</p>
+</td>
+</tr>
+<tr>
+<td>23</td>
+<td><strong>public static bool Yield()</strong>
+<p>Causes the calling thread to yield execution to another thread that is ready to run on the current processor. The operating system selects the thread to yield to.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Creating Threads</h2>
+<p>Threads are created by extending the Thread class. The extended Thread class then calls the <strong>Start()</strong> method to begin the child thread execution.</p>
+<p>The following program demonstrates the concept:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Threading</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">MultithreadingApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">ThreadCreationProgram</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">CallToChildThread</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Child thread starts"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">ThreadStart</span><span class="pln"> childref </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">ThreadStart</span><span class="pun">(</span><span class="typ">CallToChildThread</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"In Main: Creating the Child thread"</span><span class="pun">);</span>
+         <span class="typ">Thread</span><span class="pln"> childThread </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Thread</span><span class="pun">(</span><span class="pln">childref</span><span class="pun">);</span><span class="pln">
+         childThread</span><span class="pun">.</span><span class="typ">Start</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">In Main: Creating the Child thread
+Child thread starts
+</pre>
+<h2>Managing Threads</h2>
+<p>The Thread class provides various methods for managing threads.</p>
+<p>The following example demonstrates the use of the <strong>sleep()</strong> method for making a thread pause for a specific period of time.</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Threading</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">MultithreadingApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">ThreadCreationProgram</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">CallToChildThread</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Child thread starts"</span><span class="pun">);</span>
+         
+         <span class="com">// the thread is paused for 5000 milliseconds</span>
+         <span class="kwd">int</span><span class="pln"> sleepfor </span><span class="pun">=</span> <span class="lit">5000</span><span class="pun">;</span> 
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Child Thread Paused for {0} seconds"</span><span class="pun">,</span><span class="pln"> sleepfor </span><span class="pun">/</span> <span class="lit">1000</span><span class="pun">);</span>
+         <span class="typ">Thread</span><span class="pun">.</span><span class="typ">Sleep</span><span class="pun">(</span><span class="pln">sleepfor</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Child thread resumes"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">ThreadStart</span><span class="pln"> childref </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">ThreadStart</span><span class="pun">(</span><span class="typ">CallToChildThread</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"In Main: Creating the Child thread"</span><span class="pun">);</span>
+         <span class="typ">Thread</span><span class="pln"> childThread </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Thread</span><span class="pun">(</span><span class="pln">childref</span><span class="pun">);</span><span class="pln">
+         childThread</span><span class="pun">.</span><span class="typ">Start</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">In Main: Creating the Child thread
+Child thread starts
+Child Thread Paused for 5 seconds
+Child thread resumes
+</pre>
+<h2>Destroying Threads</h2>
+<p>The <strong>Abort()</strong> method is used for destroying threads.</p>
+<p>The runtime aborts the thread by throwing a <strong>ThreadAbortException</strong>. This exception cannot be caught, the control is sent to the <em>finally</em> block, if any.</p>
+<p>The following program illustrates this:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Threading</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">MultithreadingApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">ThreadCreationProgram</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">CallToChildThread</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">try</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Child thread starts"</span><span class="pun">);</span>
+            
+            <span class="com">// do some work, like counting to 10</span>
+            <span class="kwd">for</span> <span class="pun">(</span><span class="kwd">int</span><span class="pln"> counter </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">;</span><span class="pln"> counter </span><span class="pun">&lt;=</span> <span class="lit">10</span><span class="pun">;</span><span class="pln"> counter</span><span class="pun">++)</span>
+            <span class="pun">{</span>
+               <span class="typ">Thread</span><span class="pun">.</span><span class="typ">Sleep</span><span class="pun">(</span><span class="lit">500</span><span class="pun">);</span>
+               <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">counter</span><span class="pun">);</span>
+            <span class="pun">}</span>
+            
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Child Thread Completed"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         
+         <span class="kwd">catch</span> <span class="pun">(</span><span class="typ">ThreadAbortException</span><span class="pln"> e</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Thread Abort Exception"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="kwd">finally</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Couldn't catch the Thread Exception"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">ThreadStart</span><span class="pln"> childref </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">ThreadStart</span><span class="pun">(</span><span class="typ">CallToChildThread</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"In Main: Creating the Child thread"</span><span class="pun">);</span>
+         <span class="typ">Thread</span><span class="pln"> childThread </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Thread</span><span class="pun">(</span><span class="pln">childref</span><span class="pun">);</span><span class="pln">
+         childThread</span><span class="pun">.</span><span class="typ">Start</span><span class="pun">();</span>
+         
+         <span class="com">//stop the main thread for some time</span>
+         <span class="typ">Thread</span><span class="pun">.</span><span class="typ">Sleep</span><span class="pun">(</span><span class="lit">2000</span><span class="pun">);</span>
+         
+         <span class="com">//now abort the child</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"In Main: Aborting the Child thread"</span><span class="pun">);</span><span class="pln">
+         
+         childThread</span><span class="pun">.</span><span class="typ">Abort</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">In Main: Creating the Child thread
+Child thread starts
+0
+1
+2
+In Main: Aborting the Child thread
+Thread Abort Exception
+Couldn't catch the Thread Exception 
+</pre>

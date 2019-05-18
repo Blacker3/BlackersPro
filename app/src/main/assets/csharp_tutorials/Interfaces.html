@@ -1,0 +1,80 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Interfaces</h1>
+ 
+<p>An interface is defined as a syntactical contract that all the classes inheriting the interface should follow. The interface defines the <strong>'what'</strong> part of the syntactical contract and the deriving classes define the <strong>'how'</strong> part of the syntactical contract.</p>
+<p>Interfaces define properties, methods, and events, which are the members of the interface. Interfaces contain only the declaration of the members. It is the responsibility of the deriving class to define the members. It often helps in providing a standard structure that the deriving classes would follow.</p>
+<p>Abstract classes to some extent serve the same purpose, however, they are mostly used when only few methods are to be declared by the base class and the deriving class implements the functionalities.</p>
+<h2>Declaring Interfaces</h2>
+<p>Interfaces are declared using the interface keyword. It is similar to class declaration. Interface statements are public by default. Following is an example of an interface declaration:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">public</span> <span class="kwd">interface</span> <span class="typ">ITransactions</span>
+<span class="pun">{</span>
+   <span class="com">// interface members</span>
+   <span class="kwd">void</span><span class="pln"> showTransaction</span><span class="pun">();</span>
+   <span class="kwd">double</span><span class="pln"> getAmount</span><span class="pun">();</span>
+<span class="pun">}</span></pre>
+<h2>Example</h2>
+<p>The following example demonstrates implementation of the above interface:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Collections</span><span class="pun">.</span><span class="typ">Generic</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Linq</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Text</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">InterfaceApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">public</span> <span class="kwd">interface</span> <span class="typ">ITransactions</span>
+   <span class="pun">{</span>
+      <span class="com">// interface members</span>
+      <span class="kwd">void</span><span class="pln"> showTransaction</span><span class="pun">();</span>
+      <span class="kwd">double</span><span class="pln"> getAmount</span><span class="pun">();</span>
+   <span class="pun">}</span>
+   
+   <span class="kwd">public</span> <span class="kwd">class</span> <span class="typ">Transaction</span> <span class="pun">:</span> <span class="typ">ITransactions</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">string</span><span class="pln"> tCode</span><span class="pun">;</span>
+      <span class="kwd">private</span> <span class="kwd">string</span><span class="pln"> date</span><span class="pun">;</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> amount</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="typ">Transaction</span><span class="pun">()</span>
+      <span class="pun">{</span><span class="pln">
+         tCode </span><span class="pun">=</span> <span class="str">" "</span><span class="pun">;</span><span class="pln">
+         date </span><span class="pun">=</span> <span class="str">" "</span><span class="pun">;</span><span class="pln">
+         amount </span><span class="pun">=</span> <span class="lit">0.0</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="typ">Transaction</span><span class="pun">(</span><span class="kwd">string</span><span class="pln"> c</span><span class="pun">,</span> <span class="kwd">string</span><span class="pln"> d</span><span class="pun">,</span> <span class="kwd">double</span><span class="pln"> a</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         tCode </span><span class="pun">=</span><span class="pln"> c</span><span class="pun">;</span><span class="pln">
+         date </span><span class="pun">=</span><span class="pln"> d</span><span class="pun">;</span><span class="pln">
+         amount </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">double</span><span class="pln"> getAmount</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> amount</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> showTransaction</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Transaction: {0}"</span><span class="pun">,</span><span class="pln"> tCode</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Date: {0}"</span><span class="pun">,</span><span class="pln"> date</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Amount: {0}"</span><span class="pun">,</span><span class="pln"> getAmount</span><span class="pun">());</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   <span class="kwd">class</span> <span class="typ">Tester</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Transaction</span><span class="pln"> t1 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Transaction</span><span class="pun">(</span><span class="str">"001"</span><span class="pun">,</span> <span class="str">"8/10/2012"</span><span class="pun">,</span> <span class="lit">78900.00</span><span class="pun">);</span>
+         <span class="typ">Transaction</span><span class="pln"> t2 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Transaction</span><span class="pun">(</span><span class="str">"002"</span><span class="pun">,</span> <span class="str">"9/10/2012"</span><span class="pun">,</span> <span class="lit">451900.00</span><span class="pun">);</span><span class="pln">
+         t1</span><span class="pun">.</span><span class="pln">showTransaction</span><span class="pun">();</span><span class="pln">
+         t2</span><span class="pun">.</span><span class="pln">showTransaction</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Transaction: 001
+Date: 8/10/2012
+Amount: 78900
+Transaction: 002
+Date: 9/10/2012
+Amount: 451900
+</pre>

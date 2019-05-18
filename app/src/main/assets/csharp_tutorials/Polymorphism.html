@@ -1,0 +1,180 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Polymorphism</h1>
+ 
+<p>The word <strong>polymorphism</strong> means having many forms. In object-oriented programming paradigm, polymorphism is often expressed as 'one interface, multiple functions'.</p>
+<p>Polymorphism can be static or dynamic. In <strong>static polymorphism</strong>, the response to a function is determined at the compile time. In <strong>dynamic polymorphism</strong>, it is decided at run-time.</p>
+<h2>Static Polymorphism</h2>
+<p>The mechanism of linking a function with an object during compile time is called early binding. It is also called static binding. C# provides two techniques to implement static polymorphism. They are:</p>
+<ul class="list">
+<li>Function overloading</li>
+<li>Operator overloading</li>
+</ul>
+<p>We discuss operator overloading in next chapter.</p>
+<h2>Function Overloading</h2>
+<p>You can have multiple definitions for the same function name in the same scope. The definition of the function must differ from each other by the types and/or the number of arguments in the argument list. You cannot overload function declarations that differ only by return type.</p>
+<p>The following example shows using function <strong>print()</strong> to print different data types:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">PolymorphismApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Printdata</span>
+   <span class="pun">{</span>
+      <span class="kwd">void</span> <span class="kwd">print</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Printing int: {0}"</span><span class="pun">,</span><span class="pln"> i </span><span class="pun">);</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">void</span> <span class="kwd">print</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> f</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Printing float: {0}"</span> <span class="pun">,</span><span class="pln"> f</span><span class="pun">);</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">void</span> <span class="kwd">print</span><span class="pun">(</span><span class="kwd">string</span><span class="pln"> s</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Printing string: {0}"</span><span class="pun">,</span><span class="pln"> s</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Printdata</span><span class="pln"> p </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Printdata</span><span class="pun">();</span>
+         
+         <span class="com">// Call print to print integer</span><span class="pln">
+         p</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="lit">5</span><span class="pun">);</span>
+         
+         <span class="com">// Call print to print float</span><span class="pln">
+         p</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="lit">500.263</span><span class="pun">);</span>
+         
+         <span class="com">// Call print to print string</span><span class="pln">
+         p</span><span class="pun">.</span><span class="kwd">print</span><span class="pun">(</span><span class="str">"Hello C++"</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Printing int: 5
+Printing float: 500.263
+Printing string: Hello C++
+</pre>
+<h2>Dynamic Polymorphism</h2>
+<p>C# allows you to create abstract classes that are used to provide partial class implementation of an interface. Implementation is completed when a derived class inherits from it. <strong>Abstract</strong> classes contain abstract methods, which are implemented by the derived class. The derived classes have more specialized functionality.</p>
+<p>Here are the rules about abstract classes:</p>
+<ul class="list">
+<li>
+<p>You cannot create an instance of an abstract class</p>
+</li>
+<li>
+<p>You cannot declare an abstract method outside an abstract class</p>
+</li>
+<li>
+<p>When a class is declared <strong>sealed</strong>, it cannot be inherited, abstract classes cannot be declared sealed.</p>
+</li>
+</ul>
+<p>The following program demonstrates an abstract class:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">PolymorphismApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">abstract</span> <span class="kwd">class</span> <span class="typ">Shape</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">abstract</span> <span class="kwd">int</span><span class="pln"> area</span><span class="pun">();</span>
+   <span class="pun">}</span>
+   <span class="kwd">class</span> <span class="typ">Rectangle</span><span class="pun">:</span>  <span class="typ">Shape</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">int</span><span class="pln"> length</span><span class="pun">;</span>
+      <span class="kwd">private</span> <span class="kwd">int</span><span class="pln"> width</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="typ">Rectangle</span><span class="pun">(</span> <span class="kwd">int</span><span class="pln"> a</span><span class="pun">=</span><span class="lit">0</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> b</span><span class="pun">=</span><span class="lit">0</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         length </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">;</span><span class="pln">
+         width </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">override</span> <span class="kwd">int</span><span class="pln"> area </span><span class="pun">()</span>
+      <span class="pun">{</span> 
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Rectangle class area :"</span><span class="pun">);</span>
+         <span class="kwd">return</span> <span class="pun">(</span><span class="pln">width </span><span class="pun">*</span><span class="pln"> length</span><span class="pun">);</span> 
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+
+   <span class="kwd">class</span> <span class="typ">RectangleTester</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Rectangle</span><span class="pln"> r </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Rectangle</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">7</span><span class="pun">);</span>
+         <span class="kwd">double</span><span class="pln"> a </span><span class="pun">=</span><span class="pln"> r</span><span class="pun">.</span><span class="pln">area</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Area: {0}"</span><span class="pun">,</span><span class="pln">a</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Rectangle class area :
+Area: 70
+</pre>
+<p>When you have a function defined in a class that you want to be implemented in an inherited class(es), you use <strong>virtual</strong> functions. The virtual functions could be implemented differently in different inherited class and the call to these functions will be decided at runtime.</p>
+<p>Dynamic polymorphism is implemented by <strong>abstract classes</strong> and <strong>virtual functions</strong>.</p>
+<p>The following program demonstrates this:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">PolymorphismApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Shape</span> 
+   <span class="pun">{</span>
+      <span class="kwd">protected</span> <span class="kwd">int</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="typ">Shape</span><span class="pun">(</span> <span class="kwd">int</span><span class="pln"> a</span><span class="pun">=</span><span class="lit">0</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> b</span><span class="pun">=</span><span class="lit">0</span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         width </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">;</span><span class="pln">
+         height </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">virtual</span> <span class="kwd">int</span><span class="pln"> area</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Parent class area :"</span><span class="pun">);</span>
+         <span class="kwd">return</span> <span class="lit">0</span><span class="pun">;</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   <span class="kwd">class</span> <span class="typ">Rectangle</span><span class="pun">:</span> <span class="typ">Shape</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="typ">Rectangle</span><span class="pun">(</span> <span class="kwd">int</span><span class="pln"> a</span><span class="pun">=</span><span class="lit">0</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> b</span><span class="pun">=</span><span class="lit">0</span><span class="pun">):</span> <span class="kwd">base</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span>
+      <span class="pun">{</span>
+
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">override</span> <span class="kwd">int</span><span class="pln"> area </span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Rectangle class area :"</span><span class="pun">);</span>
+         <span class="kwd">return</span> <span class="pun">(</span><span class="pln">width </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">);</span> 
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   <span class="kwd">class</span> <span class="typ">Triangle</span><span class="pun">:</span> <span class="typ">Shape</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="typ">Triangle</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> a </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">,</span> <span class="kwd">int</span><span class="pln"> b </span><span class="pun">=</span> <span class="lit">0</span><span class="pun">):</span> <span class="kwd">base</span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">)</span>
+      <span class="pun">{</span>
+      
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">override</span> <span class="kwd">int</span><span class="pln"> area</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Triangle class area :"</span><span class="pun">);</span>
+         <span class="kwd">return</span> <span class="pun">(</span><span class="pln">width </span><span class="pun">*</span><span class="pln"> height </span><span class="pun">/</span> <span class="lit">2</span><span class="pun">);</span> 
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   <span class="kwd">class</span> <span class="typ">Caller</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">void</span> <span class="typ">CallArea</span><span class="pun">(</span><span class="typ">Shape</span><span class="pln"> sh</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="kwd">int</span><span class="pln"> a</span><span class="pun">;</span><span class="pln">
+         a </span><span class="pun">=</span><span class="pln"> sh</span><span class="pun">.</span><span class="pln">area</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Area: {0}"</span><span class="pun">,</span><span class="pln"> a</span><span class="pun">);</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>  
+   <span class="kwd">class</span> <span class="typ">Tester</span>
+   <span class="pun">{</span>
+      
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Caller</span><span class="pln"> c </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Caller</span><span class="pun">();</span>
+         <span class="typ">Rectangle</span><span class="pln"> r </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Rectangle</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">7</span><span class="pun">);</span>
+         <span class="typ">Triangle</span><span class="pln"> t </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Triangle</span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span> <span class="lit">5</span><span class="pun">);</span><span class="pln">
+         c</span><span class="pun">.</span><span class="typ">CallArea</span><span class="pun">(</span><span class="pln">r</span><span class="pun">);</span><span class="pln">
+         c</span><span class="pun">.</span><span class="typ">CallArea</span><span class="pun">(</span><span class="pln">t</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Rectangle class area:
+Area: 70
+Triangle class area:
+Area: 25
+</pre>

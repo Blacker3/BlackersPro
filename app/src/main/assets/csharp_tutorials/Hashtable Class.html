@@ -1,0 +1,129 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Hashtable Class</h1>
+
+<p>The Hashtable class represents a collection of <strong>key-and-value pairs</strong> that are organized based on the hash code of the key. It uses the key to access the elements in the collection.</p>
+<p>A hash table is used when you need to access elements by using <strong>key</strong>, and you can identify a useful key value. Each item in the hash table has a key/value pair. The key is used to access the items in the collection.</p>
+<h2>Methods and Properties of the Hashtable Class</h2>
+<p>The following table lists some of the commonly used <strong>properties</strong> of the <strong>Hashtable</strong> class:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 25%;">Property</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Count</td>
+<td>Gets the number of key-and-value pairs contained in the Hashtable.</td>
+</tr>
+<tr>
+<td>IsFixedSize</td>
+<td>Gets a value indicating whether the Hashtable has a fixed size.</td>
+</tr>
+<tr>
+<td>IsReadOnly</td>
+<td>Gets a value indicating whether the Hashtable is read-only.</td>
+</tr>
+<tr>
+<td>Item</td>
+<td>Gets or sets the value associated with the specified key.</td>
+</tr>
+<tr>
+<td>Keys</td>
+<td>Gets an ICollection containing the keys in the Hashtable.</td>
+</tr>
+<tr>
+<td>Values</td>
+<td>Gets an ICollection containing the values in the Hashtable.</td>
+</tr>
+</tbody>
+</table>
+<p>The following table lists some of the commonly used <strong>methods</strong> of the <strong>Hashtable</strong> class:</p>
+<table class="table table-bordered">
+<tbody>
+<tr>
+<th style="width: 5%;">Sr.No.</th>
+<th>Method</th>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>public virtual void Add(object key, object value);</strong>
+<p>Adds an element with the specified key and value into the Hashtable.</p>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>public virtual void Clear();</strong>
+<p>Removes all elements from the Hashtable.</p>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>public virtual bool ContainsKey(object key);</strong>
+<p>Determines whether the Hashtable contains a specific key.</p>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>public virtual bool ContainsValue(object value);</strong>
+<p>Determines whether the Hashtable contains a specific value.</p>
+</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>public virtual void Remove(object key);</strong>
+<p>Removes the element with the specified key from the Hashtable.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Example</h2>
+<p>The following example demonstrates the concept:</p>
+<pre class="prettyprint notranslate tryit prettyprinted" style="cursor: default;"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">using</span> <span class="typ">System</span><span class="pun">.</span><span class="typ">Collections</span><span class="pun">;</span>
+
+<span class="kwd">namespace</span> <span class="typ">CollectionsApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Program</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Hashtable</span><span class="pln"> ht </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Hashtable</span><span class="pun">();</span><span class="pln">
+         
+         ht</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"001"</span><span class="pun">,</span> <span class="str">"Zara Ali"</span><span class="pun">);</span><span class="pln">
+         ht</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"002"</span><span class="pun">,</span> <span class="str">"Abida Rehman"</span><span class="pun">);</span><span class="pln">
+         ht</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"003"</span><span class="pun">,</span> <span class="str">"Joe Holzner"</span><span class="pun">);</span><span class="pln">
+         ht</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"004"</span><span class="pun">,</span> <span class="str">"Mausam Benazir Nur"</span><span class="pun">);</span><span class="pln">
+         ht</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"005"</span><span class="pun">,</span> <span class="str">"M. Amlan"</span><span class="pun">);</span><span class="pln">
+         ht</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"006"</span><span class="pun">,</span> <span class="str">"M. Arif"</span><span class="pun">);</span><span class="pln">
+         ht</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"007"</span><span class="pun">,</span> <span class="str">"Ritesh Saikia"</span><span class="pun">);</span>
+         
+         <span class="kwd">if</span> <span class="pun">(</span><span class="pln">ht</span><span class="pun">.</span><span class="typ">ContainsValue</span><span class="pun">(</span><span class="str">"Nuha Ali"</span><span class="pun">))</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"This student name is already in the list"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         <span class="kwd">else</span>
+         <span class="pun">{</span><span class="pln">
+            ht</span><span class="pun">.</span><span class="typ">Add</span><span class="pun">(</span><span class="str">"008"</span><span class="pun">,</span> <span class="str">"Nuha Ali"</span><span class="pun">);</span>
+         <span class="pun">}</span>
+         
+         <span class="com">// Get a collection of the keys.</span>
+         <span class="typ">ICollection</span><span class="pln"> key </span><span class="pun">=</span><span class="pln"> ht</span><span class="pun">.</span><span class="typ">Keys</span><span class="pun">;</span>
+         
+         <span class="kwd">foreach</span> <span class="pun">(</span><span class="kwd">string</span><span class="pln"> k </span><span class="kwd">in</span><span class="pln"> key</span><span class="pun">)</span>
+         <span class="pun">{</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="pln">k </span><span class="pun">+</span> <span class="str">": "</span> <span class="pun">+</span><span class="pln"> ht</span><span class="pun">[</span><span class="pln">k</span><span class="pun">]);</span>
+         <span class="pun">}</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">001: Zara Ali
+002: Abida Rehman
+003: Joe Holzner
+004: Mausam Benazir Nur
+005: M. Amlan
+006: M. Arif
+007: Ritesh Saikia
+008: Nuha Ali 
+</pre>

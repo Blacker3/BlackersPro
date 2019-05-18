@@ -1,0 +1,346 @@
+<head><link rel="stylesheet" href="style-min.css"></head><head><link rel="stylesheet" href="style-min.css"></head><h1>C# - Classes</h1>
+ 
+<p>When you define a class, you define a blueprint for a data type. This does not actually define any data, but it does define what the class name means. That is, what an object of the class consists of and what operations can be performed on that object. Objects are instances of a class. The methods and variables that constitute a class are called members of the class.</p>
+<h2>Defining a Class</h2>
+<p>A class definition starts with the keyword class followed by the class name; and the class body enclosed by a pair of curly braces. Following is the general form of a class definition:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="tag">&lt;access</span> <span class="atn">specifier</span><span class="tag">&gt;</span><span class="pln"> class  class_name
+{
+   // member variables
+   </span><span class="tag">&lt;access</span> <span class="atn">specifier</span><span class="tag">&gt;</span> <span class="tag">&lt;data</span> <span class="atn">type</span><span class="tag">&gt;</span><span class="pln"> variable1;
+   </span><span class="tag">&lt;access</span> <span class="atn">specifier</span><span class="tag">&gt;</span> <span class="tag">&lt;data</span> <span class="atn">type</span><span class="tag">&gt;</span><span class="pln"> variable2;
+   ...
+   </span><span class="tag">&lt;access</span> <span class="atn">specifier</span><span class="tag">&gt;</span> <span class="tag">&lt;data</span> <span class="atn">type</span><span class="tag">&gt;</span><span class="pln"> variableN;
+   // member methods
+   </span><span class="tag">&lt;access</span> <span class="atn">specifier</span><span class="tag">&gt;</span> <span class="tag">&lt;return</span> <span class="atn">type</span><span class="tag">&gt;</span><span class="pln"> method1(parameter_list)
+   {
+      // method body
+   }
+   </span><span class="tag">&lt;access</span> <span class="atn">specifier</span><span class="tag">&gt;</span> <span class="tag">&lt;return</span> <span class="atn">type</span><span class="tag">&gt;</span><span class="pln"> method2(parameter_list)
+   {
+      // method body
+   }
+   ...
+   </span><span class="tag">&lt;access</span> <span class="atn">specifier</span><span class="tag">&gt;</span> <span class="tag">&lt;return</span> <span class="atn">type</span><span class="tag">&gt;</span><span class="pln"> methodN(parameter_list)
+   {
+      // method body
+   }
+}</span></pre>
+<p>Note:</p>
+<ul class="list">
+<li>
+<p>Access specifiers specify the access rules for the members as well as the class itself. If not mentioned, then the default access specifier for a class type is <strong>internal</strong>. Default access for the members is <strong>private</strong>.</p>
+</li>
+<li>
+<p>Data type specifies the type of variable, and return type specifies the data type of the data the method returns, if any.</p>
+</li>
+<li>
+<p>To access the class members, you use the dot (.) operator.</p>
+</li>
+<li>
+<p>The dot operator links the name of an object with the name of a member.</p>
+</li>
+</ul>
+<p>The following example illustrates the concepts discussed so far:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">BoxApplication</span>
+<span class="pun">{</span>
+    <span class="kwd">class</span> <span class="typ">Box</span>
+    <span class="pun">{</span>
+       <span class="kwd">public</span> <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>   <span class="com">// Length of a box</span>
+       <span class="kwd">public</span> <span class="kwd">double</span><span class="pln"> breadth</span><span class="pun">;</span>  <span class="com">// Breadth of a box</span>
+       <span class="kwd">public</span> <span class="kwd">double</span><span class="pln"> height</span><span class="pun">;</span>   <span class="com">// Height of a box</span>
+    <span class="pun">}</span>
+    <span class="kwd">class</span> <span class="typ">Boxtester</span>
+    <span class="pun">{</span>
+        <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+        <span class="pun">{</span>
+            <span class="typ">Box</span> <span class="typ">Box1</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span>   <span class="com">// Declare Box1 of type Box</span>
+            <span class="typ">Box</span> <span class="typ">Box2</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span>   <span class="com">// Declare Box2 of type Box</span>
+            <span class="kwd">double</span><span class="pln"> volume </span><span class="pun">=</span> <span class="lit">0.0</span><span class="pun">;</span>    <span class="com">// Store the volume of a box here</span>
+
+            <span class="com">// box 1 specification</span>
+            <span class="typ">Box1</span><span class="pun">.</span><span class="pln">height </span><span class="pun">=</span> <span class="lit">5.0</span><span class="pun">;</span>
+            <span class="typ">Box1</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span> <span class="lit">6.0</span><span class="pun">;</span>
+            <span class="typ">Box1</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">=</span> <span class="lit">7.0</span><span class="pun">;</span>
+
+            <span class="com">// box 2 specification</span>
+            <span class="typ">Box2</span><span class="pun">.</span><span class="pln">height </span><span class="pun">=</span> <span class="lit">10.0</span><span class="pun">;</span>
+            <span class="typ">Box2</span><span class="pun">.</span><span class="pln">length </span><span class="pun">=</span> <span class="lit">12.0</span><span class="pun">;</span>
+            <span class="typ">Box2</span><span class="pun">.</span><span class="pln">breadth </span><span class="pun">=</span> <span class="lit">13.0</span><span class="pun">;</span>
+           
+            <span class="com">// volume of box 1</span><span class="pln">
+            volume </span><span class="pun">=</span> <span class="typ">Box1</span><span class="pun">.</span><span class="pln">height </span><span class="pun">*</span> <span class="typ">Box1</span><span class="pun">.</span><span class="pln">length </span><span class="pun">*</span> <span class="typ">Box1</span><span class="pun">.</span><span class="pln">breadth</span><span class="pun">;</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Volume of Box1 : {0}"</span><span class="pun">,</span><span class="pln">  volume</span><span class="pun">);</span>
+
+            <span class="com">// volume of box 2</span><span class="pln">
+            volume </span><span class="pun">=</span> <span class="typ">Box2</span><span class="pun">.</span><span class="pln">height </span><span class="pun">*</span> <span class="typ">Box2</span><span class="pun">.</span><span class="pln">length </span><span class="pun">*</span> <span class="typ">Box2</span><span class="pun">.</span><span class="pln">breadth</span><span class="pun">;</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Volume of Box2 : {0}"</span><span class="pun">,</span><span class="pln"> volume</span><span class="pun">);</span>
+            <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+        <span class="pun">}</span>
+    <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Volume of Box1 : 210
+Volume of Box2 : 1560
+</pre>
+<h2>Member Functions and Encapsulation</h2>
+<p>A member function of a class is a function that has its definition or its prototype within the class definition similar to any other variable. It operates on any object of the class of which it is a member, and has access to all the members of a class for that object.</p>
+<p>Member variables are the attributes of an object (from design perspective) and they are kept private to implement encapsulation. These variables can only be accessed using the public member functions.</p>
+<p>Let us put above concepts to set and get the value of different class members in a class:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">BoxApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Box</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>   <span class="com">// Length of a box</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> breadth</span><span class="pun">;</span>  <span class="com">// Breadth of a box</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> height</span><span class="pun">;</span>   <span class="com">// Height of a box</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setBreadth</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> bre </span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         breadth </span><span class="pun">=</span><span class="pln"> bre</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setHeight</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> hei </span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         height </span><span class="pun">=</span><span class="pln"> hei</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">double</span><span class="pln"> getVolume</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length </span><span class="pun">*</span><span class="pln"> breadth </span><span class="pun">*</span><span class="pln"> height</span><span class="pun">;</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   <span class="kwd">class</span> <span class="typ">Boxtester</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Box</span> <span class="typ">Box1</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span>   <span class="com">// Declare Box1 of type Box</span>
+         <span class="typ">Box</span> <span class="typ">Box2</span> <span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Box</span><span class="pun">();</span>
+         <span class="kwd">double</span><span class="pln"> volume</span><span class="pun">;</span>
+         
+         <span class="com">// Declare Box2 of type Box</span>
+         <span class="com">// box 1 specification</span>
+         <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">6.0</span><span class="pun">);</span>
+         <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setBreadth</span><span class="pun">(</span><span class="lit">7.0</span><span class="pun">);</span>
+         <span class="typ">Box1</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">5.0</span><span class="pun">);</span>
+         
+         <span class="com">// box 2 specification</span>
+         <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">12.0</span><span class="pun">);</span>
+         <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setBreadth</span><span class="pun">(</span><span class="lit">13.0</span><span class="pun">);</span>
+         <span class="typ">Box2</span><span class="pun">.</span><span class="pln">setHeight</span><span class="pun">(</span><span class="lit">10.0</span><span class="pun">);</span>
+         
+         <span class="com">// volume of box 1</span><span class="pln">
+         volume </span><span class="pun">=</span> <span class="typ">Box1</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Volume of Box1 : {0}"</span> <span class="pun">,</span><span class="pln">volume</span><span class="pun">);</span>
+         
+         <span class="com">// volume of box 2</span><span class="pln">
+         volume </span><span class="pun">=</span> <span class="typ">Box2</span><span class="pun">.</span><span class="pln">getVolume</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Volume of Box2 : {0}"</span><span class="pun">,</span><span class="pln"> volume</span><span class="pun">);</span>
+         
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Volume of Box1 : 210
+Volume of Box2 : 1560
+</pre>
+<h2>C# Constructors</h2>
+<p>A class <strong>constructor</strong> is a special member function of a class that is executed whenever we create new objects of that class.</p>
+<p>A constructor has exactly the same name as that of class and it does not have any return type. Following example explains the concept of constructor:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">LineApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Line</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>   <span class="com">// Length of a line</span>
+      <span class="kwd">public</span> <span class="typ">Line</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Object is being created"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">double</span><span class="pln"> getLength</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length</span><span class="pun">;</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Line</span><span class="pln"> line </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Line</span><span class="pun">();</span>    
+         
+         <span class="com">// set line length</span><span class="pln">
+         line</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">6.0</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Length of line : {0}"</span><span class="pun">,</span><span class="pln"> line</span><span class="pun">.</span><span class="pln">getLength</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Object is being created
+Length of line : 6
+</pre>
+<p>A <strong>default constructor</strong> does not have any parameter but if you need, a constructor can have parameters. Such constructors are called <strong>parameterized constructors</strong>. This technique helps you to assign initial value to an object at the time of its creation as shown in the following example:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">LineApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Line</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>   <span class="com">// Length of a line</span>
+      <span class="kwd">public</span> <span class="typ">Line</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> len</span><span class="pun">)</span>  <span class="com">//Parameterized constructor</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Object is being created, length = {0}"</span><span class="pun">,</span><span class="pln"> len</span><span class="pun">);</span><span class="pln">
+         length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">double</span><span class="pln"> getLength</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length</span><span class="pun">;</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Line</span><span class="pln"> line </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Line</span><span class="pun">(</span><span class="lit">10.0</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Length of line : {0}"</span><span class="pun">,</span><span class="pln"> line</span><span class="pun">.</span><span class="pln">getLength</span><span class="pun">());</span> 
+         
+         <span class="com">// set line length</span><span class="pln">
+         line</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">6.0</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Length of line : {0}"</span><span class="pun">,</span><span class="pln"> line</span><span class="pun">.</span><span class="pln">getLength</span><span class="pun">());</span> 
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Object is being created, length = 10
+Length of line : 10
+Length of line : 6
+</pre>
+<h2>C# Destructors</h2>
+<p>A <strong>destructor</strong> is a special member function of a class that is executed whenever an object of its class goes out of scope. A <strong>destructor</strong> has exactly the same name as that of the class with a prefixed tilde (~) and it can neither return a value nor can it take any parameters.</p>
+<p>Destructor can be very useful for releasing memory resources before exiting the program. Destructors cannot be inherited or overloaded.</p>
+<p>Following example explains the concept of destructor:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">LineApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">Line</span>
+   <span class="pun">{</span>
+      <span class="kwd">private</span> <span class="kwd">double</span><span class="pln"> length</span><span class="pun">;</span>   <span class="com">// Length of a line</span>
+      <span class="kwd">public</span> <span class="typ">Line</span><span class="pun">()</span>  <span class="com">// constructor</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Object is being created"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+      <span class="pun">~</span><span class="typ">Line</span><span class="pun">()</span> <span class="com">//destructor</span>
+      <span class="pun">{</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Object is being deleted"</span><span class="pun">);</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> setLength</span><span class="pun">(</span> <span class="kwd">double</span><span class="pln"> len </span><span class="pun">)</span>
+      <span class="pun">{</span><span class="pln">
+         length </span><span class="pun">=</span><span class="pln"> len</span><span class="pun">;</span>
+      <span class="pun">}</span>
+      
+      <span class="kwd">public</span> <span class="kwd">double</span><span class="pln"> getLength</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> length</span><span class="pun">;</span>
+      <span class="pun">}</span>
+
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">Line</span><span class="pln"> line </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">Line</span><span class="pun">();</span>
+         
+         <span class="com">// set line length</span><span class="pln">
+         line</span><span class="pun">.</span><span class="pln">setLength</span><span class="pun">(</span><span class="lit">6.0</span><span class="pun">);</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Length of line : {0}"</span><span class="pun">,</span><span class="pln"> line</span><span class="pun">.</span><span class="pln">getLength</span><span class="pun">());</span>           
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Object is being created
+Length of line : 6
+Object is being deleted
+</pre>
+<h2>Static Members of a C# Class</h2>
+<p>We can define class members as static using the <strong>static</strong> keyword. When we declare a member of a class as static, it means no matter how many objects of the class are created, there is only one copy of the static member.</p>
+<p>The keyword <strong>static</strong> implies that only one instance of the member exists for a class. Static variables are used for defining constants because their values can be retrieved by invoking the class without creating an instance of it. Static variables can be initialized outside the member function or class definition. You can also initialize static variables inside the class definition.</p>
+<p>The following example demonstrates the use of <strong>static variables</strong>:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">StaticVarApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">StaticVar</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">int</span><span class="pln"> num</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> count</span><span class="pun">()</span>
+      <span class="pun">{</span><span class="pln">
+         num</span><span class="pun">++;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">int</span><span class="pln"> getNum</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> num</span><span class="pun">;</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   <span class="kwd">class</span> <span class="typ">StaticTester</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">StaticVar</span><span class="pln"> s1 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">StaticVar</span><span class="pun">();</span>
+         <span class="typ">StaticVar</span><span class="pln"> s2 </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">StaticVar</span><span class="pun">();</span><span class="pln">
+         s1</span><span class="pun">.</span><span class="pln">count</span><span class="pun">();</span><span class="pln">
+         s1</span><span class="pun">.</span><span class="pln">count</span><span class="pun">();</span><span class="pln">
+         s1</span><span class="pun">.</span><span class="pln">count</span><span class="pun">();</span><span class="pln">
+         s2</span><span class="pun">.</span><span class="pln">count</span><span class="pun">();</span><span class="pln">
+         s2</span><span class="pun">.</span><span class="pln">count</span><span class="pun">();</span><span class="pln">
+         s2</span><span class="pun">.</span><span class="pln">count</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Variable num for s1: {0}"</span><span class="pun">,</span><span class="pln"> s1</span><span class="pun">.</span><span class="pln">getNum</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Variable num for s2: {0}"</span><span class="pun">,</span><span class="pln"> s2</span><span class="pun">.</span><span class="pln">getNum</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Variable num for s1: 6
+Variable num for s2: 6
+</pre>
+<p>You can also declare a <strong>member function</strong> as <strong>static</strong>. Such functions can access only static variables. The static functions exist even before the object is created. The following example demonstrates the use of <strong>static functions</strong>:</p>
+<pre class="prettyprint notranslate prettyprinted"><span class="kwd">using</span> <span class="typ">System</span><span class="pun">;</span>
+<span class="kwd">namespace</span> <span class="typ">StaticVarApplication</span>
+<span class="pun">{</span>
+   <span class="kwd">class</span> <span class="typ">StaticVar</span>
+   <span class="pun">{</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">int</span><span class="pln"> num</span><span class="pun">;</span>
+      <span class="kwd">public</span> <span class="kwd">void</span><span class="pln"> count</span><span class="pun">()</span>
+      <span class="pun">{</span><span class="pln">
+         num</span><span class="pun">++;</span>
+      <span class="pun">}</span>
+      <span class="kwd">public</span> <span class="kwd">static</span> <span class="kwd">int</span><span class="pln"> getNum</span><span class="pun">()</span>
+      <span class="pun">{</span>
+         <span class="kwd">return</span><span class="pln"> num</span><span class="pun">;</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+   <span class="kwd">class</span> <span class="typ">StaticTester</span>
+   <span class="pun">{</span>
+      <span class="kwd">static</span> <span class="kwd">void</span> <span class="typ">Main</span><span class="pun">(</span><span class="kwd">string</span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span>
+      <span class="pun">{</span>
+         <span class="typ">StaticVar</span><span class="pln"> s </span><span class="pun">=</span> <span class="kwd">new</span> <span class="typ">StaticVar</span><span class="pun">();</span><span class="pln">
+         s</span><span class="pun">.</span><span class="pln">count</span><span class="pun">();</span><span class="pln">
+         s</span><span class="pun">.</span><span class="pln">count</span><span class="pun">();</span><span class="pln">
+         s</span><span class="pun">.</span><span class="pln">count</span><span class="pun">();</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">WriteLine</span><span class="pun">(</span><span class="str">"Variable num: {0}"</span><span class="pun">,</span> <span class="typ">StaticVar</span><span class="pun">.</span><span class="pln">getNum</span><span class="pun">());</span>
+         <span class="typ">Console</span><span class="pun">.</span><span class="typ">ReadKey</span><span class="pun">();</span>
+      <span class="pun">}</span>
+   <span class="pun">}</span>
+<span class="pun">}</span></pre>
+<p>When the above code is compiled and executed, it produces the following result:</p>
+<pre class="result notranslate">Variable num: 3
+</pre>

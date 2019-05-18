@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microcontrollers 8051 Interrupts</title>
+<meta name="description" content="Microcontrollers 8051 Interrupts - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>Interrupts are the events that temporarily suspend the main program, pass the control to the external sources and execute their task. It then passes the control to the main program where it had left off.</p>
+<p>8051 has 5 interrupt signals, i.e. INT0, TFO, INT1, TF1, RI/TI. Each interrupt can be enabled or disabled by setting bits of the IE register and the whole interrupt system can be disabled by clearing the EA bit of the same register.</p>
+<h2>IE (Interrupt Enable) Register</h2>
+<p>This register is responsible for enabling and disabling the interrupt. EA register is set to one for enabling interrupts and set to 0 for disabling the interrupts. Its bit sequence and their meanings are shown in the following figure.</p>
+<img src="image\ie_register.jpg" alt="IE Register">
+<p>
+<table class="table table-bordered">
+<tr>
+<td style="text-align:center;vertical-align:middle;width:10%;">EA</td>
+<td style="text-align:center;vertical-align:middle;width:10%;">IE.7</td>
+<td>It disables all interrupts. When EA = 0 no interrupt will be acknowledged and EA = 1 enables the interrupt individually.</td>
+</tr>
+<tr>
+<td style="text-align:center;">-</td>
+<td style="text-align:center;">IE.6</td>
+<td>Reserved for future use.</td>
+</tr>
+<tr>
+<td style="text-align:center;">-</td>
+<td style="text-align:center;">IE.5</td>
+<td>Reserved for future use.</td>
+</tr>
+<tr>
+<td style="text-align:center;">ES</td>
+<td style="text-align:center;">IE.4</td>
+<td>Enables/disables serial port interrupt.</td>
+</tr>
+<tr>
+<td style="text-align:center;">ET1</td>
+<td style="text-align:center;">IE.3</td>
+<td>Enables/disables timer1 overflow interrupt.</td>
+</tr>
+<tr>
+<td style="text-align:center;">EX1</td>
+<td style="text-align:center;">IE.2</td>
+<td>Enables/disables external interrupt1.</td>
+</tr>
+<tr>
+<td style="text-align:center;">ET0</td>
+<td style="text-align:center;">IE.1</td>
+<td>Enables/disables timer0 overflow interrupt.</td>
+</tr>
+<tr>
+<td style="text-align:center;">EX0</td>
+<td style="text-align:center;">IE.0</td>
+<td>Enables/disables external interrupt0.</td>
+</tr>
+</table>
+<h2>IP (Interrupt Priority) Register </h2>
+<p>We can change the priority levels of the interrupts by changing the corresponding bit in the Interrupt Priority (IP) register as shown in the following figure.</p>
+<ul class="list">
+<li><p>A low priority interrupt can only be interrupted by the high priority interrupt, but not interrupted by another low priority interrupt.</p></li>
+<li><p>If two interrupts of different priority levels are received simultaneously, the request of higher priority level is served.</p></li>
+<li><p>If the requests of the same priority levels are received simultaneously, then the internal polling sequence determines which request is to be serviced.</p></li>
+</ul>
+<img src="image\ip_register.jpg" alt="IP Register">
+<p>
+<table class="table table-bordered">
+<tr>
+<td style="text-align:center;width:10%;">-</td>
+<td style="text-align:center;width:10%;">IP.6</td>
+<td>Reserved for future use.</td>
+</tr>
+<tr>
+<td style="text-align:center;">-</td>
+<td style="text-align:center;">IP.5</td>
+<td>Reserved for future use.</td>
+</tr>
+<tr>
+<td style="text-align:center;">PS</td>
+<td style="text-align:center;">IP.4</td>
+<td>It defines the serial port interrupt priority level.</td>
+</tr>
+<tr>
+<td style="text-align:center;">PT1</td>
+<td style="text-align:center;">IP.3</td>
+<td>It defines the timer interrupt of 1 priority.</td>
+</tr>
+<tr>
+<td style="text-align:center;">PX1</td>
+<td style="text-align:center;">IP.2</td>
+<td>It defines the external interrupt priority level.</td>
+</tr>
+<tr>
+<td style="text-align:center;">PT0</td>
+<td style="text-align:center;">IP.1</td>
+<td>It defines the timer0 interrupt priority level.</td>
+</tr>
+<tr>
+<td style="text-align:center;">PX0</td>
+<td style="text-align:center;">IP.0</td>
+<td>It defines the external interrupt of 0 priority level.</td>
+</tr>
+</table>
+<h2>TCON Register</h2>
+<p>TCON register specifies the type of external interrupt to the microcontroller.</p>
+<hr>
+<br><br>
+</html>
+

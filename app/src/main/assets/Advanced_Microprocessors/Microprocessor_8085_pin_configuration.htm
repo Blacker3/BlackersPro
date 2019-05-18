@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microprocessor 8085 Pin Configuration</title>
+<meta name="description" content="Microprocessor 8085 Pin Configuration - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p>The following image depicts the pin diagram of 8085 Microprocessor &minus;</p>
+<img src="image\8085_pin_configuration.jpg" alt="8085 Pin Configuration">
+<p>The pins of a 8085 microprocessor can be classified into seven groups &minus;</p>
+<h2>Address bus</h2>
+<p>A15-A8, it carries the most significant 8-bits of memory/IO address.</p>
+<h2>Data bus</h2>
+<p>AD7-AD0, it carries the least significant 8-bit address and data bus.</p>
+<h2>Control and status signals</h2>
+<p>These signals are used to identify the nature of operation. There are 3 control signal and 3 status signals.</p>
+<p>Three control signals are RD, WR &amp; ALE.</p>
+<ul class="list">
+<li><p><b>RD</b> &minus; This signal indicates that the selected IO or memory device is to be read and is ready for accepting data available on the data bus.</p></li>
+<li><p><b>WR</b> &minus; This signal indicates that the data on the data bus is to be written into a selected memory or IO location.</p></li>
+<li><p><b>ALE</b> &minus; It is a positive going pulse generated when a new operation is started by the microprocessor. When the pulse goes high, it indicates address. When the pulse goes down it indicates data.</p></li>
+</ul>
+<p>Three status signals are IO/M, S0 &amp; S1.</p>
+<h2>IO/M</h2>
+<p>This signal is used to differentiate between IO and Memory operations, i.e. when it is high indicates IO operation and when it is low then it indicates memory operation.</p>
+<h2>S1 &amp; S0</h2>
+<p>These signals are used to identify the type of current operation.</p>
+<h2>Power supply</h2>
+<p>There are 2 power supply signals &minus; VCC &amp; VSS. VCC indicates &plus;5v power supply and VSS indicates ground signal.</p>
+<h2>Clock signals</h2>
+<p>There are 3 clock signals, i.e. X1, X2, CLK OUT.</p>
+<ul class="list">
+<li><p><b>X1, X2</b> &minus; A crystal (RC, LC N/W) is connected at these two pins and is used to set frequency of the internal clock generator. This frequency is internally divided by 2.</p></li>
+<li><p><b>CLK OUT</b> &minus; This signal is used as the system clock for devices connected with the microprocessor.</p></li>
+</ul>
+<h2>Interrupts &amp; externally initiated signals</h2>
+<p>Interrupts are the signals generated by external devices to request the microprocessor to perform a task. There are 5 interrupt signals, i.e. TRAP, RST 7.5, RST 6.5, RST 5.5, and INTR. We will discuss interrupts in detail in interrupts section.</p>
+<ul class="list">
+<li><p><b>INTA</b> &minus; It is an interrupt acknowledgment signal.</p></li> 
+<li><p><b>RESET IN</b> &minus; This signal is used to reset the microprocessor by setting the program counter to zero.</p></li>
+<li><p><b>RESET OUT</b> &minus; This signal is used to reset all the connected devices when the microprocessor is reset.</p></li>
+<li><p><b>READY</b> &minus; This signal indicates that the device is ready to send or receive data. If READY is low, then the CPU has to wait for READY to go high.</p></li>
+<li><p><b>HOLD</b> &minus; This signal indicates that another master is requesting the use of the address and data buses.</p></li>
+<li><p><b>HLDA (HOLD Acknowledge)</b> &minus; It indicates that the CPU has received the HOLD request and it will relinquish the bus in the next clock cycle. HLDA is set to low after the HOLD signal is removed.</p></li>
+</ul>
+<h2>Serial I/O signals</h2>
+<p>There are 2 serial signals, i.e. SID and SOD and these signals are used for serial communication.</p>
+<ul class="list">
+<li><p><b>SOD</b> (Serial output data line) &minus; The output SOD is set/reset as specified by the SIM instruction.</p></li> 
+<li><p><b>SID</b> (Serial input data line) &minus; The data on this line is loaded into accumulator whenever a RIM instruction is executed.</p></li>
+</ul>
+<hr>
+<br><br>
+</html>
+

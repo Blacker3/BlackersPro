@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]><html class="ie ie8"> <![endif]-->
+<!--[if IE 9]><html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>Microprocessor 8086 Interrupts</title>
+<meta name="description" content="Microprocessor 8086 Interrupts - Learn Microprocessor in simple and easy steps starting from basic to advanced concepts with examples including Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+<meta name="keywords" content="Microprocessor, Overview, Classification, 8085 Architecture, 8085 Pin Configuration, 8085 Addressing Modes and Interrupts, 8085 Instruction Sets, 8086 Overview, 8086 Functional Units, 8086 Pin Configuration, 8086 Instruction Sets, 8086 Interrupts, 8086 Addressing Modes, Multiprocessor Configuration Overview, 8087 Numeric Data Processor, I/O Interfacing Overview, 8279 Programmable Keyboard, 8257 DMA Controller, Microcontrollers Overview, 8051 Architecture, 8051 Pin Description, 8051 Input Output Ports, 8051 Interrupts, Intel 8255A Programmable Peripheral Interface, Intel 8255A Pin Description, Intel 8253 Programmable Interval Timer, Intel 8253/54 Operational Modes.">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="fb:app_id" content="471319149685276">
+<meta property="og:site_name" content="www.tutorialspoint.com">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script type="text/javascript" src="js\script-min-v4.js"></script>
+<link rel="stylesheet" href="css\style-min.css">
+<script async='async' src='js\gpt.js'></script>
+<script>
+  var googletag = googletag || {};
+  googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+googletag.cmd.push(function() {
+    googletag.defineSlot('/60931893/tutorial_right_bottom', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-0').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_middle', [[300, 250], [300, 600]], 'div-gpt-ad-1510138782906-1').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_right_top', [300, 250], 'div-gpt-ad-1510138782906-2').addService(googletag.pubads());
+    googletag.defineSlot('/60931893/tutorial_bottom_leader_board', [[600, 400], [300, 250], [480, 320], [468, 60], [336, 280], [600, 200], [580, 400]], 'div-gpt-ad-1510138782906-3').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+});
+function openNav() {	
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("right_obs").style.display = "block";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+function close_obs_sidenav(){
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("right_obs").style.display = "none";
+}
+</script>
+<!-- Head Libs -->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="/theme/css/ie8.css">
+<![endif]-->
+<style>
+select{ border:0 !important; outline: 1px inset black !important; outline-offset: -1px !important; }
+.btnsbmt{ background: #ae2929 !important;}
+ul.nav-list.primary>li a.videolink{    background: none; margin: 0px; padding: 0px; border: 1px solid #d6d6d6;}
+div.feature-box div.feature-box-icon, .col-md-3 .course-box, li.heading, div.footer-copyright { background: #ae2929 url(/images/pattern.png) repeat center center !important;}
+.sub-main-menu .sub-menuu div:hover, .sub-main-menu .viewall, header nav ul.nav-main li a:hover, button.btn-responsive-nav, header div.search button.btn-default { background: #ae2929 !important;}
+.submenu-item{ border-bottom: 2px solid #ae2929 !important; border-top: 2px solid #ae2929 !important }
+.ace_scroller{overflow: auto!important;}
+a.demo{font-family: "Open Sans",Arial,sans-serif; background:#ae2929; color:#fff; font-size:13px; padding:3px 10px; border:1px solid #d6d6d6; position:absolute; right:5px; margin:-6px 17px 0px 0px;}
+a.demo:hover{opacity:.8}
+</style>
+<script>
+$(document).ready(function() {
+  $('input[name="q"]').keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});
+</script>
+</head>
+
+<hr>
+<p><b>Interrupt</b> is the method of creating a temporary halt during program execution and allows peripheral devices to access the microprocessor. The microprocessor responds to that interrupt with an <b>ISR</b> (Interrupt Service Routine), which is a short program to instruct the microprocessor on how to handle the interrupt.</p>
+<p>The following image shows the types of interrupts we have in a 8086 microprocessor &minus;</p>
+<img src="image\interrupts.jpg" alt="Interrupts">
+<h2>Hardware Interrupts</h2>
+<p>Hardware interrupt is caused by any peripheral device by sending a signal through a specified pin to the microprocessor.</p>
+<p>The 8086 has two hardware interrupt pins, i.e. NMI and INTR. NMI is a non-maskable interrupt and INTR is a maskable interrupt having lower priority. One more interrupt pin associated is INTA called interrupt acknowledge.</p>
+<h3>NMI</h3>
+<p>It is a single non-maskable interrupt pin (NMI) having higher priority than the maskable interrupt request pin (INTR)and it is of type 2 interrupt.</p>
+<p>When this interrupt is activated, these actions take place &minus;</p>
+<ul class="list">
+<li><p>Completes the current instruction that is in progress.</p></li>  
+<li><p>Pushes the Flag register values on to the stack.</p></li>  
+<li><p>Pushes the CS (code segment) value and IP (instruction pointer) value of the return address on to the stack.</p></li>  
+<li><p>IP is loaded from the contents of the word location 00008H.</p></li> 
+<li><p>CS is loaded from the contents of the next word location 0000AH.</p></li>  
+<li><p>Interrupt flag and trap flag are reset to 0.</p></li>
+</ul>
+<h3>INTR</h3>
+<p>The INTR is a maskable interrupt because the microprocessor will be interrupted only if interrupts are enabled using set interrupt flag instruction. It should not be enabled using clear interrupt Flag instruction.</p>
+<p>The INTR interrupt is activated by an I/O port. If the interrupt is enabled and NMI is disabled, then the microprocessor first completes the current execution and sends ‘0’ on INTA pin twice. The first ‘0’ means INTA informs the external device to get ready and during the second ‘0’ the microprocessor receives the 8 bit, say X, from the programmable interrupt controller.</p>
+<p>These actions are taken by the microprocessor &minus;</p>
+<ul class="list">
+<li><p>First completes the current instruction.</p></li>  
+<li><p>Activates INTA output and receives the interrupt type, say X.</p></li>  
+<li><p>Flag register value, CS value of the return address and IP value of the return address are pushed on to the stack.</p></li>  
+<li><p>IP value is loaded from the contents of word location X &times; 4</p></li>  
+<li><p>CS is loaded from the contents of the next word location.</p></li>  
+<li><p>Interrupt flag and trap flag is reset to 0</p></li>
+</ul>
+<h2>Software Interrupts</h2>
+<p>Some instructions are inserted at the desired position into the program to create interrupts. These interrupt instructions can be used to test the working of various interrupt handlers. It includes &minus;</p>
+<h3>INT- Interrupt instruction with type number</h3>
+<p>It is 2-byte instruction. First byte provides the op-code and the second byte provides the interrupt type number. There are 256 interrupt types under this group.</p>
+<p>Its execution includes the following steps &minus;</p>
+<ul class="list">
+<li><p>Flag register value is pushed on to the stack.</p></li>  
+<li><p>CS value of the return address and IP value of the return address are pushed on to the stack.</p></li>  
+<li><p>IP is loaded from the contents of the word location ‘type number’ &times; 4</p></li>  
+<li><p>CS is loaded from the contents of the next word location.</p></li>
+<li><p>Interrupt Flag and Trap Flag are reset to 0</p></li> 
+</ul>
+<p>The starting address for type0 interrupt is 000000H, for type1 interrupt is 00004H similarly for type2 is 00008H and ……so on. The first five pointers are dedicated interrupt pointers. i.e. &minus;</p>
+<ul class="list">
+<li><p><b>TYPE 0</b> interrupt represents division by zero situation.</p></li>  
+<li><p><b>TYPE 1</b> interrupt represents single-step execution during the debugging of a program.</p></li>  
+<li><p><b>TYPE 2</b> interrupt represents non-maskable NMI interrupt.</p></li>  
+<li><p><b>TYPE 3</b> interrupt represents break-point interrupt.</p></li>  
+<li><p><b>TYPE 4</b> interrupt represents overflow interrupt.</p></li> 
+</ul>
+<p>The interrupts from Type 5 to Type 31 are reserved for other advanced microprocessors, and interrupts from 32 to Type 255 are available for hardware and software interrupts.</p>
+<h3>INT 3-Break Point Interrupt Instruction</h3>
+<p>It is a 1-byte instruction having op-code is CCH. These instructions are inserted into the program so that when the processor reaches there, then it stops the normal execution of program and follows the break-point procedure.</p>
+<p>Its execution includes the following steps &minus;</p>
+<ul class="list">
+<li><p>Flag register value is pushed on to the stack.</p></li>   
+<li><p>CS value of the return address and IP value of the return address are pushed on to the stack.</p></li>  
+<li><p>IP is loaded from the contents of the word location 3&times;4 = 0000CH</p></li>  
+<li><p>CS is loaded from the contents of the next word location.</p></li>  
+<li><p>Interrupt Flag and Trap Flag are reset to 0</p></li> 
+</ul>
+<h3>INTO - Interrupt on overflow instruction</h3>
+<p>It is a 1-byte instruction and their mnemonic <b>INTO</b>. The op-code for this instruction is CEH. As the name suggests it is a conditional interrupt instruction, i.e. it is active only when the overflow flag is set to 1 and branches to the interrupt handler whose interrupt type number is 4. If the overflow flag is reset then, the execution continues to the next instruction.</p>
+<p>Its execution includes the following steps &minus;</p>
+<ul class="list">
+<li><p>Flag register values are pushed on to the stack.</p></li>
+<li><p>CS value of the return address and IP value of the return address are pushed on to the stack.</p></li>  
+<li><p>IP is loaded from the contents of word location 4&times;4 = 00010H</p></li>  
+<li><p>CS is loaded from the contents of the next word location.</p></li>  
+<li><p>Interrupt flag and Trap flag are reset to 0</p></li>
+</ul>
+<hr>
+<br><br>
+</html>
+
